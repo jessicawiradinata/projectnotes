@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="css/style.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
     <title>Project Notes</title>
 </head>
 <body>
@@ -15,10 +16,10 @@
                     Project Notes
                 </div>
                 <div class="subHeader">
-                    Kety anjeng suka cliff
+                    Project scheduler offers services to organize your notes
                 </div>
-                <a href="#" class="btn">Sign Up</a>
-                <a href="#" class="btn">Learn more</a><br />
+                <a href="#" class="btn btn-success">Sign Up</a>
+                <a href="#" class="btn btn-primary">Learn more</a>
             </div>
         </div>
     </div>
