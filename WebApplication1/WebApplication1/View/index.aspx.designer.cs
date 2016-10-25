@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1 {
+namespace WebApplication1.View {
     
     
-    public partial class WebForm1 {
+    public partial class index {
     }
 }
