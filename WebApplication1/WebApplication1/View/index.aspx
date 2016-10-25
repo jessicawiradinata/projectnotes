@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
     <title>Project Notes</title>
 </head>
 <body>
