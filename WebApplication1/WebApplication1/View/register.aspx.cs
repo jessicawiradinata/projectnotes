@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Text;
 using System.Security.Cryptography;
@@ -19,14 +14,23 @@ namespace WebApplication1.View
         {
             String usernameField = username.Text;
             String passwordField = MD5Hash(password.Text);
-            String confirmField = confirmPassword.Text;
             String emailField = email.Text;
+            String firstNameField = firstName.Text;
+            String lastNameField = lastName.Text;
             String dobField = dateOfBirth.Text;
+            Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
 
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand("insert into users (first_name, last_name, email, password) values ('"+ dobField + "','"+ dobField + "','" + emailField + "','" + passwordField + "')", conn);
-            cmd.ExecuteNonQuery();
-            cmd.Clone();
+            if (passEqual)
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "')", conn);
+                cmd.ExecuteNonQuery();
+                cmd.Clone();
+            }
+            else
+            {
+                Response.Write("Password does not match");
+            }
         }
 
         public static string MD5Hash(string input)
@@ -40,6 +44,15 @@ namespace WebApplication1.View
                 hash.Append(bytes[i].ToString("x2"));
             }
             return hash.ToString();
+        }
+
+        public Boolean checkPassword(string pass1, string pass2)
+        {
+            if(pass1.Equals(pass2))
+            {
+                return true;
+            }
+            return false;
         }
     }
 
