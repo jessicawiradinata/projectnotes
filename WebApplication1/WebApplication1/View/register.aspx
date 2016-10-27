@@ -20,7 +20,7 @@
                         <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username"></asp:TextBox><br /><br />
                         <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="inputField" placeholder="Password"></asp:TextBox><br /><br />
                         <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" name="confirmpassword" class="inputField" placeholder="Confirm password"></asp:TextBox><br /><br />
-                        <asp:TextBox ID="email" runat="server" name="email" class="inputField" placeholder="Email"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="email" type="email" runat="server" name="email" class="inputField" placeholder="Email"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth"></asp:TextBox><br /><br />
                         <asp:Button ID="registerBtn" runat="server" Text="Submit" OnClick="register_click" CssClass="btn btn-primary" />
                     </div>

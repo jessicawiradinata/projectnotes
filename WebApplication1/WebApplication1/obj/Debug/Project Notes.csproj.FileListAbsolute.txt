@@ -98,3 +98,4 @@ C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebAp
 C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
 C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\GitHub\projectnotes\WebApplication1\WebApplication1\bin\MySql.Data.dll
