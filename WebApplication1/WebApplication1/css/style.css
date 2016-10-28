@@ -66,6 +66,11 @@
 .inputField
 {
     padding: 0.7em 0.5em;
-    width: 27.5em;
-   
+    width: 27.5em;  
+}
+
+.stackButton
+{
+    float: left;
+    margin: 0;
 }
