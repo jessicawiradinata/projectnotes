@@ -33,6 +33,7 @@ namespace WebApplication1.View
             }
             if (count == 1)
             {
+                Session["name"] = usernameField;
                 Response.Redirect("main.aspx");
             }
             else
