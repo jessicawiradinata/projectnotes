@@ -68,8 +68,8 @@
                             <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="form-control" placeholder="Password" required="required"></asp:TextBox>    
                         </div>
                         <div align="right">
-                             <asp:Button ID="loginBtn" runat="server" Text="Login" Class="stackButton btn btn-primary form-horizontal form-group" OnClick="login_click" required="required"/>
-                             <a runat="server" value="Cancel" href="index.aspx" Class="stackButton btn btn-danger form-horizontal form-group" style="margin-left:20px">Cancel</a>
+                             <asp:Button ID="loginBtn" runat="server" Text="Login" class="btn btn-primary form-horizontal form-group" OnClick="login_click" required="required"/>
+                             <a runat="server" value="Cancel" href="index.aspx" class="btn btn-danger form-horizontal form-group" style="margin-left:20px">Cancel</a>
                         </div>
                     </form>
                 </div>
