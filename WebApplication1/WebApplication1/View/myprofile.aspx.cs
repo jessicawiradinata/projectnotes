@@ -13,5 +13,11 @@ namespace WebApplication1.View
         {
 
         }
+
+        protected void edit_click(object sender, EventArgs e)
+        {
+            Session["editProfile"] = "edit profile";
+            Response.Redirect("myprofile.aspx");
+        }
     }
 }

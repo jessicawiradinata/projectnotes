@@ -38,7 +38,7 @@ namespace WebApplication1.View
             }
             else
             {
-                Response.Write("index.aspx");
+                Response.Redirect("index.aspx");
             }
             conn.Close();
         }
