@@ -19,20 +19,23 @@
         <div class="paddingBackground">
             <div class="contentHeader">
                 <div class="navbar-header">
-                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                        <div class="navbar-header">
-                            <a class="navbar-brand navbar-left" href="#home">Home</a>
-                        </div>
-                        <div class="nav navbar-nav navbar-right">
-                            <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
-                                <b>Add Notes</b>
-                            </a></li>
-                            <li><a href="myprofile.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
-                                <b>My Profile</b>
-                            </a></li>
-                        </div>
-                    </nav>
-                </div>
+                        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                            <div class="navbar-header">
+                                <a class="navbar-brand navbar-left" href="#home">Home</a>
+                            </div>
+                            <div class="nav navbar-nav navbar-right">
+                                <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
+                                    <b>Add Notes</b>
+                                </a></li>
+                                <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
+                                    <b>My Profile</b>
+                                </a></li>
+                                <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
+                                    <b>Account</b>
+                                </a></li>
+                            </div>
+                        </nav>
+                    </div>
                 <div class="titleHeader">
                     Main Menu            
                 </div>
