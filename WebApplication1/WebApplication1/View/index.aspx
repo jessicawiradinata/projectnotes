@@ -28,7 +28,7 @@
                             <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#myModal" style="margin: 7px 8px 0 0; font-family: 'Droid Sans', sans-serif;">
                                 <b>Login</b>
                             </a>
-                            <a class="btn btn-success" role="button" style="margin: 7px 25px 0 0; font-family: 'Droid Sans', sans-serif;">
+                            <a class="btn btn-success" role="button" href="register.aspx" style="margin: 7px 25px 0 0; font-family: 'Droid Sans', sans-serif;">
                                 <b>Sign up</b>
                             </a>
                         </div>
@@ -42,7 +42,7 @@
                     Project scheduler offers services to organize your notes
                
                 </div>
-                <a href="#" class="btn btn-success">Register Now</a>
+                <a href="register.aspx" class="btn btn-success">Register Now</a>
                 <a href="#" class="btn btn-primary">Learn More</a>
             </div>
         </div>

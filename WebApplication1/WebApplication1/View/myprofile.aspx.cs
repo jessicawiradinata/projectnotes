@@ -28,19 +28,22 @@ namespace WebApplication1.View
             String myFirstName = "";
             String myLastName = "";
             String dob = "";
-            String myEmail = "";
             while (myReader.Read())
             {
                 myFirstName = myReader.GetString("firstName");
                 myLastName = myReader.GetString("lastName");
                 dob = myReader.GetString("dateOfBirth");
-                myEmail = myReader.GetString("email");
             }
             firstName.Text = myFirstName;
             lastName.Text = myLastName;
             dateOfBirth.Text = dob;
-            email.Text = myEmail;
             
+        }
+
+        protected void edit_click(object sender, EventArgs e)
+        {
+            Session["editProfile"] = "edit profile";
+            Response.Redirect("myprofile.aspx");
         }
     }
 }
