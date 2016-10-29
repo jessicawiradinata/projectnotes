@@ -17,7 +17,9 @@
                 </div>        
                 <form id="form1" runat="server" >
                     <div class="contentRegister">
-                        <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required"></asp:TextBox>
+                        <asp:Button ID="checkAvail" runat="server" name="check" OnClick="checkAvail_click" Text="Check" CssClass="btn btn-default" formnovalidate="formonvalidate"/>
+                        <br /><br />
                         <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="inputField" placeholder="Password" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" name="confirmpassword" class="inputField" placeholder="Confirm password" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="email" type="email" runat="server" name="email" class="inputField" placeholder="Email" required="required"></asp:TextBox><br /><br />

@@ -41,7 +41,7 @@
     padding-bottom: 1.2em;
 }
 
-// register page
+/* register page */ 
 
 .backgroundRegister
 {
@@ -64,16 +64,45 @@
 .contentRegister
 {
     margin-left:37%;
-    margin-right:40%;
+    margin-right:20%;
 }
 
 .inputField
 {
     padding: 0.7em 0.5em;
+    width: 27.5em;  
 }
 
 .stackButton
 {
     float: left;
     margin: 0;
+}
+
+/* Profile page */
+
+.paddingProfile
+{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.contentProfile
+{
+    border: 1px solid black;
+    padding-top:10%;
+    padding-bottom:10%;
+}
+
+.profilePicture
+{
+    padding-bottom:2em;
+}
+
+.pp
+{
+    width:10em;
+    height:10em;
+    border-radius:20em;
+    border:1px solid black;
 }

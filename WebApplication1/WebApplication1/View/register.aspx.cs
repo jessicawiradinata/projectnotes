@@ -10,6 +10,35 @@ namespace WebApplication1.View
         const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
         MySqlConnection conn = new MySqlConnection(connectionString);
 
+        protected void checkAvail_click(object sender, EventArgs e)
+        {
+            String usernameField = username.Text;
+            String command = "select * from project_notes.users where username='" + usernameField + "' ;";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = selectCommand.ExecuteReader();
+            int count = 0;
+            while (myReader.Read())
+            {
+                count = count + 1;
+            }
+            if (count == 0 && string.IsNullOrEmpty(usernameField) == false)
+            {
+                Response.Write("this username is available");
+            }
+            else if(string.IsNullOrEmpty(usernameField) == true)
+            {
+                Response.Write("please enter your username");
+            }
+            else
+            {
+                Response.Write("this username has been taken");
+            }
+            conn.Close();
+        }
+
         protected void register_click(object sender, EventArgs e)
         {
             String usernameField = username.Text;
@@ -32,7 +61,7 @@ namespace WebApplication1.View
                 Response.Write("Password does not match");
             }
         }
-
+        
         public static string MD5Hash(string input)
         {
             StringBuilder hash = new StringBuilder();
