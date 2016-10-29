@@ -58,7 +58,7 @@
                     <h3 class="modal-title">Login</h3>
                 </div>
                 <div class="modal-body" style="margin-left: 10px; margin-right: 10px;">
-                    <form runat="server" class="form-horizontal" action="main.aspx">
+                    <form runat="server" class="form-horizontal">
                         <div class="form-group">
                             <label>Username:</label>
                             <asp:TextBox ID="username" runat="server" name="username" class="form-control" placeholder="Username" required="required"></asp:TextBox>
@@ -68,7 +68,7 @@
                             <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="form-control" placeholder="Password" required="required"></asp:TextBox>    
                         </div>
                         <div align="right">
-                             <asp:Button ID="loginBtn" runat="server" Text="Login" Class="stackButton btn btn-primary form-horizontal form-group" required="required"/>
+                             <asp:Button ID="loginBtn" runat="server" Text="Login" Class="stackButton btn btn-primary form-horizontal form-group" OnClick="login_click" required="required"/>
                              <a runat="server" value="Cancel" href="index.aspx" Class="stackButton btn btn-danger form-horizontal form-group" style="margin-left:20px">Cancel</a>
                         </div>
                     </form>
