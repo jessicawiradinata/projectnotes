@@ -33,7 +33,7 @@ namespace WebApplication1.View
             }
             if (count == 1)
             {
-                Response.Redirect("register.aspx");
+                Response.Redirect("main.aspx");
             }
             else
             {
