@@ -142,6 +142,7 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="View\accountSettings.aspx" />
+    <Content Include="View\addNotes.aspx" />
     <Content Include="View\editProfile.aspx" />
     <Content Include="View\index.aspx" />
     <Content Include="View\main.aspx" />
@@ -157,6 +158,13 @@
     </Compile>
     <Compile Include="View\accountSettings.aspx.designer.cs">
       <DependentUpon>accountSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\addNotes.aspx.cs">
+      <DependentUpon>addNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\addNotes.aspx.designer.cs">
+      <DependentUpon>addNotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\editProfile.aspx.cs">
       <DependentUpon>editProfile.aspx</DependentUpon>
