@@ -12,16 +12,27 @@ namespace WebApplication1.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            String myUsername = (string)Session["name"];
+            username.Text = myUsername;
+            String command = "select * from project_notes.users where username='" + myUsername + "' ;";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = selectCommand.ExecuteReader();
+            String myEmail = "";
+            while (myReader.Read())
+            {
+                myEmail = myReader.GetString("email");
+            }
+            email.Text = myEmail;
         }
 
         protected void save_click(object sender, EventArgs e)
         {
-            String usernameField = username.Text;
+            String usernameField = (string)Session["name"];
             String passwordField = MD5Hash(password.Text);
             String confirmField = MD5Hash(confirmPassword.Text);
             String emailField = email.Text;
-
         }
 
         public static string MD5Hash(string input)
