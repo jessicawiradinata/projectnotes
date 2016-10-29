@@ -26,7 +26,18 @@
                         <asp:TextBox ID="firstName" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required"></asp:TextBox><br /><br />
-                        <asp:Button ID="registerBtn" runat="server" Text="Submit" OnClick="register_click" CssClass="btn btn-primary" required="required"/>
+                        <asp:Button ID="registerBtn" runat="server" Text="Submit" OnClick="register_click" CssClass="btn btn-primary" required="required"/><br /><br />
+                        <%  if (Session["registerMessage"] != null) { %>
+                            <div class="alert alert-success">
+                        <%  Response.Write(Session["registerMessage"]);
+                            Session.Contents.Remove("registerMessage"); %>
+                            </div>
+                        <% } else if (Session["usernameMessage"] != null) { %>  
+                            <div class="alert alert-danger">
+                        <%  Response.Write(Session["usernameMessage"]);
+                            Session.Contents.Remove("usernameMessage"); %>
+                            </div>
+                        <% } %>
                     </div>
                 </form> 
             </div>

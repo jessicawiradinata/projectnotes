@@ -26,15 +26,18 @@ namespace WebApplication1.View
             }
             if (count == 0 && string.IsNullOrEmpty(usernameField) == false)
             {
-                Response.Write("this username is available");
+                //Response.Write("this username is available");
+                Session["usernameMessage"] = "this username is available";
             }
             else if(string.IsNullOrEmpty(usernameField) == true)
             {
-                Response.Write("please enter your username");
+                //Response.Write("please enter your username");\
+                Session["usernameMessage"] = "please enter your username";
             }
             else
             {
-                Response.Write("this username has been taken");
+                //Response.Write("this username has been taken");
+                Session["usernameMessage"] = "this username has been taken";
             }
             conn.Close();
         }
@@ -48,17 +51,28 @@ namespace WebApplication1.View
             String lastNameField = lastName.Text;
             String dobField = dateOfBirth.Text;
             Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
+            Boolean usernameEqual = checkUsername(username.Text);
 
             if (passEqual)
             {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "')", conn);
-                cmd.ExecuteNonQuery();
-                cmd.Clone();
+                if (usernameEqual)
+                {
+                    const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
+                    MySqlConnection conn = new MySqlConnection(connectionString);
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "')", conn);
+                    cmd.ExecuteNonQuery();
+                    cmd.Clone();
+                    Session["registerMessage"] = "Your account has been created successfully";
+                }
+                else
+                {
+                    Session["usernameMessage"] = "Please enter an available username";
+                }
             }
             else
             {
-                Response.Write("Password does not match");
+                Session["usernameMessage"] = "Password does not match";
             }
         }
         
@@ -82,6 +96,28 @@ namespace WebApplication1.View
                 return true;
             }
             return false;
+        }
+
+        public Boolean checkUsername(string username1)
+        {
+            String command = "select * from project_notes.users where username='" + username1 + "' ;";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = selectCommand.ExecuteReader();
+
+            int count = 0;
+            while (myReader.Read())
+            {
+                count = count + 1;
+            }
+            if (count == 0 && string.IsNullOrEmpty(username1) == false)
+            {
+                return true;
+            }
+            conn.Close();
+            return false;            
         }
     }
 
