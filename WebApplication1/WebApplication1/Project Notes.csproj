@@ -140,6 +140,7 @@
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="View\index.aspx" />
     <Content Include="View\main.aspx" />
+    <Content Include="View\myprofile.aspx" />
     <Content Include="View\register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="View\main.aspx.designer.cs">
       <DependentUpon>main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\myprofile.aspx.cs">
+      <DependentUpon>myprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\myprofile.aspx.designer.cs">
+      <DependentUpon>myprofile.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
