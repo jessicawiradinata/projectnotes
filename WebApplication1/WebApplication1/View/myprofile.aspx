@@ -50,7 +50,7 @@
                         <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstName" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
-                        <asp:TextBox ID="email" runat="server" name="email" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="email" runat="server" name="email" class="inputField" placeholder="Email" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="btn btn-success" OnClick="edit_click" />
                     </form>
