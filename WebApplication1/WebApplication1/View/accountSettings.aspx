@@ -40,11 +40,20 @@
                     <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="inputField"></asp:TextBox><br /><br />
                     <label for="confirmPassword" class="accountLabel">Confirm Password:</label>
                     <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" name="confirmPassword" class="inputField"></asp:TextBox><br /><br />
-                    <label for="email" class="accountLabel">Email:</label>
-                    <asp:TextBox ID="email" runat="server" type="email" name="email" class="inputField"></asp:TextBox><br /><br />
                     <div class="buttonsAccount">
                         <asp:Button ID="saveBtn" runat="server" Text="Save Changes" OnClick="save_click" CssClass="btn btn-primary" />
                     </div>
+                    <%  if (Session["updatedMessage"] != null) { %>
+                            <div class="alert alert-success">
+                        <%  Response.Write(Session["updatedMessage"]);
+                            Session.Contents.Remove("updatedMessage"); %>
+                            </div>
+                        <% } else if (Session["confirmPasswordMessage"] != null) { %>  
+                            <div class="alert alert-danger">
+                        <%  Response.Write(Session["confirmPasswordMessage"]);
+                            Session.Contents.Remove("confirmPasswordMessage"); %>
+                            </div>
+                        <% } %>
                 </div>
             </form>    
         </div>

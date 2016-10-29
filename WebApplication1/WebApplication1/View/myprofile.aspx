@@ -45,14 +45,25 @@
                     <div class="subHeader">
                         Welcome Kevin Tan, Your lover Cliff miss you.      
                     </div>
+                    <%if (Session["editProfile"] == null) { %>
                     <form id="form1" runat="server" >
                         <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstName" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="email" runat="server" name="email" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" disabled="disabled"></asp:TextBox><br /><br />
+                        <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="btn btn-success" OnClick="edit_click" />
                     </form>
-                    <a href="#" class="btn btn-success">Edit Profile</a>
-                    <a href="#" class="btn btn-primary">Change Password</a>
+                    <% } else { %>
+                    <form id="form2" runat="server" >
+                        <asp:TextBox ID="TextBox1" runat="server" name="username" class="inputField" placeholder="Username" required="required" ></asp:TextBox><br /><br />
+                        <asp:TextBox ID="TextBox2" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="TextBox3" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="TextBox4" runat="server" name="email" class="inputField" placeholder="Email" required="required"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="TextBox5" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required"></asp:TextBox><br /><br />
+                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="btn btn-primary" OnClick="edit_click" />
+                    </form>
+                    <% } %>
                 </div>
             </div>
      </div>

@@ -39,5 +39,11 @@ namespace WebApplication1.View
             dateOfBirth.Text = dob;
             
         }
+
+        protected void edit_click(object sender, EventArgs e)
+        {
+            Session["editProfile"] = "edit profile";
+            Response.Redirect("myprofile.aspx");
+        }
     }
 }
