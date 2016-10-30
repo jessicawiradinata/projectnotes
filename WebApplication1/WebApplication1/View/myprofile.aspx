@@ -50,18 +50,19 @@
                         <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstName" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
-                        <asp:TextBox ID="email" runat="server" name="email" class="inputField" placeholder="Email" required="required" disabled="disabled"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="email" runat="server" name="email" type="email" class="inputField" placeholder="Email" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="btn btn-success" OnClick="edit_click" />
                     </form>
                     <% } else { %>
                     <form id="form2" runat="server" >
-                        <asp:TextBox ID="TextBox1" runat="server" name="username" class="inputField" placeholder="Username" required="required" ></asp:TextBox><br /><br />
-                        <asp:TextBox ID="TextBox2" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />
-                        <asp:TextBox ID="TextBox3" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />
-                        <asp:TextBox ID="TextBox4" runat="server" name="email" class="inputField" placeholder="Email" required="required"></asp:TextBox><br /><br />
-                        <asp:TextBox ID="TextBox5" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required"></asp:TextBox><br /><br />
-                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="btn btn-primary" OnClick="edit_click" />
+                        <asp:TextBox ID="usernameEdit" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled" ></asp:TextBox><br /><br />
+                        <asp:TextBox ID="firstNameEdit" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="lastNameEdit" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="emailEdit" runat="server" name="email" type="email" class="inputField" placeholder="Email" required="required"></asp:TextBox><br /><br />
+                        <asp:TextBox ID="dobEdit" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required"></asp:TextBox><br /><br />
+                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="btn btn-primary" OnClick="save_click" />
+                        <a runat="server" value="Cancel" href="main.aspx" class="btn btn-danger form-horizontal form-group" style="margin-left:10px">Cancel</a>
                     </form>
                     <% } %>
                 </div>

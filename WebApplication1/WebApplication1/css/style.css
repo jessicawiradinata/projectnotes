@@ -63,8 +63,14 @@
 
 .contentRegister
 {
-    margin-left:37%;
+    margin-left:33%;
     margin-right:20%;
+}
+
+.boxRegister
+{
+    border: 1px solid black;
+    padding-bottom:10%;
 }
 
 .inputField

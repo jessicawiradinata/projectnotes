@@ -40,13 +40,39 @@ namespace WebApplication1.View
             lastName.Text = myLastName;
             dateOfBirth.Text = dob;
             email.Text = myEmail;
+            conn.Close();
             
         }
 
         protected void edit_click(object sender, EventArgs e)
         {
+            String myUsername = (string)Session["name"];
+            username.Text = myUsername;
             Session["editProfile"] = "edit profile";
             Response.Redirect("myprofile.aspx");
+        }
+
+        protected void save_click(object sender, EventArgs e)
+        {
+            String myUsername = (string)Session["name"];
+            username.Text = myUsername;
+            String usernameField = (string)Session["name"];
+            String firstnameField = firstNameEdit.Text;
+            String lastnameField = lastNameEdit.Text;
+            String emailField = emailEdit.Text;
+            String dobField = dobEdit.Text;
+            
+            Session["updatedMessage"] = "Account updated";
+            String command = "update project_notes.users set firstName='" + firstnameField +
+                "', lastName='" + lastnameField +
+                "', email='" + emailField +
+                "', dateOfBirth='" + dobField +
+                "' where username='" + usernameField + "' ;";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = selectCommand.ExecuteReader();
+            conn.Close();
         }
     }
 }

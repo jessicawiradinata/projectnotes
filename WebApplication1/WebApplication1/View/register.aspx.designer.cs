@@ -94,12 +94,12 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.TextBox dateOfBirth;
         
         /// <summary>
-        /// registerBtn control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button registerBtn;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

@@ -27,7 +27,7 @@ namespace WebApplication1.View
             if (count == 0 && string.IsNullOrEmpty(usernameField) == false)
             {
                 //Response.Write("this username is available");
-                Session["usernameMessage"] = "this username is available";
+                Session["registerMessage"] = "this username is available";
             }
             else if(string.IsNullOrEmpty(usernameField) == true)
             {
