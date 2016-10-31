@@ -31,13 +31,22 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.TextBox username;
         
         /// <summary>
-        /// password control.
+        /// currentPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.TextBox currentPassword;
+        
+        /// <summary>
+        /// newPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox newPassword;
         
         /// <summary>
         /// confirmPassword control.
