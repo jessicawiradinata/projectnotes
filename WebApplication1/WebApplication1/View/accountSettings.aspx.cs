@@ -20,22 +20,32 @@ namespace WebApplication1.View
         protected void save_click(object sender, EventArgs e)
         {
             String usernameField = (string)Session["name"];
-            String passwordField = MD5Hash(password.Text);
+            String currentPasswordField = MD5Hash(currentPassword.Text);
+            String newPasswordField = MD5Hash(newPassword.Text);
             String confirmField = MD5Hash(confirmPassword.Text);
-            Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
+            Boolean passEqual = checkPassword(newPassword.Text, confirmPassword.Text);
+            Boolean validPass = verifyLogin(usernameField, currentPasswordField);
 
-            if (passEqual)
+            if (validPass)
             {
-                Session["updatedMessage"] = "Account updated";
-                String command = "update project_notes.users set password='" + passwordField + "' where username='" + usernameField + "' ;";
-                MySqlCommand selectCommand = new MySqlCommand(command, conn);
-                MySqlDataReader myReader;
-                conn.Open();
-                myReader = selectCommand.ExecuteReader();
+                if (passEqual)
+                {
+                    MySqlConnection conn2 = new MySqlConnection(connectionString);
+                    Session["updatedMessage"] = "Account updated";
+                    String command = "update project_notes.users set password='" + newPasswordField + "' where username='" + usernameField + "' ;";
+                    MySqlCommand selectCommand = new MySqlCommand(command, conn2);
+                    MySqlDataReader myReader;
+                    conn2.Open();
+                    myReader = selectCommand.ExecuteReader();
+                }
+                else
+                {
+                    Session["confirmPasswordMessage"] = "Confirm password does not match";
+                }
             }
             else
             {
-                Session["confirmPasswordMessage"] = "Confirm password does not match";
+                Session["validPasswordMessage"] = "Current password invalid";
             }
         }
 
@@ -58,6 +68,27 @@ namespace WebApplication1.View
             {
                 return true;
             }
+            return false;
+        }
+
+        public Boolean verifyLogin(string username, string password)
+        {
+            String command = "select * from project_notes.users where username='" + username + "' and password='" + password + "' ;";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = selectCommand.ExecuteReader();
+            int count = 0;
+            while (myReader.Read())
+            {
+                count = count + 1;
+            }
+            if (count == 1)
+            {
+                return true;
+            }
+            //conn.Close();
             return false;
         }
     }
