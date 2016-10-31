@@ -16,8 +16,8 @@
 </head>
 <body>
     <div class="background">
-        <div class="paddingBackground">
-            <div class="contentHeader">
+        <div class="paddingBackgroundMain">
+            <div>
                 <div class="navbar-header">
                         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                             <div class="navbar-header">
@@ -39,8 +39,19 @@
                 <div class="titleHeader">
                     Main Menu            
                 </div>
-                <div class="subHeader">
-                    Welcome to project notes.      
+                
+                <div class="itemList">
+                    <asp:DataList ID="notesList" runat="server">
+                        <ItemTemplate>
+                            <td>
+                                <div class="itemBackground">
+                                    <div class="itemTitle"><%#Eval("titleNotes")%></div>
+                                    <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                    <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                </div>
+                            </td>
+                        </ItemTemplate>
+                    </asp:DataList>
                 </div>
             </div>
         </div>

@@ -27,6 +27,11 @@
     
 }
 
+.paddingBackgroundMain
+{
+    padding-top: 7%;
+}
+
 .titleHeader
 {
     font-family:;
@@ -154,5 +159,40 @@
 {
     margin-top: 4em;
     margin-bottom: 2em;
+}
+
+.itemBackground
+{
+    border: 1px solid black;
+    width: 15em;
+    height: 20em;
+    float: right;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.itemTitle
+{
+    height: 2.5em;
+    font-family:;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
+.itemContent
+{
+    height: 12em;
+    font-family:;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid black;
+}
+
+.itemCreator
+{
+    font-family:;
+    font-size: 1em;
 }
 
