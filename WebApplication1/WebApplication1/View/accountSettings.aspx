@@ -16,7 +16,7 @@
                     <div class="navbar-header">
                         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                             <div class="navbar-header">
-                                <a class="navbar-brand navbar-left" href="#home">Home</a>
+                                <a class="navbar-brand navbar-left" href="index.aspx">Project Notes</a>
                             </div>
                             <div class="nav navbar-nav navbar-right">
                                 <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">

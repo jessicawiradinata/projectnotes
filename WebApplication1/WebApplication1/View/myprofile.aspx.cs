@@ -62,7 +62,7 @@ namespace WebApplication1.View
             String emailField = emailEdit.Text;
             String dobField = dobEdit.Text;
             
-            Session["updatedMessage"] = "Account updated";
+            Session["updatedMessage"] = "Your profile has been saved successfully";
             String command = "update project_notes.users set firstName='" + firstnameField +
                 "', lastName='" + lastnameField +
                 "', email='" + emailField +

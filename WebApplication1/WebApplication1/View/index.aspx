@@ -22,7 +22,7 @@
                 <div class="navbar-header">
                     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                         <div class="navbar-header">
-                            <a class="navbar-brand navbar-left" href="#home">Home</a>
+                            <a class="navbar-brand navbar-left" href="index.aspx">Project Notes</a>
                         </div>
                         <div class="nav navbar-nav navbar-right">
                             <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#myModal" style="margin: 7px 8px 0 0; font-family: 'Droid Sans', sans-serif;">
