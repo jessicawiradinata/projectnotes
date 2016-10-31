@@ -12,7 +12,10 @@ namespace WebApplication1.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["name"] != null)
+            {
+                Response.Redirect("main.aspx");
+            }
         }
 
         protected void login_click(object sender, EventArgs e)

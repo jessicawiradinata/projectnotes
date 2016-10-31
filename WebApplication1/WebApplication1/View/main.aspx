@@ -42,9 +42,6 @@
                 <div class="subHeader">
                     Welcome to project notes.      
                 </div>
-                <form id="form1" runat="server">
-                    <asp:TextBox ID="username" runat="server" name="username" class="inputField"></asp:TextBox><br /><br />
-                </form>
             </div>
         </div>
     </div>

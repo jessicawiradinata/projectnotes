@@ -147,6 +147,7 @@
     <Content Include="View\index.aspx" />
     <Content Include="View\main.aspx" />
     <Content Include="View\myprofile.aspx" />
+    <Content Include="View\noteDetails.aspx" />
     <Content Include="View\register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -193,6 +194,13 @@
     </Compile>
     <Compile Include="View\myprofile.aspx.designer.cs">
       <DependentUpon>myprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\noteDetails.aspx.cs">
+      <DependentUpon>noteDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\noteDetails.aspx.designer.cs">
+      <DependentUpon>noteDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
