@@ -36,10 +36,12 @@
                     </div>
                     <label for="username" class="accountLabel">Username:</label>
                     <asp:TextBox ID="username" runat="server" name="username" class="inputField" disabled="disabled"></asp:TextBox><br /><br />
-                    <label for="password" class="accountLabel">Password:</label>
-                    <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="inputField"></asp:TextBox><br /><br />
-                    <label for="confirmPassword" class="accountLabel">Confirm Password:</label>
-                    <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" name="confirmPassword" class="inputField"></asp:TextBox><br /><br />
+                    <label for="currentPassword" class="accountLabel">Current password:</label>
+                    <asp:TextBox ID="currentPassword" TextMode="Password" runat="server" name="currentPassword" class="inputField" required="required"></asp:TextBox><br /><br />
+                    <label for="newPassword" class="accountLabel">New password:</label>
+                    <asp:TextBox ID="newPassword" TextMode="Password" runat="server" name="newPassword" class="inputField" required="required"></asp:TextBox><br /><br />
+                    <label for="confirmPassword" class="accountLabel">Confirm new password:</label>
+                    <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" name="confirmPassword" class="inputField" required="required"></asp:TextBox><br /><br />
                     <div class="buttonsAccount">
                         <asp:Button ID="saveBtn" runat="server" Text="Save Changes" OnClick="save_click" CssClass="btn btn-primary" />
                     </div>
@@ -53,6 +55,11 @@
                         <%  Response.Write(Session["confirmPasswordMessage"]);
                             Session.Contents.Remove("confirmPasswordMessage"); %>
                             </div>
+                        <% } else if (Session["validPasswordMessage"] != null) { %>  
+                                <div class="alert alert-danger">
+                            <%  Response.Write(Session["validPasswordMessage"]);
+                                Session.Contents.Remove("validPasswordMessage"); %>
+                                </div>
                         <% } %>
                 </div>
             </form>    
