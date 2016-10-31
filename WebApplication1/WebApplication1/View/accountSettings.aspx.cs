@@ -12,6 +12,10 @@ namespace WebApplication1.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["name"] == null)
+            {
+                Response.Redirect("index.aspx");
+            }
             String myUsername = (string)Session["name"];
             username.Text = myUsername;
             
