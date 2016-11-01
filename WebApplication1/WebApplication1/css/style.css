@@ -12,6 +12,7 @@
   text-align:center;
   background-attachment:fixed;
   position:fixed;
+  overflow:auto;
   /*color:white;*/
 }
 
@@ -164,11 +165,12 @@
 .itemBackground
 {
     border: 1px solid black;
-    width: 15em;
-    height: 20em;
-    float: right;
-    margin-left: 15%;
-    margin-right: 15%;
+    width: 18em;
+    height: 25em;
+    margin-left: 1.5em;
+    margin-right: 5em;
+    margin-bottom: 5em;
+    
 }
 
 .itemTitle
@@ -196,3 +198,17 @@
     font-size: 1em;
 }
 
+.testTable
+{
+    width:100%;
+}
+
+.itemList
+{
+    width:50%;
+    margin-left:24%;
+    margin-right:24%;
+    margin-top:3%;
+}
+
+/* General use */

@@ -40,16 +40,14 @@
                     Main Menu            
                 </div>
                 
-                <div class="itemList">
-                    <asp:DataList ID="notesList" runat="server">
+                <div class="itemList" >
+                    <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                         <ItemTemplate>
-                            <td>
                                 <div class="itemBackground">
                                     <div class="itemTitle"><%#Eval("titleNotes")%></div>
                                     <div class="itemContent"><%#Eval("descriptionNotes")%></div>
                                     <div class="itemCreator"><%#Eval("creatorNotes")%></div>
                                 </div>
-                            </td>
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
