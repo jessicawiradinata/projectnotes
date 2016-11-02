@@ -60,7 +60,8 @@
                             </div>
                         <% } %>
                     </form>
-                    <% } else { %>
+                    <% }
+                     else { %>
                     <form id="form2" runat="server" >
                         <asp:TextBox ID="usernameEdit" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled" ></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstNameEdit" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />

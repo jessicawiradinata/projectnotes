@@ -38,5 +38,12 @@ namespace WebApplication1.View
             cmd.Clone();
             Response.Redirect("main.aspx");
         }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("index.aspx");
+        }
     }
 }

@@ -14,53 +14,52 @@
 
     <title>Main Menu</title>
 </head>
-<body>
-    <div class="background">
-        <div class="paddingBackgroundMain">
-            <div>
-                <div class="navbar-header">
-                        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                            <div class="navbar-header">
-                                <a class="navbar-brand navbar-left" href="#home">Home</a>
+    <body>
+        <form id="logoutForm" runat="server">
+            <div class="background">
+                <div class="paddingBackgroundMain">
+                    <div>
+                        <div class="navbar-header">
+                                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                                    <div class="navbar-header">
+                                        <a class="navbar-brand navbar-left brand" href="main.aspx">Project Notes</a>
+                                    </div>
+                                    <div class="nav navbar-nav navbar-right">
+                                        <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
+                                            <b>Add Notes</b>
+                                        </a></li>
+                                        <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
+                                            <b>My Profile</b>
+                                        </a></li>
+                                        <li><a href="accountSettings.aspx"  style="font-family: 'Droid Sans', sans-serif;">
+                                            <b>Account</b>
+                                        </a></li>
+                                        <li>
+                                            <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
+                                            </asp:LinkButton>
+                                        </li>
+                                    </div>
+                                </nav>
                             </div>
-                            <div class="nav navbar-nav navbar-right">
-                                <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
-                                    <b>Add Notes</b>
-                                </a></li>
-                                <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
-                                    <b>My Profile</b>
-                                </a></li>
-                                <li><a href="accountSettings.aspx"  style="font-family: 'Droid Sans', sans-serif;">
-                                    <b>Account</b>
-                                </a></li>
-                                <li>
-                                    <form id="logoutForm" runat="server">
-                                        <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
-                                        </asp:LinkButton>
-                                    </form>
-                                </li>
-                            </div>
-                        </nav>
+                        <div class="titleHeader">
+                            Main Menu            
+                        </div>
+                        <div class="itemList" >
+                            <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
+                                <ItemTemplate>
+                                        <div id="box1" class="itemBackground" style="display:block;background-color:#ffffff" runat="server" onclick="detail_Click">
+                                            <a href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
+                                            <div class="itemTitle"><%#Eval("titleNotes")%></div>
+                                            <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                            <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                        </a>
+                                        </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                        </div>
                     </div>
-                <div class="titleHeader">
-                    Main Menu            
-                </div>
-                
-                <div class="itemList" >
-                    <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
-                        <ItemTemplate>
-                                <div id="box1" class="itemBackground" style="display:block;background-color:#ffffff" runat="server" onclick="detail_Click">
-                                    <a href="noteDetails.aspx">
-                                    <div class="itemTitle"><%#Eval("titleNotes")%></div>
-                                    <div class="itemContent"><%#Eval("descriptionNotes")%></div>
-                                    <div class="itemCreator"><%#Eval("creatorNotes")%></div>
-                                </a>
-                                </div>
-                        </ItemTemplate>
-                    </asp:DataList>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
+        </form>
+    </body>
 </html>

@@ -95,5 +95,12 @@ namespace WebApplication1.View
             //conn.Close();
             return false;
         }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("index.aspx");
+        }
     }
 }
