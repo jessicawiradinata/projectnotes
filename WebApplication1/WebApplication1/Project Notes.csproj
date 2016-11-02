@@ -114,6 +114,7 @@
     <Content Include="css\bootstrap-theme.min.css.map" />
     <Content Include="css\bootstrap-theme.css.map" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="img\reg.jpg" />
     <Content Include="img\simaho.jpg" />
     <Content Include="img\telor.jpg" />
     <Content Include="img\telor2.jpg" />
