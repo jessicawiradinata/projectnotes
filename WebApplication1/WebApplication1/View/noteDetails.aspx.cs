@@ -15,10 +15,10 @@ namespace WebApplication1.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["name"] == null)
-            {
-                Response.Redirect("index.aspx");
-            }
+            //if (Session["name"] == null)
+            //{
+            //    Response.Redirect("index.aspx");
+            //}
 
             String myNote = (string)Session["note"];
             String command = "select * from project_notes.notes where idnotes='" + myNote + "' ;";
@@ -48,6 +48,27 @@ namespace WebApplication1.View
         {
             Session["editNotes"] = "Edit Notes";
             Response.Redirect("noteDetails.aspx");
+        }
+
+        protected void save_click(object sender, EventArgs e)
+        {
+            String contentField = contentEdit.Text;
+            String noteId = (string)Session["note"];
+
+            String command = "update project_notes.notes set descriptionNotes='" + contentField + "' where idnotes='" + noteId + "' ;";
+            MySqlCommand updateCommand = new MySqlCommand(command, conn);
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = updateCommand.ExecuteReader();
+            conn.Close();
+
+            Session["updatedNotes"] = "Notes successfully updated";
+            
+        }
+
+        protected void cancel_click(object sender, EventArgs e)
+        {
+
         }
     }
 }

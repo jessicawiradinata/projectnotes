@@ -39,5 +39,10 @@ namespace WebApplication1.View
             Session.Abandon();
             Response.Redirect("index.aspx");
         }
+
+        protected void detail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

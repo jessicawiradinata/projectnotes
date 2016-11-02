@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="noteDetails.aspx.cs" Inherits="WebApplication1.View.noteDetails" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="noteDetails.aspx.cs" Inherits="WebApplication1.View.noteDetails" %>
 
 <!DOCTYPE html>
 
@@ -30,9 +31,9 @@
                                 <asp:TextBox ID="date" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
                                 <asp:TextBox ID="content" runat="server" name="content" class="inputField" placeholder="Content" disabled="disabled" ></asp:TextBox><br /><br />
                                 <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="btn btn-success" OnClick="edit_click" />
-                                 <%if (Session["updatedNotes"] == null) { %>
+                                 <%if (Session["updatedNotes"] != null) { %>
                                     <div class="alert alert-info" style="margin-top:1em;">
-                                        <%Response.Write(Session["udpatedNotes"]);
+                                        <%Response.Write(Session["updatedNotes"]);
                                           Session.Contents.Remove("updatedNotes"); %>
                                     </div>
                                 <% } %>
