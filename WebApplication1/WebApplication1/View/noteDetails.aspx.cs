@@ -52,15 +52,16 @@ namespace WebApplication1.View
                 titleEdit.Text = myTitle;
                 authorEdit.Text = myAuthor;
                 dateEdit.Text = myDate;
-                content.Text = myContent;
+                contentEdit.Text = myContent;
             }
             conn.Close();
         }
 
         protected void edit_click(object sender, EventArgs e)
         {
+            String noteId = Request.QueryString["noteID"];
             Session["editNotes"] = "Edit Notes";
-            Response.Redirect("noteDetails.aspx");
+            Response.Redirect("noteDetails.aspx?noteID=" + noteId);
         }
 
         protected void delete_click(object sender, EventArgs e)
