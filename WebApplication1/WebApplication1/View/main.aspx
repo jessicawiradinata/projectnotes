@@ -16,9 +16,9 @@
 </head>
     <body>
         <form id="logoutForm" runat="server">
-            <div class="background">
+            <div class="backgroundProfile">
                 <div class="paddingBackgroundMain">
-                    <div>
+                    <div class="contentProfile">
                         <div class="navbar-header">
                                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                                     <div class="navbar-header">
@@ -47,12 +47,14 @@
                         <div class="itemList" >
                             <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                 <ItemTemplate>
-                                        <div id="box1" class="itemBackground" style="display:block;background-color:#ffffff" runat="server" onclick="detail_Click">
-                                            <a href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
-                                            <div class="itemTitle"><%#Eval("titleNotes")%></div>
-                                            <div class="itemContent"><%#Eval("descriptionNotes")%></div>
-                                            <div class="itemCreator"><%#Eval("creatorNotes")%></div>
-                                        </a>
+                                        <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
+                                            <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
+                                                <div class="itemSquare">
+                                                    <div class="itemTitle"><%#Eval("titleNotes")%></div>
+                                                    <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                                    <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                                </div>
+                                            </a>
                                         </div>
                                 </ItemTemplate>
                             </asp:DataList>

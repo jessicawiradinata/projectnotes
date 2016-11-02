@@ -28,11 +28,6 @@
     
 }
 
-.paddingBackgroundMain
-{
-    padding-top: 7%;
-}
-
 .titleHeader
 {
     font-family:;
@@ -270,6 +265,7 @@
   height:100%;
   text-align:center;
   position:fixed;
+  overflow:auto;
 }
 
 .editBtn
@@ -400,6 +396,14 @@
     margin-bottom: 2em;
 }
 
+/* main page*/
+
+.paddingBackgroundMain
+{
+    padding-left:15%;
+    padding-right:15%;
+}
+
 .itemBackground
 {
     border: 1px solid black;
@@ -408,17 +412,21 @@
     margin-left: 1.5em;
     margin-right: 5em;
     margin-bottom: 5em;
-    
+    background-color:white;
+    box-shadow:3px 3px black;
+    border-radius:3px;
 }
 
 .itemTitle
 {
     height: 2.5em;
     font-family:;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: bold;
-    margin-bottom: 1em;
+    padding-top: 0.5em;
     border-bottom: 1px solid black;
+    background:url("../img/brown.jpg");
+    color:white;
 }
 
 .itemContent
@@ -426,14 +434,40 @@
     height: 12em;
     font-family:;
     font-size: 1em;
-    margin-bottom: 0.5em;
+    padding-top:2em;
     border-bottom: 1px solid black;
+    color:black;
+    background-size:100% 100%;
+    background-color:#FFF;
+    text-align:center;
 }
 
 .itemCreator
 {
+    height:2em;
+    padding-top:4em;
+    padding-bottom:4em;
     font-family:;
     font-size: 1em;
+    background-color:#E7E7E7;
+    color:black;
+    height:auto;
+}
+
+.viewNote:hover
+{
+    text-decoration:none;
+}
+
+.itemSquare
+{
+    background-color:#3071A9;
+}
+
+.itemSquare:hover
+{
+   opacity: .6;
+   background-color:#3071A9;
 }
 
 .testTable
@@ -444,8 +478,8 @@
 .itemList
 {
     width:50%;
-    margin-left:24%;
-    margin-right:24%;
+    margin-left:12em;
+    margin-right:12em;
     margin-top:3%;
 }
 
