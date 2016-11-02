@@ -30,9 +30,15 @@
                                 <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
                                     <b>My Profile</b>
                                 </a></li>
-                                <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
+                                <li><a href="accountSettings.aspx"  style="font-family: 'Droid Sans', sans-serif;">
                                     <b>Account</b>
                                 </a></li>
+                                <li>
+                                    <form id="logoutForm" runat="server">
+                                        <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
+                                        </asp:LinkButton>
+                                    </form>
+                                </li>
                             </div>
                         </nav>
                     </div>
