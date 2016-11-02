@@ -43,5 +43,11 @@ namespace WebApplication1.View
             content.Text = myContent;
             conn.Close();
         }
+
+        protected void edit_click(object sender, EventArgs e)
+        {
+            Session["editNotes"] = "Edit Notes";
+            Response.Redirect("noteDetails.aspx");
+        }
     }
 }
