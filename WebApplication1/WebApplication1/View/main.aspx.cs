@@ -32,5 +32,12 @@ namespace WebApplication1.View
             notesList.DataBind();
             conn.Close();
         }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("index.aspx");
+        }
     }
 }
