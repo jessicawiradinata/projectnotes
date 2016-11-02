@@ -15,13 +15,13 @@
         <title>My Profile</title>
     </head>
     <body>
-        <div class="background">
+        <div class="backgroundProfile">
             <div class="paddingProfile">
                 <div class="contentProfile">
                     <div class="navbar-header">
                         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                             <div class="navbar-header">
-                                <a class="navbar-brand navbar-left" href="index.aspx">Project Notes</a>
+                                <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
                             </div>
                             <div class="nav navbar-nav navbar-right">
                                 <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
@@ -52,7 +52,7 @@
                         <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="email" runat="server" name="email" type="email" class="inputField" placeholder="Email" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" disabled="disabled"></asp:TextBox><br /><br />
-                        <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="btn btn-success" OnClick="edit_click" />
+                        <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="editBtn" OnClick="edit_click" />
                         <%  if (Session["updatedMessage"] != null) { %>
                             <div class="alert alert-info" style="margin-top:1em;">
                         <%  Response.Write(Session["updatedMessage"]);
@@ -67,8 +67,8 @@
                         <asp:TextBox ID="lastNameEdit" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="emailEdit" runat="server" name="email" type="email" class="inputField" placeholder="Email" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dobEdit" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required"></asp:TextBox><br /><br />
-                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="btn btn-primary" OnClick="save_click" href="myprofile.aspx"/>
-                        <a runat="server" value="Cancel" href="main.aspx" class="btn btn-danger form-horizontal form-group" style="margin-left:10px">Cancel</a>
+                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="myprofile.aspx"/>
+                        <a href="myProfile.aspx" runat="server" value="Cancel" class="redBtn">Cancel</a>
                     </form>
                     <% 
                         Session.Contents.Remove("editProfile");

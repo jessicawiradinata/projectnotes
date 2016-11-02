@@ -122,6 +122,7 @@
     <Content Include="img\test3.jpg" />
     <Content Include="img\test4.jpg" />
     <Content Include="img\test5.jpg" />
+    <Content Include="img\test6.jpg" />
     <Content Include="scripts\jquery-1.9.1.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="packages.config" />

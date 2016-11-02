@@ -22,7 +22,7 @@
                 <div class="navbar-header">
                     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                         <div class="navbar-header">
-                            <a class="navbar-brand navbar-left" href="index.aspx">Project Notes</a>
+                            <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
                         </div>
                         <div class="nav navbar-nav navbar-right">
                             <a class="btn btn-primary" role="button" data-toggle="modal" data-target="#myModal" style="margin: 7px 8px 0 0; font-family: 'Droid Sans', sans-serif;">
@@ -42,8 +42,8 @@
                     Project scheduler offers services to organize your notes
                
                 </div>
-                <a href="register.aspx" class="btn btn-success">Register Now</a>
-                <a href="#" class="btn btn-primary">Learn More</a>
+                <a href="register.aspx" class="registerBtn">Register Now</a>
+                <a href="#" class="learnmoreBtn">Learn More</a>
             </div>
         </div>
     </div>
