@@ -67,6 +67,15 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.Button editBtn;
         
         /// <summary>
+        /// deleteBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button deleteBtn;
+        
+        /// <summary>
         /// form2 control.
         /// </summary>
         /// <remarks>

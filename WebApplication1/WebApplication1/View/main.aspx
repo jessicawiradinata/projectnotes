@@ -44,13 +44,12 @@
                     </div>
                 <div class="titleHeader">
                     Main Menu            
-                </div>
-                
+                </div>              
                 <div class="itemList" >
                     <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                         <ItemTemplate>
                                 <div id="box1" class="itemBackground" style="display:block;background-color:#ffffff" runat="server" onclick="detail_Click">
-                                    <a href="noteDetails.aspx">
+                                    <a href="noteDetails.aspx?noteID=<%#Eval("idnotes")%>">
                                     <div class="itemTitle"><%#Eval("titleNotes")%></div>
                                     <div class="itemContent"><%#Eval("descriptionNotes")%></div>
                                     <div class="itemCreator"><%#Eval("creatorNotes")%></div>

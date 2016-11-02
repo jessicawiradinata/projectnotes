@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,15 +13,16 @@ namespace WebApplication1.View
     {
         const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
         MySqlConnection conn = new MySqlConnection(connectionString);
+        public NameValueCollection QueryString { get; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["name"] == null)
-            //{
-            //    Response.Redirect("index.aspx");
-            //}
+            if (Session["name"] == null)
+            {
+                Response.Redirect("index.aspx");
+            }
 
-            String myNote = (string)Session["note"];
+            String myNote = Request.QueryString["noteID"];
             String command = "select * from project_notes.notes where idnotes='" + myNote + "' ;";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
             MySqlDataReader myReader;
@@ -35,12 +37,23 @@ namespace WebApplication1.View
                 myTitle = myReader.GetString("titleNotes");
                 myAuthor = myReader.GetString("creatorNotes");
                 myDate = myReader.GetString("dateNotes");
-                myContent = myReader.GetString("");
+                myContent = myReader.GetString("descriptionNotes");
             }
-            title.Text = myTitle;
-            author.Text = myAuthor;
-            date.Text = myDate;
-            content.Text = myContent;
+
+            if (Session["editNotes"] == null)
+            {
+                title.Text = myTitle;
+                author.Text = myAuthor;
+                date.Text = myDate;
+                content.Text = myContent;
+            }
+            else
+            {
+                titleEdit.Text = myTitle;
+                authorEdit.Text = myAuthor;
+                dateEdit.Text = myDate;
+                content.Text = myContent;
+            }
             conn.Close();
         }
 
@@ -50,10 +63,15 @@ namespace WebApplication1.View
             Response.Redirect("noteDetails.aspx");
         }
 
+        protected void delete_click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void save_click(object sender, EventArgs e)
         {
             String contentField = contentEdit.Text;
-            String noteId = (string)Session["note"];
+            String noteId = Request.QueryString["noteID"];
 
             String command = "update project_notes.notes set descriptionNotes='" + contentField + "' where idnotes='" + noteId + "' ;";
             MySqlCommand updateCommand = new MySqlCommand(command, conn);
