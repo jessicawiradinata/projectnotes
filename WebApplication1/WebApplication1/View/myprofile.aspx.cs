@@ -36,10 +36,21 @@ namespace WebApplication1.View
                 dob = myReader.GetString("dateOfBirth");
                 myEmail = myReader.GetString("email");
             }
-            firstName.Text = myFirstName;
-            lastName.Text = myLastName;
-            dateOfBirth.Text = dob;
-            email.Text = myEmail;
+            if (Session["editProfile"] == null)
+            {
+                firstName.Text = myFirstName;
+                lastName.Text = myLastName;
+                dateOfBirth.Text = dob;
+                email.Text = myEmail;
+            }
+            else
+            {
+                usernameEdit.Text = myUsername;
+                firstNameEdit.Text = myFirstName;
+                lastNameEdit.Text = myLastName;
+                dobEdit.Text = dob;
+                emailEdit.Text = myEmail;
+            }
             conn.Close();
             
         }
@@ -73,6 +84,14 @@ namespace WebApplication1.View
             conn.Open();
             myReader = selectCommand.ExecuteReader();
             conn.Close();
+            Response.Redirect("myprofile.aspx");
+        }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("index.aspx");
         }
     }
 }

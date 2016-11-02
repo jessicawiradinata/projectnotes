@@ -16,7 +16,7 @@
                     <div class="navbar-header">
                         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                             <div class="navbar-header">
-                                <a class="navbar-brand navbar-left" href="index.aspx">Project Notes</a>
+                                <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
                             </div>
                             <div class="nav navbar-nav navbar-right">
                                 <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
@@ -28,11 +28,15 @@
                                 <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
                                     <b>Account</b>
                                 </a></li>
+                                <li>
+                                    <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
+                                    </asp:LinkButton>
+                                </li>
                             </div>
                         </nav>
                     </div>
                     <div class="titleAccount">
-                        Account
+                        My Account
                     </div>
                     <label for="username" class="accountLabel">Username:</label>
                     <asp:TextBox ID="username" runat="server" name="username" class="inputField" disabled="disabled"></asp:TextBox><br /><br />
@@ -43,7 +47,7 @@
                     <label for="confirmPassword" class="accountLabel">Confirm new password:</label>
                     <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" name="confirmPassword" class="inputField" required="required"></asp:TextBox><br /><br />
                     <div class="buttonsAccount">
-                        <asp:Button ID="saveBtn" runat="server" Text="Save Changes" OnClick="save_click" CssClass="btn btn-primary" />
+                        <asp:Button ID="saveBtn" runat="server" Text="Save Changes" OnClick="save_click" CssClass="submitBtn" />
                     </div>
                     <%  if (Session["updatedMessage"] != null) { %>
                             <div class="alert alert-success">

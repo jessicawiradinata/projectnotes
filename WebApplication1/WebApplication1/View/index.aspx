@@ -42,8 +42,10 @@
                     Project scheduler offers services to organize your notes
                
                 </div>
-                <a href="register.aspx" class="registerBtn">Register Now</a>
-                <a href="#" class="learnmoreBtn">Learn More</a>
+                <div class="groupBtn">
+                    <a href="register.aspx" class="registerBtn" style="margin-bottom:1em;">Register Now</a>
+                    <a href="#" class="learnmoreBtn">Learn More</a>
+                </div>
             </div>
         </div>
     </div>
