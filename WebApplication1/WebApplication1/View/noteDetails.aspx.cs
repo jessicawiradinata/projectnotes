@@ -66,7 +66,15 @@ namespace WebApplication1.View
 
         protected void delete_click(object sender, EventArgs e)
         {
+            String noteId = Request.QueryString["noteID"];
+            String command = "delete from project_notes.notes where idnotes='" + noteId + "' ;";
+            MySqlCommand deleteCommand = new MySqlCommand(command, conn);
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = deleteCommand.ExecuteReader();
+            conn.Close();
 
+            Response.Redirect("main.aspx");
         }
 
         protected void save_click(object sender, EventArgs e)
@@ -82,7 +90,7 @@ namespace WebApplication1.View
             conn.Close();
 
             Session["updatedNotes"] = "Notes successfully updated";
-            
+            Response.Redirect("noteDetails.aspx?noteID=" + noteId);
         }
 
         protected void cancel_click(object sender, EventArgs e)
