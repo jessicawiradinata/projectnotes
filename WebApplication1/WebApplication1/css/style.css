@@ -477,9 +477,12 @@
 
 .itemList
 {
+    text-align:center;
     width:50%;
     margin-left:12em;
     margin-right:12em;
     margin-top:3%;
 }
+
+
 

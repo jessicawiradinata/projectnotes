@@ -45,7 +45,24 @@
                             Main Menu            
                         </div>
                         <div class="itemList" >
+                            <h1>Public Notes</h1>
                             <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
+                                <ItemTemplate>
+                                        <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
+                                            <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
+                                                <div class="itemSquare">
+                                                    <div class="itemTitle"><%#Eval("titleNotes")%></div>
+                                                    <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                                    <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                        </div>
+                        <div class="itemList" >
+                            <h1>My Notes</h1>
+                            <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                 <ItemTemplate>
                                         <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
                                             <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
