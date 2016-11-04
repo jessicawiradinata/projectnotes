@@ -56,6 +56,10 @@
                         <div class="titleHeader">
                             Public Notes            
                         </div>
+                        <div>
+                            <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator"></asp:TextBox>
+                            <asp:Button ID="SearchBtn" runat="server" Text="Search" onclick="search_Click" />
+                        </div>
                         <div class="filter">
                             <asp:DropDownList ID="categoryList" runat="server"></asp:DropDownList>
                             <asp:Button ID ="filterBtn" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />

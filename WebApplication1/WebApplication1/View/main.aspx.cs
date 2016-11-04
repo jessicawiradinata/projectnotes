@@ -137,5 +137,19 @@ namespace WebApplication1.View
                 list.Items.Add(travelItem);
             }
         }
+
+        protected void search_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String usernameField = SearchText.Text;
+            String command = "select * from project_notes.notes where creatorNotes like @Username and visibility='public';";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+            selectCommand.Parameters.AddWithValue("@Username", "%" + usernameField + "%");
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
+            adapter.Fill(table);
+            notesList.DataSource = table;
+            notesList.DataBind();
+        }
     }
 }
