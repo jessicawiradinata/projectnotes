@@ -17,6 +17,7 @@
     <body>
         <div class="backgroundProfile">
             <div class="paddingProfile">
+                <form id="form" runat="server">
                 <div class="contentProfile">
                     <div class="navbar-header">
                         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,12 +34,15 @@
                                 <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
                                     <b>Account</b>
                                 </a></li>
+                                <li>
+                                    <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
+                                    </asp:LinkButton>
+                                </li>
                             </div>
                         </nav>
                     </div>
                     
                     <%if (Session["editProfile"] == null) { %>
-                    <form id="form1" runat="server" > 
                         <div class="titleHeader">
                             My Profile           
                         </div>
@@ -60,10 +64,8 @@
                             Session.Contents.Remove("updatedMessage"); %>
                             </div>
                         <% } %>
-                    </form>
                     <% }
                      else { %>
-                    <form id="form2" runat="server" >
                         <div class="titleHeader">
                             My Profile           
                         </div>
@@ -81,12 +83,12 @@
                         <asp:TextBox ID="dobEdit" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required"></asp:TextBox><br /><br />
                         <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="myprofile.aspx"/>
                         <a href="myProfile.aspx" runat="server" value="Cancel" class="redBtn">Cancel</a>
-                    </form>
                     <% 
                         Session.Contents.Remove("editProfile");
                         }
                     %>
                 </div>
+                    </form>
             </div>
      </div>
     </body>

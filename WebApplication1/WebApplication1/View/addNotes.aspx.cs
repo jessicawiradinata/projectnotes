@@ -67,19 +67,21 @@ namespace WebApplication1.View
             if(!IsPostBack)
             {
                 ListItem selectItem = new ListItem("Select Category");
+                ListItem animalsItem = new ListItem("Animals");
                 ListItem educationItem = new ListItem("Education");
                 ListItem entertainmentItem = new ListItem("Entertainment");
                 ListItem gamingItem = new ListItem("Gaming");
-                ListItem howtoItem = new ListItem("Howto & Style");
-                ListItem newsItem = new ListItem("News & Politics");
-                ListItem peopleItem = new ListItem("People & Blogs");
+                ListItem howtoItem = new ListItem("Howto");
+                ListItem newsItem = new ListItem("News");
+                ListItem peopleItem = new ListItem("People");
                 ListItem personalItem = new ListItem("Personal");
-                ListItem petsItem = new ListItem("Pets & Animals");
-                ListItem scienceItem = new ListItem("Science & Technology");
+                ListItem scienceItem = new ListItem("Science");
+                ListItem technologyItem = new ListItem("Technology");
                 ListItem sportsItem = new ListItem("Sports");
-                ListItem travelItem = new ListItem("Travel & Events");
+                ListItem travelItem = new ListItem("Travel");
 
                 categoryList.Items.Add(selectItem);
+                categoryList.Items.Add(animalsItem);
                 categoryList.Items.Add(educationItem);
                 categoryList.Items.Add(entertainmentItem);
                 categoryList.Items.Add(gamingItem);
@@ -87,8 +89,8 @@ namespace WebApplication1.View
                 categoryList.Items.Add(newsItem);
                 categoryList.Items.Add(peopleItem);
                 categoryList.Items.Add(personalItem);
-                categoryList.Items.Add(petsItem);
                 categoryList.Items.Add(scienceItem);
+                categoryList.Items.Add(technologyItem);
                 categoryList.Items.Add(sportsItem);
                 categoryList.Items.Add(travelItem);
             }
