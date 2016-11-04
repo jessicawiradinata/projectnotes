@@ -56,6 +56,10 @@
                         <div class="titleHeader">
                             Public Notes            
                         </div>
+                        <div class="filter">
+                            <asp:DropDownList ID="categoryList" runat="server"></asp:DropDownList>
+                            <asp:Button ID ="filterBtn" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
+                        </div>
                         <div class="itemList">
                             <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                 <ItemTemplate>
@@ -76,6 +80,10 @@
                         { %>
                         <div class="titleHeader">
                             My Notes            
+                        </div>
+                        <div class="filter">
+                            <asp:DropDownList ID="categoryList2" runat="server"></asp:DropDownList>
+                            <asp:Button ID ="Button1" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
                         </div>
                         <div class="itemList">
                             <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
