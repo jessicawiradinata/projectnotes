@@ -23,13 +23,21 @@ namespace WebApplication1.View
 
             conn.Open();
             String myUsername = (string)Session["name"];
-            String command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' ;";
+            String command = "select * from project_notes.notes where visibility='public';";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
             adapter.Fill(table);
             notesList.DataSource = table;
             notesList.DataBind();
+
+            command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private';";
+            selectCommand = new MySqlCommand(command, conn);
+            table = new DataTable();
+            adapter = new MySqlDataAdapter(selectCommand);
+            adapter.Fill(table);
+            privateList.DataSource = table;
+            privateList.DataBind();
             conn.Close();
         }
 
@@ -40,9 +48,15 @@ namespace WebApplication1.View
             Response.Redirect("index.aspx");
         }
 
-        protected void detail_Click(object sender, EventArgs e)
+        protected void public_Click(object sender, EventArgs e)
         {
+            Session.Contents.Remove("private");
+        }
 
+        protected void private_Click(object sender, EventArgs e)
+        {
+            Session["private"] = "private";
+            Response.Redirect("main.aspx");
         }
     }
 }

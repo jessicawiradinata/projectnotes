@@ -58,6 +58,24 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.TextBox dates;
         
         /// <summary>
+        /// categoryList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList categoryList;
+        
+        /// <summary>
+        /// visibilityList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList visibilityList;
+        
+        /// <summary>
         /// submitBtn control.
         /// </summary>
         /// <remarks>
