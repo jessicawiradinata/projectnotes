@@ -16,15 +16,37 @@
         <title>Note Details</title>
     </head>
     <body>
+        <form id="form" runat="server">
         <div class="backgroundDetails">
             <div class="paddingDetails">
-                <div class="contentDetails">                    
+                <div class="contentDetails"> 
+                    <div class="navbar-header">
+                        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                            <div class="navbar-header">
+                                <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
+                            </div>
+                            <div class="nav navbar-nav navbar-right">
+                                <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
+                                    <b>Add Notes</b>
+                                </a></li>
+                                <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
+                                    <b>My Profile</b>
+                                </a></li>
+                                <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
+                                    <b>Account</b>
+                                </a></li>
+                                <li>
+                                    <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
+                                    </asp:LinkButton>
+                                </li>
+                            </div>
+                        </nav>
+                    </div>                   
                     <div class="titleDetail">
                         Note Details
                     </div>
                     <%if (Session["editNotes"] == null)
                         { %>
-                        <form id="form1" runat="server">
                             <div>
                                 <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
                                 <asp:TextBox ID="author" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
@@ -39,9 +61,7 @@
                                     </div>
                                 <% } %>
                             </div>
-                        </form>
                     <% } else { %>
-                            <form id="form2" runat="server">
                                 <div>
                                     <asp:TextBox ID="titleEdit" runat="server" name="titleEdit" class="inputField" placeholder="Title" ></asp:TextBox><br /><br />
                                     <asp:TextBox ID="authorEdit" runat="server" name="authorEdit" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
@@ -50,7 +70,6 @@
                                     <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx"/>
                                     <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="redBtn" OnClick="cancel_click" href="noteDetails.aspx"/>
                                 </div>
-                            </form>
                     <%
                             Session.Contents.Remove("editNotes");
                         } 
@@ -58,5 +77,6 @@
                 </div>
             </div>
         </div>
+        </form>
     </body>
 </html>
