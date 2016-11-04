@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -32,19 +33,22 @@ namespace WebApplication1.View
             String myLastName = "";
             String dob = "";
             String myEmail = "";
+            String profPicture = "";
             while (myReader.Read())
             {
                 myFirstName = myReader.GetString("firstName");
                 myLastName = myReader.GetString("lastName");
                 dob = myReader.GetString("dateOfBirth");
                 myEmail = myReader.GetString("email");
+                profPicture = myReader.GetString("profilePicture");
             }
             if (Session["editProfile"] == null)
             {
                 firstName.Text = myFirstName;
                 lastName.Text = myLastName;
                 dateOfBirth.Text = dob;
-                email.Text = myEmail;
+                email.Text = (profPicture);
+                profPic.ImageUrl = (profPicture);
             }
             else
             {
@@ -53,6 +57,7 @@ namespace WebApplication1.View
                 lastNameEdit.Text = myLastName;
                 dobEdit.Text = dob;
                 emailEdit.Text = myEmail;
+                imageProfile.ImageUrl = (profPicture);
             }
             conn.Close();
             
@@ -75,17 +80,31 @@ namespace WebApplication1.View
             String lastnameField = lastNameEdit.Text;
             String emailField = emailEdit.Text;
             String dobField = dobEdit.Text;
-            
+            String FileName = imageProfile.ImageUrl;
+            if (uploadImg.PostedFile != null)
+            {
+                FileName = Path.GetFileName("images/" + uploadImg.FileName);
+                //Save files to images folder
+                try
+                {
+                    uploadImg.SaveAs(Server.MapPath(FileName));
+                }
+                catch(Exception en)
+                {
+                    FileName = imageProfile.ImageUrl;
+                }           
+            }
             Session["updatedMessage"] = "Your profile has been saved successfully";
             String command = "update project_notes.users set firstName='" + firstnameField +
                 "', lastName='" + lastnameField +
                 "', email='" + emailField +
                 "', dateOfBirth='" + dobField +
+                "', profilePicture='" + FileName +
                 "' where username='" + usernameField + "' ;";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
-            MySqlDataReader myReader;
+            MySqlDataReader myReaders;
             conn.Open();
-            myReader = selectCommand.ExecuteReader();
+            myReaders = selectCommand.ExecuteReader();
             conn.Close();
             Response.Redirect("myprofile.aspx");
         }
@@ -95,28 +114,6 @@ namespace WebApplication1.View
             Session.Clear();
             Session.Abandon();
             Response.Redirect("index.aspx");
-        }
-        [STAThreadAttribute]
-        protected void changeProfile_click(object sender, EventArgs e)
-        {
-            getFile();
-        }
-        protected  void getFile()
-        {
-            try
-            {
-                OpenFileDialog openFd = new OpenFileDialog();
-                openFd.Filter = "Images only | *.jpg; *.png";
-                if (openFd.ShowDialog() == DialogResult.OK)
-                {
-                    imgLocation = openFd.FileName.ToString();
-                    imageProfile.ImageUrl = openFd.FileName;
-                }
-            }
-            catch(Exception e)
-            {
-
-            }
         }
     }
 }

@@ -70,7 +70,7 @@ namespace WebApplication1.View
                     const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
                     MySqlConnection conn = new MySqlConnection(connectionString);
                     conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "')", conn);
+                    MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, profilePicture) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','" + "" + "')", conn);
                     cmd.ExecuteNonQuery();
                     cmd.Clone();
                     Session["registerMessage"] = "Your account has been created successfully";

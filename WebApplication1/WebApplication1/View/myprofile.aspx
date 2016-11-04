@@ -43,7 +43,7 @@
                             My Profile           
                         </div>
                         <div class="profilePicture">
-                            <img src="../img/telor2.jpg" class="pp"/>
+                            <asp:Image ID="profPic" class="pp" runat="server"/>
                         </div>
                         <div class="subHeader">
                             Welcome Kevin Tan, love you too Cliff.
@@ -73,7 +73,7 @@
                         <div class="subHeader">
                             Welcome Kevin Tan, love you too Cliff.
                         </div>   
-                        <asp:Button ID="profBtn" runat="server" Text="Change Profile Picture" class="btn btn-success" OnClick="changeProfile_click"/><br /><br />
+                        <asp:FileUpload runat="server" ID="uploadImg" class="btn btn-success"/><br /><br />
                         <asp:TextBox ID="usernameEdit" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled" ></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstNameEdit" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastNameEdit" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />

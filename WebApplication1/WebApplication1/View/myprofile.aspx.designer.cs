@@ -22,6 +22,15 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// profPic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image profPic;
+        
+        /// <summary>
         /// username control.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.Image imageProfile;
         
         /// <summary>
-        /// profBtn control.
+        /// uploadImg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button profBtn;
+        protected global::System.Web.UI.WebControls.FileUpload uploadImg;
         
         /// <summary>
         /// usernameEdit control.
