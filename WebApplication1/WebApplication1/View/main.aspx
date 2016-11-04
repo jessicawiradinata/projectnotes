@@ -24,6 +24,16 @@
                                     <div class="navbar-header">
                                         <a class="navbar-brand navbar-left brand" href="main.aspx">Project Notes</a>
                                     </div>
+                                    <div class="nav navbar-nav justified">
+                                        <li><asp:LinkButton runat="server" style="font-family: 'Droid Sans', sans-serif;" OnClick="public_Click">
+                                            <b>Public</b>
+                                            </asp:LinkButton>
+                                        </li>
+                                        <li><asp:LinkButton runat="server" style="font-family: 'Droid Sans', sans-serif;" OnClick="private_Click">
+                                            <b>My Notes</b>
+                                            </asp:LinkButton>
+                                        </li>
+                                    </div>
                                     <div class="nav navbar-nav navbar-right">
                                         <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
                                             <b>Add Notes</b>
@@ -41,11 +51,12 @@
                                     </div>
                                 </nav>
                             </div>
+                        <%if (Session["private"] == null)
+                            { %>
                         <div class="titleHeader">
-                            Main Menu            
+                            Public Notes            
                         </div>
-                        <div class="itemList" >
-                            <h1>Public Notes</h1>
+                        <div class="itemList">
                             <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                 <ItemTemplate>
                                         <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
@@ -60,8 +71,13 @@
                                 </ItemTemplate>
                             </asp:DataList>
                         </div>
-                        <div class="itemList" >
-                            <h1>My Notes</h1>
+                        <% }
+                        else
+                        { %>
+                        <div class="titleHeader">
+                            My Notes            
+                        </div>
+                        <div class="itemList">
                             <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                 <ItemTemplate>
                                         <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
@@ -76,6 +92,7 @@
                                 </ItemTemplate>
                             </asp:DataList>
                         </div>
+                        <% } %>
                     </div>
                 </div>
             </div>
