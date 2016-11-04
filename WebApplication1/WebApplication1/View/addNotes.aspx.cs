@@ -60,6 +60,7 @@ namespace WebApplication1.View
                 ListItem howtoItem = new ListItem("Howto & Style");
                 ListItem newsItem = new ListItem("News & Politics");
                 ListItem peopleItem = new ListItem("People & Blogs");
+                ListItem personalItem = new ListItem("Personal");
                 ListItem petsItem = new ListItem("Pets & Animals");
                 ListItem scienceItem = new ListItem("Science & Technology");
                 ListItem sportsItem = new ListItem("Sports");
@@ -71,6 +72,7 @@ namespace WebApplication1.View
                 categoryList.Items.Add(howtoItem);
                 categoryList.Items.Add(newsItem);
                 categoryList.Items.Add(peopleItem);
+                categoryList.Items.Add(personalItem);
                 categoryList.Items.Add(petsItem);
                 categoryList.Items.Add(scienceItem);
                 categoryList.Items.Add(sportsItem);
