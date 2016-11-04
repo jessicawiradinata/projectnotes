@@ -79,10 +79,11 @@ namespace WebApplication1.View
 
         protected void save_click(object sender, EventArgs e)
         {
+            String titleField = titleEdit.Text;
             String contentField = contentEdit.Text;
             String noteId = Request.QueryString["noteID"];
 
-            String command = "update project_notes.notes set descriptionNotes='" + contentField + "' where idnotes='" + noteId + "' ;";
+            String command = "update project_notes.notes set titleNotes='" + titleField + "',descriptionNotes='" + contentField + "' where idnotes='" + noteId + "' ;";
             MySqlCommand updateCommand = new MySqlCommand(command, conn);
             MySqlDataReader myReader;
             conn.Open();
