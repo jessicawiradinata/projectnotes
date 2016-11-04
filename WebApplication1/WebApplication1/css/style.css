@@ -301,8 +301,8 @@
 	-o-transition: 0.5s all;
 	display: block;
 	width:33.5%;
-	background-color: #F91C1C;
-	border: 2px solid #F91C1C;
+	background-color: #DA2D2D;
+	border: 2px solid #DA2D2D;
 	border-radius:4.5px;
     margin-left:27.3em;
     margin-bottom:1em;
@@ -310,10 +310,10 @@
 
 .redBtn:hover
 {
-	background-color: rgba(249, 28, 28, 0.7);
+	background-color: rgba(218, 45, 45, 0.7);
 	text-decoration: none;
 	color: white;
-	border: 2px solid rgba(249, 28, 28, 0.8);
+	border: 2px solid rgba(218, 45, 45, 0.8);
 }
 
 .submitBtn
@@ -396,7 +396,7 @@
     margin-bottom: 2em;
 }
 
-/* main page*/
+/* main page */
 
 .paddingBackgroundMain
 {
@@ -483,3 +483,38 @@
     margin-top:3%;
 }
 
+/* note detail page*/
+
+.backgroundDetails
+{
+    text-align: center;
+    color:black;
+    background:url("../img/test6.jpg");
+    background-size:100% 100%;
+    width:100%;
+    height:100%;
+    position:fixed;
+}
+
+.paddingDetails
+{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.contentDetails
+{
+    border: 1px solid black;
+    padding-top:10%;
+    padding-bottom:10%;
+    background-color:white;
+    box-shadow:3px 3px;
+}
+
+.titleDetail
+{
+    font-family:;
+    font-size: 4em; 
+    padding-bottom: 0.3em;
+    font-weight:bold;
+}

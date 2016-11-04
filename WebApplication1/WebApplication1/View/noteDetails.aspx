@@ -30,8 +30,8 @@
                                 <asp:TextBox ID="author" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
                                 <asp:TextBox ID="date" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
                                 <asp:TextBox ID="content" runat="server" name="content" class="inputField" placeholder="Content" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="btn btn-success" OnClick="edit_click" />
-                                <asp:Button ID="deleteBtn" runat="server" Text="Delete" class="btn btn-danger" OnClick="delete_click" href="main.aspx"/>
+                                <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" />
+                                <asp:Button ID="deleteBtn" runat="server" Text="Delete" class="redBtn" OnClick="delete_click" href="main.aspx"/>
                                  <%if (Session["updatedNotes"] != null) { %>
                                     <div class="alert alert-info" style="margin-top:1em;">
                                         <%Response.Write(Session["updatedNotes"]);
@@ -47,8 +47,8 @@
                                     <asp:TextBox ID="authorEdit" runat="server" name="authorEdit" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
                                     <asp:TextBox ID="dateEdit" runat="server" name="dateEdit" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
                                     <asp:TextBox ID="contentEdit" runat="server" name="contentEdit" class="inputField" placeholder="Content" ></asp:TextBox><br /><br />
-                                    <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="btn btn-primary" OnClick="save_click" href="noteDetails.aspx"/>
-                                    <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="btn btn-danger" OnClick="cancel_click" href="noteDetails.aspx"/>
+                                    <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx"/>
+                                    <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="redBtn" OnClick="cancel_click" href="noteDetails.aspx"/>
                                 </div>
                             </form>
                     <%
