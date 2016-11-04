@@ -56,7 +56,18 @@
                         <asp:TextBox ID="dates" runat="server" name="postdate" class="inputField" placeholder="Date of Notes" required="required" disabled ="disabled" ></asp:TextBox><br /><br />
                         <asp:DropDownList ID="categoryList" runat="server"></asp:DropDownList><br /><br />
                         <asp:DropDownList ID="visibilityList" runat="server"></asp:DropDownList><br /><br />
-                        <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" OnClick="submitBtn_Click" />                    
+                        <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" OnClick="submitBtn_Click" />
+                        <%if (Session["categoryField"] != null) { %>
+                            <div class="alert alert-danger" style="margin-top:1em;">
+                                <%Response.Write(Session["categoryField"]);
+                                    Session.Contents.Remove("categoryField"); %>
+                            </div>
+                        <%}  else if (Session["visibilityField"] != null) { %>
+                                <div class="alert alert-danger" style="margin-top:1em;">
+                                    <%Response.Write(Session["visibilityField"]);
+                                        Session.Contents.Remove("categoryField"); %>
+                                </div>
+                                <% } %>                    
                     </div>
                 </div>
             </div>
