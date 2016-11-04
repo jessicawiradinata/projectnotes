@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace WebApplication1.View
 {
@@ -12,6 +14,7 @@ namespace WebApplication1.View
     {
         const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
         MySqlConnection conn = new MySqlConnection(connectionString);
+        String imgLocation = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["name"] == null)
@@ -92,6 +95,28 @@ namespace WebApplication1.View
             Session.Clear();
             Session.Abandon();
             Response.Redirect("index.aspx");
+        }
+        [STAThreadAttribute]
+        protected void changeProfile_click(object sender, EventArgs e)
+        {
+            getFile();
+        }
+        protected  void getFile()
+        {
+            try
+            {
+                OpenFileDialog openFd = new OpenFileDialog();
+                openFd.Filter = "Images only | *.jpg; *.png";
+                if (openFd.ShowDialog() == DialogResult.OK)
+                {
+                    imgLocation = openFd.FileName.ToString();
+                    imageProfile.ImageUrl = openFd.FileName;
+                }
+            }
+            catch(Exception e)
+            {
+
+            }
         }
     }
 }

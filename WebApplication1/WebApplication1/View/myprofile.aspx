@@ -36,17 +36,18 @@
                             </div>
                         </nav>
                     </div>
-                    <div class="titleHeader">
-                        My Profile           
-                    </div>
-                    <div class="profilePicture">
-                        <img src="../img/telor2.jpg" class="pp"/>
-                    </div>
-                    <div class="subHeader">
-                        Welcome Kevin Tan, Your lover Cliff miss you.      
-                    </div>
+                    
                     <%if (Session["editProfile"] == null) { %>
-                    <form id="form1" runat="server" >
+                    <form id="form1" runat="server" > 
+                        <div class="titleHeader">
+                            My Profile           
+                        </div>
+                        <div class="profilePicture">
+                            <img src="../img/telor2.jpg" class="pp"/>
+                        </div>
+                        <div class="subHeader">
+                            Welcome Kevin Tan, love you too Cliff.
+                        </div>                      
                         <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstName" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
@@ -63,6 +64,16 @@
                     <% }
                      else { %>
                     <form id="form2" runat="server" >
+                        <div class="titleHeader">
+                            My Profile           
+                        </div>
+                        <div class="profilePicture">
+                            <asp:Image runat="server" ID="imageProfile" CssClass="pp" />
+                        </div>
+                        <div class="subHeader">
+                            Welcome Kevin Tan, love you too Cliff.
+                        </div>   
+                        <asp:Button ID="profBtn" runat="server" Text="Change Profile Picture" class="btn btn-success" OnClick="changeProfile_click"/><br /><br />
                         <asp:TextBox ID="usernameEdit" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled" ></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstNameEdit" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastNameEdit" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />

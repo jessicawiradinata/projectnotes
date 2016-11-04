@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System.Text;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace WebApplication1.View
 {
@@ -9,7 +10,8 @@ namespace WebApplication1.View
     {
         const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
         MySqlConnection conn = new MySqlConnection(connectionString);
-
+        private static Regex regUser = new Regex(@"[a-zA-Z0-9]{6,16}", RegexOptions.Compiled);
+        private static Regex regPass = new Regex(@"[a-zA-Z0-9]{6,16}", RegexOptions.Compiled);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["name"] != null)
@@ -127,6 +129,7 @@ namespace WebApplication1.View
             conn.Close();
             return false;            
         }
+
     }
 
 }
