@@ -34,13 +34,25 @@ namespace WebApplication1.View
             String dateField = today.ToString("yyyy-MM-dd");
             String categoryField = categoryList.SelectedItem.Text;
             String visibilityField = visibilityList.SelectedItem.Text;
-            const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
-            conn.Open();
-            MySqlCommand cmd = new MySqlCommand("insert into notes (titleNotes, descriptionNotes, creatorNotes, dateNotes, category, visibility) values ('" + titleField + "','" + descriptionField + "','" + creatorField + "','" + dateField + "','" + categoryField + "','" + visibilityField + "')", conn);
-            cmd.ExecuteNonQuery();
-            cmd.Clone();
-            Response.Redirect("main.aspx");
+
+            if(categoryField.Equals("Select Category"))
+            {
+                Session["categoryField"] = "Please select a category";
+            }
+            else if(visibilityField.Equals("Select Visibility"))
+            {
+                Session["visibilityField"] = "Please select a visibility setting";
+            }
+            else
+            {
+                const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("insert into notes (titleNotes, descriptionNotes, creatorNotes, dateNotes, category, visibility) values ('" + titleField + "','" + descriptionField + "','" + creatorField + "','" + dateField + "','" + categoryField + "','" + visibilityField + "')", conn);
+                cmd.ExecuteNonQuery();
+                cmd.Clone();
+                Response.Redirect("main.aspx");
+            }           
         }
 
         protected void logout_Click(object sender, EventArgs e)
@@ -52,8 +64,9 @@ namespace WebApplication1.View
 
         protected void populateCategoryList()
         {
-            if (!IsPostBack)
+            if(!IsPostBack)
             {
+                ListItem selectItem = new ListItem("Select Category");
                 ListItem educationItem = new ListItem("Education");
                 ListItem entertainmentItem = new ListItem("Entertainment");
                 ListItem gamingItem = new ListItem("Gaming");
@@ -66,6 +79,7 @@ namespace WebApplication1.View
                 ListItem sportsItem = new ListItem("Sports");
                 ListItem travelItem = new ListItem("Travel & Events");
 
+                categoryList.Items.Add(selectItem);
                 categoryList.Items.Add(educationItem);
                 categoryList.Items.Add(entertainmentItem);
                 categoryList.Items.Add(gamingItem);
@@ -82,11 +96,16 @@ namespace WebApplication1.View
 
         protected void populateVisibilityList()
         {
-            ListItem privateItem = new ListItem("Private");
-            ListItem publicItem = new ListItem("Public");
+            if(!IsPostBack)
+            {
+                ListItem selectItem = new ListItem("Select Visibility");
+                ListItem privateItem = new ListItem("Private");
+                ListItem publicItem = new ListItem("Public");
 
-            visibilityList.Items.Add(privateItem);
-            visibilityList.Items.Add(publicItem);
+                visibilityList.Items.Add(selectItem);
+                visibilityList.Items.Add(privateItem);
+                visibilityList.Items.Add(publicItem);
+            }
         }
     }
 }
