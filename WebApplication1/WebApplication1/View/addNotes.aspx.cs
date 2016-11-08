@@ -28,7 +28,7 @@ namespace WebApplication1.View
         protected void submitBtn_Click(object sender, EventArgs e)
         {
             String titleField = title.Text;
-            String descriptionField = description.Text;
+            String descriptionField = content.InnerText;
             String creatorField = creator.Text;
             DateTime today = DateTime.Today;
             String dateField = today.ToString("yyyy-MM-dd");
