@@ -40,8 +40,8 @@
                                     <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
                                 </div>
                                 <div class="nav navbar-nav navbar-right">
-                                    <li>
-                                        <a href="addNotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
+                                    <li class="active">
+                                        <a href="addNotes.aspx" style=" font-family: 'Droid Sans', sans-serif;" >
                                             <b>Add Notes</b>
                                         </a>
                                     </li>
@@ -70,8 +70,8 @@
                         <asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Description Notes" required="required" ></asp:TextBox><br /><br />
                         <asp:TextBox ID="creator" runat="server" name="creator" class="inputField" placeholder="Creator" required="required" disabled="disabled"> </asp:TextBox><br /><br />
                         <asp:TextBox ID="dates" runat="server" name="postdate" class="inputField" placeholder="Date of Notes" required="required" disabled ="disabled" ></asp:TextBox><br /><br />
-                        <asp:DropDownList ID="categoryList" runat="server"></asp:DropDownList><br /><br />
-                        <asp:DropDownList ID="visibilityList" runat="server"></asp:DropDownList><br /><br />
+                        <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList"></asp:DropDownList><br /><br />
+                        <asp:DropDownList ID="visibilityList" runat="server" CssClass="categoryList"></asp:DropDownList><br /><br />
                         <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" OnClick="submitBtn_Click" />
                         <%if (Session["categoryField"] != null) { %>
                             <div class="alert alert-danger" style="margin-top:1em;">
