@@ -56,15 +56,15 @@
                         <div class="titleHeader">
                             Public Notes            
                         </div>
-                        <div>
-                            <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator"></asp:TextBox>
-                            <asp:Button ID="SearchBtn" runat="server" Text="Search" onclick="search_Click" />
+                        <div style="float:left;" class="filter">
+                            <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:20em; margin-left:15em"></asp:TextBox>
+                            <asp:Button ID="SearchBtn" runat="server" Text="Search" onclick="search_Click" class="btn btn-default" />
                         </div>
-                        <div class="filter">
-                            <asp:DropDownList ID="categoryList" runat="server"></asp:DropDownList>
+                        <div class="filter" style="float:left; margin-left:5em;">
+                            <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList" style="width:20em"></asp:DropDownList>
                             <asp:Button ID ="filterBtn" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
                         </div>
-                        <div class="itemList">
+                        <div class="itemList" style="clear:both">
                             <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                 <ItemTemplate>
                                         <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">

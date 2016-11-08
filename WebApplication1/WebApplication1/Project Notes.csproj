@@ -146,6 +146,7 @@
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\style.js" />
     <Content Include="View\accountSettings.aspx" />
     <Content Include="View\addNotes.aspx" />
     <Content Include="View\editProfile.aspx" />

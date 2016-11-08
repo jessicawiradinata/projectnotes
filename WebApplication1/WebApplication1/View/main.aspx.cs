@@ -150,7 +150,7 @@ namespace WebApplication1.View
             MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
             adapter.Fill(table);
             notesList.DataSource = table;
-            notesList.DataBind();
+            notesList.DataBind(); 
         }
     }
 }

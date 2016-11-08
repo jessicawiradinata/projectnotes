@@ -25,7 +25,7 @@
                                 <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
                                     <b>My Profile</b>
                                 </a></li>
-                                <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
+                                <li class="active"><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
                                     <b>Account</b>
                                 </a></li>
                                 <li>

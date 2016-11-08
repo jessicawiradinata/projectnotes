@@ -25,7 +25,6 @@
 {
     width: 50em;
     height: 60em;
-    
 }
 
 .titleHeader
@@ -104,6 +103,11 @@
     color:white !important;
     font-weight:bold;
     font-size:1.8em;
+}
+
+.brand:hover
+{
+    color:#E1EBFF !important;
 }
 
 .navbar 
@@ -334,6 +338,7 @@
 	border-radius:4.5px;
     margin-left:27.3em;
     margin-bottom:1em;
+    margin:auto;
 }
 
 .submitBtn:hover
@@ -483,6 +488,11 @@
     margin-top:3%;
 }
 
+.filter
+{
+    margin-bottom:3em;
+}
+
 /* note detail page*/
 
 .backgroundDetails
@@ -517,4 +527,13 @@
     font-size: 4em; 
     padding-bottom: 0.3em;
     font-weight:bold;
+}
+
+/* Add Notes Page*/
+
+.categoryList
+{
+    margin:auto;
+    width:27.5em;
+    padding:0.7em 0.5em;
 }
