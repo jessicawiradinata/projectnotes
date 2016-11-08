@@ -40,12 +40,18 @@
                     </div>
                     <label for="username" class="accountLabel">Username:</label>
                     <asp:TextBox ID="username" runat="server" name="username" class="inputField" disabled="disabled"></asp:TextBox><br /><br />
+                    
                     <label for="currentPassword" class="accountLabel">Current password:</label>
-                    <asp:TextBox ID="currentPassword" TextMode="Password" runat="server" name="currentPassword" class="inputField" required="required"></asp:TextBox><br /><br />
+                    <asp:TextBox ID="currentPassword" TextMode="Password" runat="server" name="currentPassword" class="inputField" required="required"></asp:TextBox><br /><br />                    
+
                     <label for="newPassword" class="accountLabel">New password:</label>
                     <asp:TextBox ID="newPassword" TextMode="Password" runat="server" name="newPassword" class="inputField" required="required"></asp:TextBox><br /><br />
+                    <asp:RegularExpressionValidator runat="server" id="newpassValidator" controltovalidate="newPassword" validationexpression="[\S]{6,18}" errormessage="Please enter a valid password" /><br /><br />
+                    
                     <label for="confirmPassword" class="accountLabel">Confirm new password:</label>
                     <asp:TextBox ID="confirmPassword" TextMode="Password" runat="server" name="confirmPassword" class="inputField" required="required"></asp:TextBox><br /><br />
+                    <asp:CompareValidator ID="CompareValidator" runat="server" ControlToValidate="confirmPassword" ControlToCompare="newPassword" ErrorMessage="New password does not match"/>
+                    
                     <div class="buttonsAccount">
                         <asp:Button ID="saveBtn" runat="server" Text="Save Changes" OnClick="save_click" CssClass="submitBtn" />
                     </div>
