@@ -57,7 +57,9 @@
         <div class="modal-dialog">
             <div class="modal-content" style="margin-top:20em; height:26em ">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <h3 class="modal-title titleModal">Login</h3>
                 </div>
                 <div class="modal-body" style="margin-left: 10px; margin-right: 10px;">
