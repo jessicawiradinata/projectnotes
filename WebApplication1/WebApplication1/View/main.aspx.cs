@@ -68,6 +68,7 @@ namespace WebApplication1.View
                 privateList.DataSource = table;
                 privateList.DataBind();
                 conn.Close();
+
             }
             
         }
