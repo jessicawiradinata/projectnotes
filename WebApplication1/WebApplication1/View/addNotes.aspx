@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addNotes.aspx.cs" Inherits="WebApplication1.View.addNotes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addNotes.aspx.cs" Inherits="WebApplication1.View.addNotes" ValidateRequest="false" %>
 
 <!DOCTYPE html>
 
@@ -67,7 +67,8 @@
                             Add your notes in here.    
                         </div> 
                         <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title Notes" required="required" ></asp:TextBox><br /><br />
-                        <asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Description Notes" required="required" ></asp:TextBox><br /><br />
+                        <%--<asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Description Notes" required="required" ></asp:TextBox><br /><br />--%>
+                        <textarea id="content" runat="server"></textarea>
                         <asp:TextBox ID="creator" runat="server" name="creator" class="inputField" placeholder="Creator" required="required" disabled="disabled"> </asp:TextBox><br /><br />
                         <asp:TextBox ID="dates" runat="server" name="postdate" class="inputField" placeholder="Date of Notes" required="required" disabled ="disabled" ></asp:TextBox><br /><br />
                         <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList"></asp:DropDownList><br /><br />

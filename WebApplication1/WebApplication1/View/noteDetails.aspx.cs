@@ -52,7 +52,7 @@ namespace WebApplication1.View
                 titleEdit.Text = myTitle;
                 authorEdit.Text = myAuthor;
                 dateEdit.Text = myDate;
-                contentEdit.Text = myContent;
+                textarea1.InnerText = myContent;
             }
             conn.Close();
         }
@@ -80,7 +80,7 @@ namespace WebApplication1.View
         protected void save_click(object sender, EventArgs e)
         {
             String titleField = titleEdit.Text;
-            String contentField = contentEdit.Text;
+            String contentField = textarea1.InnerText;
             String noteId = Request.QueryString["noteID"];
 
             String command = "update project_notes.notes set titleNotes='" + titleField + "',descriptionNotes='" + contentField + "' where idnotes='" + noteId + "' ;";
