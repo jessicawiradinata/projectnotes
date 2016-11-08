@@ -33,14 +33,14 @@
     font-size: 4em; 
     padding-bottom: 0.3em;
     font-weight:bold;
+    font-family:Montserrat;
 }
 
 .subHeader
 {
-    font-family:;
-    font-size: 1.2em;
-    padding-bottom: 1.5em;
-    font-weight:bold;
+    font-family:Montserrat;
+    font-size: 1.15em;
+    padding-bottom: 1.8em;
 }
 
 .registerBtn
@@ -59,6 +59,7 @@
 	background-color: #2ebd59;
 	border: 2px solid #2ebd59;
 	border-radius:4.5px;
+    font-family:Montserrat;
     margin:auto;
 }
 
@@ -75,7 +76,7 @@
     color: #FFF;
 	font-size: 1.2em;
 	text-transform: uppercase;
-	font-family:Arial;
+	font-family:Montserrat;
 	padding: 0.7em 0.8em;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -121,6 +122,25 @@
 .groupBtn
 {
     text-align:center;
+}
+
+/* modal index */
+
+.titleModal
+{
+    text-align:center;
+    font-size:2.5em;
+    margin-top:0.5em;
+}
+
+.inputUser
+{
+    font-size:1.2em;
+    padding-top:1.3em;
+    padding-bottom:1.3em;
+    margin-left:2em;
+    margin-right:1em;
+    width:30em;
 }
 
 /* register page */ 
@@ -181,7 +201,7 @@
     color: #FFF;
 	font-size: 1em;
 	text-transform: uppercase;
-	font-family:Arial;
+	font-family:Montserrat;
 	padding: 0.7em 0.8em;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -216,8 +236,8 @@
 	-o-transition: 0.5s all;
 	display: block;
 	width:80%;
-	background-color: #F91C1C;
-	border: 2px solid #F91C1C;
+	background-color: #DA2D2D;
+	border: 2px solid #DA2D2D;
 	border-radius:4.5px;
     margin-bottom:1em;
     text-align:center;
@@ -229,6 +249,13 @@
 	text-decoration: none;
 	color: white;
 	border: 2px solid rgba(249, 28, 28, 0.8);
+}
+
+.regisLine
+{
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* Profile page */
@@ -277,7 +304,7 @@
     color: #FFF;
 	font-size: 1em;
 	text-transform: uppercase;
-	font-family:arial;
+    font-family:Montserrat;
 	padding: 0.7em 0.8em;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -290,6 +317,14 @@
 	border-radius:4.5px;
     margin-left:27.3em;
     margin-bottom:1em;
+}
+
+.editBtn:hover
+{
+    background-color: rgba(46, 189, 89, 0.8);
+	text-decoration: none;
+	color: white;
+	border: 2px solid rgba(46, 189, 89, 0.9);
 }
 
 .redBtn
@@ -325,7 +360,7 @@
     color: #FFF;
 	font-size: 1em;
 	text-transform: uppercase;
-	font-family:Arial;
+	font-family:Montserrat;
 	padding: 0.7em 0.8em;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -380,11 +415,12 @@
 
 .titleAccount
 {
-    font-family:;
+    font-family:Montserrat;
     font-size: 4em;
     text-align: center;
     padding-bottom:1.5em;
     font-weight:bold;
+
 }
 
 .accountLabel

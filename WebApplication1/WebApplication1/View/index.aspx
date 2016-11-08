@@ -7,7 +7,7 @@
     <!--link to css-->
     <link href="../css/bootstrap.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <!--link to javascript-->
     <script src="../scripts/jquery-1.9.1.js"></script>
     <script src="../scripts/bootstrap.js"></script>
@@ -55,24 +55,22 @@
     <!--modal for login-->
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="margin-top:20em; height:26em ">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"></button>
-                    <h3 class="modal-title">Login</h3>
+                    <h3 class="modal-title titleModal">Login</h3>
                 </div>
                 <div class="modal-body" style="margin-left: 10px; margin-right: 10px;">
                     <form runat="server" class="form-horizontal">
                         <div class="form-group">
-                            <label>Username:</label>
-                            <asp:TextBox ID="username" runat="server" name="username" class="form-control" placeholder="Username" required="required"></asp:TextBox>
+                            <asp:TextBox ID="username" runat="server" name="username" class="form-control inputUser" placeholder="Username" required="required"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="form-control" placeholder="Password" required="required"></asp:TextBox>    
+                            <asp:TextBox ID="password" TextMode="Password" runat="server" name="password" class="form-control inputUser" placeholder="Password" required="required"></asp:TextBox>    
                         </div>
-                        <div align="right">
-                             <asp:Button ID="loginBtn" runat="server" Text="Login" class="btn btn-primary form-horizontal form-group" OnClick="login_click" required="required"/>
-                             <a runat="server" value="Cancel" href="index.aspx" class="btn btn-danger form-horizontal form-group" style="margin-left:20px">Cancel</a>
+                        <div>
+                             <asp:Button ID="loginBtn" runat="server" style="margin-left:1.3em; width:36em; background-color:#237CDA; border:1px solid #237CDA; text-transform:none" Text="Sign In" class="submitBtn form-horizontal form-group" OnClick="login_click" required="required"/><br />
+                             <a runat="server" value="Cancel" href="index.aspx" class="btn btn-default form-horizontal form-group" style="margin-left:32em;">Cancel</a>
                         </div>
                     </form>
                 </div>

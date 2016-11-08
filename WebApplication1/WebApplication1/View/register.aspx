@@ -7,17 +7,22 @@
     <head runat="server">
         <link href="../css/bootstrap.css" rel="stylesheet" />
         <link href="../css/style.css" rel="stylesheet" />
-        <title></title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>     
+        <title>Register Page</title>
+        <script src="../scripts/jquery-1.9.1.js"></script>
+        <script src="../scripts/bootstrap.js"></script>
+        <script src="../scripts/style.js"></script>
     </head>
     <body>
         <div class="backgroundRegister">
             <div class="paddingProfile">
                 <div class="boxRegister">
-                    <div class="titleRegister">
+                    <div class="titleRegister" style="display:none; padding-bottom:0em;" >
                         Registration
-                    </div>        
+                    </div>
+                    <hr class="regisLine" />
                     <form id="form1" runat="server" >
-                        <div class="contentRegister">
+                        <div class="contentRegister" style="display:none;" >
                             <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required"></asp:TextBox>
                             <asp:Button ID="checkAvail" runat="server" name="check" OnClick="checkAvail_click" Text="Check" CssClass="btn btn-default" formnovalidate="formonvalidate"/>
                             <br /><br />

@@ -7,7 +7,7 @@
     <!--link to css-->
     <link href="../css/bootstrap.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <!--link to javascript-->
     <script src="../scripts/jquery-1.9.1.js"></script>
     <script src="../scripts/bootstrap.js"></script>
