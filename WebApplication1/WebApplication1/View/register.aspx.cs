@@ -62,7 +62,7 @@ namespace WebApplication1.View
             String dobField = dateOfBirth.Text;
             Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
             Boolean usernameEqual = checkUsername(username.Text);
-
+            
             if (passEqual)
             {
                 if (usernameEqual)
