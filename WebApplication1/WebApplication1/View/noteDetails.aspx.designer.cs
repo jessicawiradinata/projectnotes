@@ -55,7 +55,7 @@ namespace WebApplication1.View {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox content;
+        protected global::System.Web.UI.WebControls.Label content;
         
         /// <summary>
         /// editBtn control.
@@ -103,13 +103,13 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.TextBox dateEdit;
         
         /// <summary>
-        /// contentEdit control.
+        /// textarea1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contentEdit;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea textarea1;
         
         /// <summary>
         /// saveBtn control.
