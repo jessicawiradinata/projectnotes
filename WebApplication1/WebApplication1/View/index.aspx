@@ -11,6 +11,7 @@
     <!--link to javascript-->
     <script src="../scripts/jquery-1.9.1.js"></script>
     <script src="../scripts/bootstrap.js"></script>
+    <script src="../scripts/style.js"></script>
 
     <title>Project Notes</title>
 </head>
@@ -34,17 +35,17 @@
                         </div>
                     </nav>
                 </div>
-
-                <div class="titleHeader">
-                    Project Notes              
-                </div>
-                <div class="subHeader">
-                    Project scheduler offers services to organize your notes
-               
-                </div>
-                <div class="groupBtn">
-                    <a href="register.aspx" class="registerBtn" style="margin-bottom:1em;">Register Now</a>
-                    <a href="#" class="learnmoreBtn">Learn More</a>
+                <div class="contentIndex" style="display:none;">
+                    <div class="titleHeader">
+                        Project Notes              
+                    </div>
+                    <div class="subHeader">
+                        Project scheduler offers services to organize your notes               
+                    </div>
+                    <div class="groupBtn">
+                        <a href="register.aspx" class="registerBtn" style="margin-bottom:1em;">Register Now</a>
+                        <a href="#" class="learnmoreBtn">Learn More</a>
+                    </div>
                 </div>
             </div>
         </div>

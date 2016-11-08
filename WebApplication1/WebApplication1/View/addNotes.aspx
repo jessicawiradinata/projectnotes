@@ -11,6 +11,22 @@
         <!--link to javascript-->
             <script src="../scripts/jquery-1.9.1.js"></script>
             <script src="../scripts/bootstrap.js"></script>
+            <script src="../scripts/tinymce/tinymce.min.js"></script>
+
+            <script type="text/javascript">
+                tinymce.init({
+                  selector: 'textarea',
+                  height: 500,
+                  plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table contextmenu paste code'
+                  ],
+                  toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                  content_css: '//www.tinymce.com/css/codepen.min.css'
+                });
+           </script>
+
         <title>Add Notes</title>
     </head>
     <body>
@@ -24,8 +40,8 @@
                                     <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
                                 </div>
                                 <div class="nav navbar-nav navbar-right">
-                                    <li>
-                                        <a href="addNotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
+                                    <li class="active">
+                                        <a href="addNotes.aspx" style=" font-family: 'Droid Sans', sans-serif;" >
                                             <b>Add Notes</b>
                                         </a>
                                     </li>
@@ -54,8 +70,8 @@
                         <asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Description Notes" required="required" ></asp:TextBox><br /><br />
                         <asp:TextBox ID="creator" runat="server" name="creator" class="inputField" placeholder="Creator" required="required" disabled="disabled"> </asp:TextBox><br /><br />
                         <asp:TextBox ID="dates" runat="server" name="postdate" class="inputField" placeholder="Date of Notes" required="required" disabled ="disabled" ></asp:TextBox><br /><br />
-                        <asp:DropDownList ID="categoryList" runat="server"></asp:DropDownList><br /><br />
-                        <asp:DropDownList ID="visibilityList" runat="server"></asp:DropDownList><br /><br />
+                        <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList"></asp:DropDownList><br /><br />
+                        <asp:DropDownList ID="visibilityList" runat="server" CssClass="categoryList"></asp:DropDownList><br /><br />
                         <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" OnClick="submitBtn_Click" />
                         <%if (Session["categoryField"] != null) { %>
                             <div class="alert alert-danger" style="margin-top:1em;">

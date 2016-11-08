@@ -28,7 +28,7 @@
                                 <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
                                     <b>Add Notes</b>
                                 </a></li>
-                                <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
+                                <li class="active"><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
                                     <b>My Profile</b>
                                 </a></li>
                                 <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
@@ -57,7 +57,7 @@
                         <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="email" runat="server" name="email" type="email" class="inputField" placeholder="Email" required="required" disabled="disabled"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" disabled="disabled"></asp:TextBox><br /><br />
-                        <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="editBtn" OnClick="edit_click" />
+                        <asp:Button ID="editBtn" runat="server" Text="Edit Profile" class="editBtn" OnClick="edit_click" style="margin:auto;" />
                         <%  if (Session["updatedMessage"] != null) { %>
                             <div class="alert alert-info" style="margin-top:1em;">
                         <%  Response.Write(Session["updatedMessage"]);
@@ -75,14 +75,14 @@
                         <div class="subHeader">
                             Welcome Kevin Tan, love you too Cliff.
                         </div>   
-                        <asp:FileUpload runat="server" ID="uploadImg" class="btn btn-success"/><br /><br />
+                        <asp:FileUpload runat="server" ID="uploadImg" class="btn btn-success" style="display:inline;"/><br /><br />
                         <asp:TextBox ID="usernameEdit" runat="server" name="username" class="inputField" placeholder="Username" required="required" disabled="disabled" ></asp:TextBox><br /><br />
                         <asp:TextBox ID="firstNameEdit" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="lastNameEdit" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="emailEdit" runat="server" name="email" type="email" class="inputField" placeholder="Email" required="required"></asp:TextBox><br /><br />
                         <asp:TextBox ID="dobEdit" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required"></asp:TextBox><br /><br />
-                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="myprofile.aspx"/>
-                        <a href="myProfile.aspx" runat="server" value="Cancel" class="redBtn">Cancel</a>
+                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="myprofile.aspx" style="margin-bottom:1em;" />
+                        <a href="myProfile.aspx" runat="server" value="Cancel" class="redBtn" style="margin:auto;">Cancel</a>
                     <% 
                         Session.Contents.Remove("editProfile");
                         }
