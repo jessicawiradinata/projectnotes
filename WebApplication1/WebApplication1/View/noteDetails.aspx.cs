@@ -21,40 +21,62 @@ namespace WebApplication1.View
             {
                 Response.Redirect("index.aspx");
             }
-
+            
             String myNote = Request.QueryString["noteID"];
-            String command = "select * from project_notes.notes where idnotes='" + myNote + "' ;";
+            String command = "select * from project_notes.notes where idnotes=@id;";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
+            selectCommand.Parameters.AddWithValue("@id", myNote);
             MySqlDataReader myReader;
             conn.Open();
-            myReader = selectCommand.ExecuteReader();
-            String myTitle = "";
-            String myAuthor = "";
-            String myDate = "";
-            String myContent = "";
-            while (myReader.Read())
-            {
-                myTitle = myReader.GetString("titleNotes");
-                myAuthor = myReader.GetString("creatorNotes");
-                myDate = myReader.GetString("dateNotes");
-                myContent = myReader.GetString("descriptionNotes");
-            }
+            int noteExist = Convert.ToInt32(selectCommand.ExecuteScalar());
 
-            if (Session["editNotes"] == null)
+            if (noteExist > 0)
             {
-                title.Text = myTitle;
-                author.Text = myAuthor;
-                date.Text = myDate;
-                content.Text = myContent;
+                myReader = selectCommand.ExecuteReader();
+
+                String myTitle = "";
+                String myAuthor = "";
+                String myDate = "";
+                String myContent = "";
+                while (myReader.Read())
+                {
+                    myTitle = myReader.GetString("titleNotes");
+                    myAuthor = myReader.GetString("creatorNotes");
+                    myDate = myReader.GetString("dateNotes");
+                    myContent = myReader.GetString("descriptionNotes");
+                }
+                    if (Session["name"].Equals(myAuthor))
+                    {
+                        if (Session["editNotes"] == null)
+                        {
+                            title.Text = myTitle;
+                            author.Text = myAuthor;
+                            date.Text = myDate;
+                            content.Text = myContent;
+                        }
+                        else
+                        {
+                            titleEdit.Text = myTitle;
+                            authorEdit.Text = myAuthor;
+                            dateEdit.Text = myDate;
+                            textarea1.InnerText = myContent;
+                        }
+                    }
+                    else
+                    {
+                        title1.Text = myTitle;
+                        author1.Text = myAuthor;
+                        date1.Text = myDate;
+                        content1.Text = myContent;
+                        Session["restrictedUser"] = "restricted";
+                    }
+                
+                conn.Close();
             }
             else
             {
-                titleEdit.Text = myTitle;
-                authorEdit.Text = myAuthor;
-                dateEdit.Text = myDate;
-                textarea1.InnerText = myContent;
+                Response.Redirect("main.aspx");
             }
-            conn.Close();
         }
 
         protected void edit_click(object sender, EventArgs e)

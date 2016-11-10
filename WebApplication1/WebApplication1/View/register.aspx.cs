@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Text;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace WebApplication1.View
 {
@@ -61,19 +62,29 @@ namespace WebApplication1.View
             String lastNameField = lastName.Text;
             String dobField = dateOfBirth.Text;
             Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
-            Boolean usernameEqual = checkUsername(username.Text);
+            Boolean usernameNotFound = checkUsername(username.Text);
+            Boolean emailFound = findEmail(emailField);
             
             if (passEqual)
             {
-                if (usernameEqual)
+                if (usernameNotFound)
                 {
-                    const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
-                    MySqlConnection conn = new MySqlConnection(connectionString);
-                    conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, profilePicture) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','" + "" + "')", conn);
-                    cmd.ExecuteNonQuery();
-                    cmd.Clone();
-                    Session["registerMessage"] = "Your account has been created successfully";
+                    if (!emailFound)
+                    {
+                        const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
+                        MySqlConnection conn3 = new MySqlConnection(connectionString);
+                        conn3.Open();
+                        MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated, profilePicture) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','0','');", conn3);
+                        cmd.ExecuteNonQuery();
+                        cmd.Clone();
+                        Session["registerMessage"] = "Your account has been created successfully";
+                        sendVerification();
+                        Response.Redirect("index.aspx");
+                    }
+                    else
+                    {
+                        Session["emailMessage"] = "Email already in use";
+                    }
                 }
                 else
                 {
@@ -110,7 +121,30 @@ namespace WebApplication1.View
 
         public Boolean checkUsername(string username1)
         {
+            MySqlConnection conn2 = new MySqlConnection(connectionString);
             String command = "select * from project_notes.users where username='" + username1 + "' ;";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn2);
+
+            MySqlDataReader myReader;
+            conn2.Open();
+            myReader = selectCommand.ExecuteReader();
+
+            int count = 0;
+            while(myReader.Read())
+            {
+                count = count + 1;
+            }
+            if(count == 0 && string.IsNullOrEmpty(username1) == false)
+            {
+                return true;
+            }
+            conn2.Close();
+            return false;            
+        }
+
+        public Boolean findEmail(string theEmail)
+        {
+            String command = "select * from project_notes.users where email='" + theEmail + "';";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
 
             MySqlDataReader myReader;
@@ -118,16 +152,36 @@ namespace WebApplication1.View
             myReader = selectCommand.ExecuteReader();
 
             int count = 0;
-            while (myReader.Read())
+            while(myReader.Read())
             {
                 count = count + 1;
             }
-            if (count == 0 && string.IsNullOrEmpty(username1) == false)
+            if(count == 0 && string.IsNullOrEmpty(theEmail) == false)
             {
-                return true;
+                return false;
             }
             conn.Close();
-            return false;            
+            return true;
+        }
+
+        public void sendVerification()
+        {
+            MailMessage message = new MailMessage();
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+
+            String activateLink = "activation.aspx?username=" + username.Text;
+
+            message.From = new MailAddress("projectnotes123@gmail.com");
+            message.To.Add(email.Text);
+            message.Subject = "Project Notes Account Activation";
+            message.Body = "Hi " + firstName.Text + ",<br /><br />Thank you for registering with Project Notes. Please activate your account by <a href = '" + activateLink + "'> clicking here</a>.<br /><br /> Cheers, <br />Project Notes Team";
+            message.IsBodyHtml = true;
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = true;
+            client.Credentials = new System.Net.NetworkCredential("projectnotes123@gmail.com", "brandoncramer");
+            client.Send(message);
         }
 
     }

@@ -322,6 +322,7 @@
     <Content Include="scripts\tinymce\tinymce.js" />
     <Content Include="scripts\tinymce\tinymce.min.js" />
     <Content Include="View\accountSettings.aspx" />
+    <Content Include="View\activation.aspx" />
     <Content Include="View\addNotes.aspx" />
     <Content Include="View\editProfile.aspx" />
     <Content Include="View\index.aspx" />
@@ -339,6 +340,13 @@
     </Compile>
     <Compile Include="View\accountSettings.aspx.designer.cs">
       <DependentUpon>accountSettings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\activation.aspx.cs">
+      <DependentUpon>activation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\activation.aspx.designer.cs">
+      <DependentUpon>activation.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\addNotes.aspx.cs">
       <DependentUpon>addNotes.aspx</DependentUpon>

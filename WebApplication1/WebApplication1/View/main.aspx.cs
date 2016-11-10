@@ -31,7 +31,7 @@ namespace WebApplication1.View
             {
                 conn.Open();
                 String myUsername = (string)Session["name"];
-                String command = "select * from project_notes.notes where visibility='public';";
+                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public';";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
@@ -47,12 +47,24 @@ namespace WebApplication1.View
                 privateList.DataSource = table;
                 privateList.DataBind();
                 conn.Close();
+
+                Boolean privateNotesFound = findPrivateNotes(myUsername);
+                Boolean publicNotesFound = findPublicNotes();
+
+                if(!privateNotesFound)
+                {
+                    Session["noPrivateNotes"] = "No private notes";
+                }
+                if(!publicNotesFound)
+                {
+                    Session["noPublicNotes"] = "No public notes";
+                }
             }
             else
             {
                 conn.Open();
                 String myUsername = (string)Session["name"];
-                String command = "select * from project_notes.notes where visibility='public' and category='" + filter + "' ;";
+                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' and category='" + filter + "' ;";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
@@ -68,7 +80,6 @@ namespace WebApplication1.View
                 privateList.DataSource = table;
                 privateList.DataBind();
                 conn.Close();
-
             }
             
         }
@@ -83,6 +94,7 @@ namespace WebApplication1.View
         protected void public_Click(object sender, EventArgs e)
         {
             Session.Contents.Remove("private");
+            Response.Redirect("main.aspx");
         }
 
         protected void private_Click(object sender, EventArgs e)
@@ -151,6 +163,50 @@ namespace WebApplication1.View
             adapter.Fill(table);
             notesList.DataSource = table;
             notesList.DataBind(); 
+        }
+
+        protected Boolean findPublicNotes()
+        {
+            MySqlConnection conn2 = new MySqlConnection(connectionString);
+            String command = "select * from project_notes.notes where visibility='public';";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn2);
+            MySqlDataReader myReader;
+            conn2.Open();
+            myReader = selectCommand.ExecuteReader();
+
+            int count = 0;
+            while(myReader.Read())
+            {
+                count = count + 1;
+            }
+            if(count == 0)
+            {
+                return false;
+            }
+            conn2.Close();
+            return true;
+        }
+
+        protected Boolean findPrivateNotes(string theUsername)
+        {
+            MySqlConnection conn3 = new MySqlConnection(connectionString);
+            String command = "select * from project_notes.notes where creatorNotes='" + theUsername + "';";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn3);
+            MySqlDataReader myReader;
+            conn3.Open();
+            myReader = selectCommand.ExecuteReader();
+
+            int count = 0;
+            while(myReader.Read())
+            {
+                count = count + 1;
+            }
+            if(count == 0)
+            {
+                return false;
+            }
+            conn3.Close();
+            return true;
         }
     }
 }
