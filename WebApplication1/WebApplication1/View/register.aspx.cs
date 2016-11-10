@@ -74,7 +74,7 @@ namespace WebApplication1.View
                         const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
                         MySqlConnection conn3 = new MySqlConnection(connectionString);
                         conn3.Open();
-                        MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','0');", conn3);
+                        MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated, profilePicture) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','0','');", conn3);
                         cmd.ExecuteNonQuery();
                         cmd.Clone();
                         Session["registerMessage"] = "Your account has been created successfully";
