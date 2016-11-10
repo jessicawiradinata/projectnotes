@@ -58,7 +58,13 @@
                             <%  Response.Write(Session["usernameMessage"]);
                                 Session.Contents.Remove("usernameMessage"); %>
                                 </div>
+                            <% } else if (Session["emailMessage"] != null) { %>  
+                                <div class="alert alert-danger" style="margin-top:10%;margin-right:28.5%">
+                            <%  Response.Write(Session["emailMessage"]);
+                                Session.Contents.Remove("emailMessage"); %>
+                                </div>
                             <% } %>
+
                         </div>
                     </form>
                 </div> 

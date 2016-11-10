@@ -62,20 +62,29 @@ namespace WebApplication1.View
             String lastNameField = lastName.Text;
             String dobField = dateOfBirth.Text;
             Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
-            Boolean usernameEqual = checkUsername(username.Text);
+            Boolean usernameNotFound = checkUsername(username.Text);
+            Boolean emailFound = findEmail(emailField);
             
             if (passEqual)
             {
-                if (usernameEqual)
+                if (usernameNotFound)
                 {
-                    const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
-                    MySqlConnection conn = new MySqlConnection(connectionString);
-                    conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','0');", conn);
-                    cmd.ExecuteNonQuery();
-                    cmd.Clone();
-                    Session["registerMessage"] = "Your account has been created successfully";
-                    sendVerification();
+                    if (!emailFound)
+                    {
+                        const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
+                        MySqlConnection conn3 = new MySqlConnection(connectionString);
+                        conn3.Open();
+                        MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','0');", conn3);
+                        cmd.ExecuteNonQuery();
+                        cmd.Clone();
+                        Session["registerMessage"] = "Your account has been created successfully";
+                        sendVerification();
+                        Response.Redirect("index.aspx");
+                    }
+                    else
+                    {
+                        Session["emailMessage"] = "Email already in use";
+                    }
                 }
                 else
                 {
@@ -112,7 +121,30 @@ namespace WebApplication1.View
 
         public Boolean checkUsername(string username1)
         {
+            MySqlConnection conn2 = new MySqlConnection(connectionString);
             String command = "select * from project_notes.users where username='" + username1 + "' ;";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn2);
+
+            MySqlDataReader myReader;
+            conn2.Open();
+            myReader = selectCommand.ExecuteReader();
+
+            int count = 0;
+            while(myReader.Read())
+            {
+                count = count + 1;
+            }
+            if(count == 0 && string.IsNullOrEmpty(username1) == false)
+            {
+                return true;
+            }
+            conn2.Close();
+            return false;            
+        }
+
+        public Boolean findEmail(string theEmail)
+        {
+            String command = "select * from project_notes.users where email='" + theEmail + "';";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
 
             MySqlDataReader myReader;
@@ -120,16 +152,16 @@ namespace WebApplication1.View
             myReader = selectCommand.ExecuteReader();
 
             int count = 0;
-            while (myReader.Read())
+            while(myReader.Read())
             {
                 count = count + 1;
             }
-            if (count == 0 && string.IsNullOrEmpty(username1) == false)
+            if(count == 0 && string.IsNullOrEmpty(theEmail) == false)
             {
-                return true;
+                return false;
             }
             conn.Close();
-            return false;            
+            return true;
         }
 
         public void sendVerification()
