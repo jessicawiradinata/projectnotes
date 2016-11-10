@@ -17,7 +17,7 @@
 </head>
 <body>
     <!--background-->
-    <div class="background">
+    <div class="backgrounds">
         <div class="paddingBackground">
             <div class="contentHeader">
                 <div class="navbar-header">
@@ -48,6 +48,48 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="indexContent">
+        <div class="paddingContent">      
+            <div class="descriptionNotes" style="padding-left:17em; display:none;" >
+                <p class="titleDesc">What's on Project Notes</p>
+                <p class="captionDesc">Create your own notes</p>
+                <p class="desc">In Project notes, you can make a to-do list and reminder toward them where you can access easily.</p>
+                <p class="captionDesc">Save your notes in list</p>
+                <p class="desc">Capture your note once and you can directly put into your note list. In here, you can edit and delete your note accessed by every devices that you used.</p>
+                <p class="captionDesc">Share your notes to public</p>
+                <p class="desc">you can share the notes that you have created to public people. Capture your life moment and share to them or collaborate with other people.</p>
+            </div>
+            <div class="descriptionPict" style="display:none;">
+                <img src="../img/notes.png" class="notesPict" />
+            </div>
+            <div class="descIllustration" style="display:none;" >
+                <img src="../img/proj.jpg" class="illusPict" />
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="paddingFooter">
+            <div class="titleFooter">
+                Project Notes
+            </div>
+            <div class="linkFooter">
+                <p class="captionLink">Useful Links</p>
+                <ul>
+                    <li class="ulink">About</li>
+                    <li class="ulink">News</li>
+                    <li class="ulink">Home</li>
+                    <li class="ulink">Help</li>
+                </ul>
+            </div>
+            <div class="socmedIcon">
+                <a href="#"><img src="../img/fb.png" class="socLogo" /></a>
+                <a href="#"><img src="../img/tw.png" class="socLogo" /></a>
+                <a href="#"><img src="../img/email.png" class="socLogo" /></a>
+            </div>
+            <div style="clear:both;"></div>
         </div>
     </div>
     <!--background section ends here-->
