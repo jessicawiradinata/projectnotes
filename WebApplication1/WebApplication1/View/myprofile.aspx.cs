@@ -47,7 +47,7 @@ namespace WebApplication1.View
                 firstName.Text = myFirstName;
                 lastName.Text = myLastName;
                 dateOfBirth.Text = dob;
-                email.Text = (profPicture);
+                email.Text = myEmail;
                 profPic.ImageUrl = (profPicture);
             }
             else
