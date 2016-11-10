@@ -31,7 +31,7 @@ namespace WebApplication1.View
             {
                 conn.Open();
                 String myUsername = (string)Session["name"];
-                String command = "select * from project_notes.notes where visibility='public';";
+                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public';";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
@@ -52,7 +52,7 @@ namespace WebApplication1.View
             {
                 conn.Open();
                 String myUsername = (string)Session["name"];
-                String command = "select * from project_notes.notes where visibility='public' and category='" + filter + "' ;";
+                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' and category='" + filter + "' ;";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);

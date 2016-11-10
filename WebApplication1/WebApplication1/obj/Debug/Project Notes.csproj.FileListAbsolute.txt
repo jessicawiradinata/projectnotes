@@ -65,7 +65,6 @@ C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebAp
 C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebApplication1\WebApplication1\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebApplication1\WebApplication1\bin\Microsoft.ApplicationInsights.xml
 C:\Users\timothyalfares\Documents\Visual Studio 2015\Projects\projectnotes\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\HP\Source\Repos\projectnotes\WebApplication1\WebApplication1\obj\Debug\Project Notes.csprojResolveAssemblyReference.cache
 D:\GitHub\projectnotes\WebApplication1\WebApplication1\bin\ApplicationInsights.config
 D:\GitHub\projectnotes\WebApplication1\WebApplication1\bin\roslyn\csc.exe
 D:\GitHub\projectnotes\WebApplication1\WebApplication1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -100,3 +99,4 @@ D:\GitHub\projectnotes\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Pro
 D:\GitHub\projectnotes\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 D:\GitHub\projectnotes\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
 D:\GitHub\projectnotes\WebApplication1\WebApplication1\obj\Debug\Project Notes.csprojResolveAssemblyReference.cache
+C:\Users\HP\Source\Repos\projectnotes\WebApplication1\WebApplication1\obj\Debug\Project Notes.csprojResolveAssemblyReference.cache

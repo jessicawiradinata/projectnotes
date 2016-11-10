@@ -21,7 +21,7 @@ namespace WebApplication1.View
             {
                 Response.Redirect("index.aspx");
             }
-
+            
             String myNote = Request.QueryString["noteID"];
             String command = "select * from project_notes.notes where idnotes='" + myNote + "' ;";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
@@ -39,20 +39,30 @@ namespace WebApplication1.View
                 myDate = myReader.GetString("dateNotes");
                 myContent = myReader.GetString("descriptionNotes");
             }
-
-            if (Session["editNotes"] == null)
+            if (Session["name"].Equals(myAuthor))
             {
-                title.Text = myTitle;
-                author.Text = myAuthor;
-                date.Text = myDate;
-                content.Text = myContent;
+                if (Session["editNotes"] == null)
+                {
+                    title.Text = myTitle;
+                    author.Text = myAuthor;
+                    date.Text = myDate;
+                    content.Text = myContent;
+                }
+                else
+                {
+                    titleEdit.Text = myTitle;
+                    authorEdit.Text = myAuthor;
+                    dateEdit.Text = myDate;
+                    textarea1.InnerText = myContent;
+                }
             }
             else
             {
-                titleEdit.Text = myTitle;
-                authorEdit.Text = myAuthor;
-                dateEdit.Text = myDate;
-                textarea1.InnerText = myContent;
+                title1.Text = myTitle;
+                author1.Text = myAuthor;
+                date1.Text = myDate;
+                content1.Text = myContent;
+                Session["restrictedUser"] = "restricted";
             }
             conn.Close();
         }

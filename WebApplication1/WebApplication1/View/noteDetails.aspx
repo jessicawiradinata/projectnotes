@@ -15,17 +15,17 @@
         <script src="../scripts/tinymce/tinymce.min.js"></script>
 
         <script type="text/javascript">
-                tinymce.init({
-                  selector: 'textarea',
-                  height: 500,
-                  plugins: [
-                    'advlist autolink lists link image charmap print preview anchor',
-                    'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table contextmenu paste code'
-                  ],
-                  toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-                  content_css: '//www.tinymce.com/css/codepen.min.css'
-                });
+            tinymce.init({
+                selector: 'textarea',
+                height: 500,
+                plugins: [
+                  'advlist autolink lists link image charmap print preview anchor',
+                  'searchreplace visualblocks code fullscreen',
+                  'insertdatetime media table contextmenu paste code'
+                ],
+                toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                content_css: '//www.tinymce.com/css/codepen.min.css'
+            });
            </script>
 
         <title>Note Details</title>
@@ -60,8 +60,10 @@
                     <div class="titleDetail">
                         Note Details
                     </div>
-                    <%if (Session["editNotes"] == null)
-                        { %>
+                    <%if (Session["restrictedUser"] == null)
+                        {
+                            if (Session["editNotes"] == null)
+                            { %>
                             <div>
                                 <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
                                 <asp:TextBox ID="author" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
@@ -69,14 +71,17 @@
                                 <asp:Label ID="content" runat="server"></asp:Label><br /><br />
                                 <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" />
                                 <asp:Button ID="deleteBtn" runat="server" Text="Delete" class="redBtn" OnClick="delete_click" href="main.aspx"/>
-                                 <%if (Session["updatedNotes"] != null) { %>
+                                 <%if (Session["updatedNotes"] != null)
+                                     { %>
                                     <div class="alert alert-info" style="margin-top:1em;">
                                         <%Response.Write(Session["updatedNotes"]);
-                                          Session.Contents.Remove("updatedNotes"); %>
+                                            Session.Contents.Remove("updatedNotes"); %>
                                     </div>
                                 <% } %>
                             </div>
-                    <% } else { %>
+                    <% }
+                        else
+                        { %>
                                 <div style="overflow:auto">
                                     <asp:TextBox ID="titleEdit" runat="server" name="titleEdit" class="inputField" placeholder="Title" ></asp:TextBox><br /><br />
                                     <asp:TextBox ID="authorEdit" runat="server" name="authorEdit" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
@@ -87,8 +92,21 @@
                                     <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="redBtn" OnClick="cancel_click" href="noteDetails.aspx"/>
                                 </div>
                     <%
-                            Session.Contents.Remove("editNotes");
-                        } 
+                                Session.Contents.Remove("editNotes");
+                            }
+                        }
+                        else
+                        {
+                    %>
+                            <div>
+                                <asp:TextBox ID="title1" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:TextBox ID="author1" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:TextBox ID="date1" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:Label ID="content1" runat="server"></asp:Label><br /><br />
+                            </div>
+                    <%
+                            Session.Contents.Remove("restrictedUser");
+                        }
                     %>
                 </div>
             </div>

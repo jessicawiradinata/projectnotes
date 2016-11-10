@@ -38,7 +38,7 @@
                                     <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
                                     </asp:LinkButton>
                                 </li>
-                            </div>
+                            <%--</div>--%>
                         </nav>
                     </div>
                     

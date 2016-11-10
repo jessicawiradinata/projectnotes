@@ -47,7 +47,7 @@ namespace WebApplication1.View
                 firstName.Text = myFirstName;
                 lastName.Text = myLastName;
                 dateOfBirth.Text = dob;
-                email.Text = (profPicture);
+                email.Text = myEmail;
                 profPic.ImageUrl = (profPicture);
             }
             else
@@ -83,7 +83,7 @@ namespace WebApplication1.View
             String FileName = imageProfile.ImageUrl;
             if (uploadImg.PostedFile != null)
             {
-                FileName = Path.GetFileName("images/" + uploadImg.FileName);
+                FileName = Path.GetFileName("/images/" + uploadImg.FileName);
                 //Save files to images folder
                 try
                 {
