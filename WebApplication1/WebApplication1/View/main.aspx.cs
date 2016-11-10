@@ -83,6 +83,7 @@ namespace WebApplication1.View
         protected void public_Click(object sender, EventArgs e)
         {
             Session.Contents.Remove("private");
+            Response.Redirect("main.aspx");
         }
 
         protected void private_Click(object sender, EventArgs e)
