@@ -52,70 +52,90 @@
                                 </nav>
                             </div>
                         <%if (Session["private"] == null)
-                            { %>
-                        <div class="titleHeader">
-                            Public Notes            
-                        </div>
-                        <div class="row">
-                        <div style="margin-left:15em;float:left;" class="filter">
-                            <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:20em;"></asp:TextBox>
-                            <asp:Button ID="SearchBtn" runat="server" Text="Search" onclick="search_Click" class="btn btn-default" />
-                        </div>
-                        <div class="filter" style="margin-right:15em;float:right;">
-                            <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList" style="width:20em;"></asp:DropDownList>
-                            <asp:Button ID ="filterBtn" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
-                        </div>
+                        { %>
+                            <div class="titleHeader">
+                                Public Notes            
                             </div>
-                        <div class="row">
-                            <h3>Still have no notes? Click the button below to add your own notes</h3>
-                            <a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;" class="btn btn-primary">
-                                <b>Add Your Notes</b>
-                            </a>
-                        </div>
-                        <div class="itemList" style="clear:both">
-                            <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
-                                <ItemTemplate>
-                                        <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 36.7em;" runat="server" onclick="detail_Click">
-                                            <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
-                                                <div class="itemSquare">
-                                                    <div class="itemTitle"><%#Eval("titleNotes")%></div>
-                                                    <div class="itemContent"><%#Eval("descriptionNotes")%></div>
-                                                    <div class="itemCreator"><%#Eval("creatorNotes")%></div>
-                                                    <div class="itemContent">
-                                                        <img class="pp" src="<%#Eval("profilePicture") %>"/>
-                                                    </div>
+                            <div class="row">
+                                <div style="margin-left:15em;float:left;" class="filter">
+                                    <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:20em;"></asp:TextBox>
+                                    <asp:Button ID="SearchBtn" runat="server" Text="Search" onclick="search_Click" class="btn btn-default" />
+                                </div>
+                                <div class="filter" style="margin-right:15em;float:right;">
+                                    <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList" style="width:20em;"></asp:DropDownList>
+                                    <asp:Button ID ="filterBtn" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
+                                </div>
+                            </div>
+                            <% if (Session["noPublicNotes"] != null)
+                             {%>
+                                <div class="row">
+                                    <h3>Still have no notes? Click the button below to add your own notes</h3>
+                                    <a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;" class="btn btn-primary">
+                                        <b>Add Your Notes</b>
+                                    </a>
+                                </div>
+                            <% Session.Contents.Remove("noPublicNotes");
+                            }
+                            else
+                            { %>
+                                <div class="itemList" style="clear:both">
+                                    <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
+                                        <ItemTemplate>
+                                                <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 36.7em;" runat="server" onclick="detail_Click">
+                                                    <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
+                                                        <div class="itemSquare">
+                                                            <div class="itemTitle"><%#Eval("titleNotes")%></div>
+                                                            <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                                            <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                                            <div class="itemContent">
+                                                                <img class="pp" src="<%#Eval("profilePicture") %>"/>
+                                                            </div>
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                            </a>
-                                        </div>
-                                </ItemTemplate>
-                            </asp:DataList>
-                        </div>
-                        <% }
+                                        </ItemTemplate>
+                                    </asp:DataList>
+                                </div>
+                        <%  } %>
+                        <%}
                         else
                         { %>
-                        <div class="titleHeader">
-                            My Notes            
-                        </div>
-                        <div class="filter">
-                            <asp:DropDownList ID="categoryList2" runat="server"></asp:DropDownList>
-                            <asp:Button ID ="Button1" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
-                        </div>
-                        <div class="itemList">
-                            <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
-                                <ItemTemplate>
-                                        <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
-                                            <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
-                                                <div class="itemSquare">
-                                                    <div class="itemTitle"><%#Eval("titleNotes")%></div>
-                                                    <div class="itemContent"><%#Eval("descriptionNotes")%></div>
-                                                    <div class="itemCreator"><%#Eval("creatorNotes")%></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                </ItemTemplate>
-                            </asp:DataList>
-                        </div>
-                        <% } %>
+                            <div class="titleHeader">
+                                My Notes            
+                            </div>
+                            <div class="filter">
+                                <asp:DropDownList ID="categoryList2" runat="server"></asp:DropDownList>
+                                <asp:Button ID ="Button1" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
+                            </div>
+                            <% if (Session["noPrivateNotes"] != null)
+                             {%>
+                                <div class="row">
+                                    <h3>Still have no notes? Click the button below to add your own notes</h3>
+                                    <a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;" class="btn btn-primary">
+                                        <b>Add Your Notes</b>
+                                    </a>
+                                </div>
+                            <% Session.Contents.Remove("noPrivateNotes");
+                            }
+                            else
+                            {%>
+                            <div class="itemList">
+                                <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
+                                    <ItemTemplate>
+                                            <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
+                                                <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
+                                                    <div class="itemSquare">
+                                                        <div class="itemTitle"><%#Eval("titleNotes")%></div>
+                                                        <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                                        <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </div>
+                            <%}
+                        } %>
                     </div>
                 </div>
             </div>
