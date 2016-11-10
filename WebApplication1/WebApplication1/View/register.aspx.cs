@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Text;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace WebApplication1.View
 {
@@ -70,10 +71,11 @@ namespace WebApplication1.View
                     const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
                     MySqlConnection conn = new MySqlConnection(connectionString);
                     conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, profilePicture) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','" + "" + "')", conn);
+                    MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','0');", conn);
                     cmd.ExecuteNonQuery();
                     cmd.Clone();
                     Session["registerMessage"] = "Your account has been created successfully";
+                    sendVerification();
                 }
                 else
                 {
@@ -128,6 +130,26 @@ namespace WebApplication1.View
             }
             conn.Close();
             return false;            
+        }
+
+        public void sendVerification()
+        {
+            MailMessage message = new MailMessage();
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+
+            String activateLink = "activation.aspx?username=" + username.Text;
+
+            message.From = new MailAddress("projectnotes123@gmail.com");
+            message.To.Add(email.Text);
+            message.Subject = "Project Notes Account Activation";
+            message.Body = "Hi " + firstName.Text + ",<br /><br />Thank you for registering with Project Notes. Please activate your account by <a href = '" + activateLink + "'> clicking here</a>.<br /><br /> Cheers, <br />Project Notes Team";
+            message.IsBodyHtml = true;
+            client.EnableSsl = true;
+            client.UseDefaultCredentials = true;
+            client.Credentials = new System.Net.NetworkCredential("projectnotes123@gmail.com", "brandoncramer");
+            client.Send(message);
         }
 
     }
