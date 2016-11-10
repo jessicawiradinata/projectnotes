@@ -264,6 +264,41 @@
     margin-bottom:3em;
 }
 
+.twitterBtn
+{
+    color: #FFF;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family:Montserrat;
+	padding: 0.7em 0.8em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: block;
+	width:80%;
+	background-color: #00aced;
+	border: 2px solid #00aced;
+	border-radius:4.5px;
+    margin-bottom:1em;
+    text-align:center;
+}
+
+.testLine
+{
+    border:1px solid #EAEAEA;
+    margin-right:7em;
+}
+
+.email
+{
+    text-align:center;
+    width:27em;
+    margin-bottom:1.5em;
+    font-family:Montserrat;
+    font-size:1.1em;
+}
+
 /* Profile page */
 
 .paddingProfile

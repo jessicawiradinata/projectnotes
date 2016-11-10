@@ -23,8 +23,10 @@
                     <hr class="regisLine" />
                     <form id="form1" runat="server" >
                         <div class="contentRegister" style="display:none;" >
-                            <asp:Button ID="Button2" runat="server" Text="Sign in with Facebook" style="margin-left:0em; width:27.5em; margin-bottom:2em" CssClass="submitBtn" />
-                            <asp:Button ID="Button3" runat="server" Text="Sign in with Google+" style="margin-left:0em; width:27.5em; margin-bottom:2em; background-color:#d34836"  CssClass="cancelBtn"/>
+                            <asp:Button ID="fbBtn" runat="server" Text="Sign up with Facebook" style="margin-left:0em; width:27.5em; margin-bottom:1.25em" CssClass="submitBtn" />
+                            <asp:Button ID="googleBtn" runat="server" Text="Sign up with Google+" style="margin-left:0em; width:27.5em; margin-bottom:1em; background-color:#d34836"  CssClass="cancelBtn"/>
+                            <hr class="testLine" />
+                            <p class="email">Or sign up with your email address</p>                           
                             <asp:TextBox ID="username" runat="server" name="username" class="inputField" placeholder="Username" required="required"></asp:TextBox>
                             <asp:Button ID="checkAvail" runat="server" name="check" OnClick="checkAvail_click" Text="Check" CssClass="btn btn-default" formnovalidate="formonvalidate"/><br /><br />
                             <asp:RegularExpressionValidator runat="server" id="userValidator" controltovalidate="username" validationexpression="[a-zA-Z0-9]{6,18}" errormessage="Please enter a valid username" />
@@ -44,7 +46,7 @@
                             <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" style="clear:both;"></asp:TextBox><br /><br />
                             <p class="notice">By clicking on Sign up, you agree to <a href="#">Project Notes's terms and condition</a> and <a href="#">privacy policy</a></p>
                             <asp:Button ID="Button1" runat="server" Text="Sign up" style="margin-left:0em; width:27.5em" OnClick="register_click" CssClass="editBtn" required="required"/>
-                            <a runat="server" value="Cancel" href="index.aspx" class="btn btn-default" style="margin-top:2em; margin-left:22em;">Cancel</a><br /><br />            
+                            <a runat="server" value="Cancel" href="index.aspx" class="btn btn-default" style="margin-top:1.5em; margin-left:22em;">Cancel</a><br /><br />            
 
                             <%  if (Session["registerMessage"] != null) { %>
                                 <div class="alert alert-success" style="margin-top:10%;margin-right:28.5%">
