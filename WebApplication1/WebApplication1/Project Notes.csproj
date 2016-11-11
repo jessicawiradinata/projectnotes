@@ -324,10 +324,12 @@
     <Content Include="View\accountSettings.aspx" />
     <Content Include="View\activation.aspx" />
     <Content Include="View\addNotes.aspx" />
+    <Content Include="View\addProject.aspx" />
     <Content Include="View\editProfile.aspx" />
     <Content Include="View\index.aspx" />
     <Content Include="View\main.aspx" />
     <Content Include="View\myprofile.aspx" />
+    <Content Include="View\myProjects.aspx" />
     <Content Include="View\noteDetails.aspx" />
     <Content Include="View\register.aspx" />
     <Content Include="Web.config" />
@@ -354,6 +356,13 @@
     </Compile>
     <Compile Include="View\addNotes.aspx.designer.cs">
       <DependentUpon>addNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\addProject.aspx.cs">
+      <DependentUpon>addProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\addProject.aspx.designer.cs">
+      <DependentUpon>addProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\editProfile.aspx.cs">
       <DependentUpon>editProfile.aspx</DependentUpon>
@@ -382,6 +391,13 @@
     </Compile>
     <Compile Include="View\myprofile.aspx.designer.cs">
       <DependentUpon>myprofile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\myProjects.aspx.cs">
+      <DependentUpon>myProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\myProjects.aspx.designer.cs">
+      <DependentUpon>myProjects.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\noteDetails.aspx.cs">
       <DependentUpon>noteDetails.aspx</DependentUpon>
