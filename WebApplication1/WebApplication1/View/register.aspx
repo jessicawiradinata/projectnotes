@@ -13,8 +13,8 @@
         <script src="../scripts/bootstrap.js"></script>
         <script src="../scripts/style.js"></script>
     </head>
-    <body>
-        <div class="backgroundRegister">
+    <body >
+        <div class="backgroundRegister" style="overflow:auto;">
             <div class="paddingProfile">
                 <div class="boxRegister">
                     <div class="titleRegister" style="display:none; padding-bottom:0em; font-size:3.2em;" >
@@ -23,7 +23,7 @@
                     <hr class="regisLine" />
                     <form id="form1" runat="server" >
                         <div class="contentRegister" style="display:none;" >
-                            <asp:Button ID="fbBtn" runat="server" Text="Sign up with Facebook" style="margin-left:0em; width:27.5em; margin-bottom:1.25em" CssClass="submitBtn" />
+                            <asp:Button ID="fbBtn" runat="server" Text="Sign up with Facebook" style="margin-left:0em; width:27.5em; margin-bottom:1.25em;" CssClass="submitBtn"/>
                             <asp:Button ID="googleBtn" runat="server" Text="Sign up with Google+" style="margin-left:0em; width:27.5em; margin-bottom:1em; background-color:#d34836"  CssClass="cancelBtn"/>
                             <hr class="testLine" />
                             <p class="email">Or sign up with your email address</p>                           
@@ -43,8 +43,16 @@
                                 <asp:TextBox ID="firstName" runat="server" name="firstName" class="inputField" placeholder="First Name" required="required" style="width:13em;"></asp:TextBox>
                                 <asp:TextBox ID="lastName" runat="server" name="lastName" class="inputField" placeholder="Last Name" required="required" style="width:13em; margin-left:1em;"></asp:TextBox><br /><br />
                             </div>
-                            <asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" style="clear:both;"></asp:TextBox><br /><br />
-                            <p class="notice">By clicking on Sign up, you agree to <a href="#">Project Notes's terms and condition</a> and <a href="#">privacy policy</a></p>
+                            <div class="" style="clear:both"></div>
+                            <asp:Label runat="server" CssClass="labelProfile"  style="margin-right:21em; ">Date of Birth</asp:Label><br />    <br />
+                            <div class="" style="float:left;">
+                                <asp:TextBox runat="server" ID="date" placeholder="Date" required="required"  class="inputField" style="width:5.5em;" ></asp:TextBox>
+                                <asp:TextBox runat="server" ID="month" placeholder="Month" required="required"  class="inputField" style="width:11em; margin-left:1em;"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="year" placeholder="Year" required="required"  class="inputField" style="width:8em; margin-left:1em;"></asp:TextBox>
+                                <!--<asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" style="clear:both;"></asp:TextBox><br /><br />-->
+                            </div>
+                            <div class="" style="clear:both;"></div>
+                            <p class="notice" style="margin-top:2em;">By clicking on Sign up, you agree to <a href="#">Project Notes's terms and condition</a> and <a href="#">privacy policy</a></p>
                             <asp:Button ID="Button1" runat="server" Text="Sign up" style="margin-left:0em; width:27.5em" OnClick="register_click" CssClass="editBtn" required="required"/>
                             <a runat="server" value="Cancel" href="index.aspx" class="btn btn-default" style="margin-top:1.5em; margin-left:22em;">Cancel</a><br /><br />            
 
