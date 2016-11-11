@@ -61,12 +61,13 @@
                                     </div>
                             </nav>
                         </div>
-                        <div class="titleHeader">
+                        <div class="titleHeader" style="font-size:3em;">
                             Post new Note        
                         </div>
                         <div class="subHeader">
                             Add your notes in here.    
-                        </div> 
+                        </div>
+                        <hr class="regisLine" /> 
                         <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Post Title</asp:Label><br />   <br /> 
                         <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title Notes" required="required" style="width:51em" ></asp:TextBox><br /><br />
                         <%--<asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Description Notes" required="required" ></asp:TextBox><br /><br />--%>

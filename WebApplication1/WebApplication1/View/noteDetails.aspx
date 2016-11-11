@@ -8,7 +8,7 @@
         <!--link to css-->
         <link href="../css/bootstrap.css" rel="stylesheet"/>
         <link href="../css/style.css" rel="stylesheet"/>
-
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/> 
         <!--link to javascript-->
         <script src="../scripts/jquery-1.9.1.js"></script>
         <script src="../scripts/bootstrap.js"></script>
@@ -30,9 +30,9 @@
 
         <title>Note Details</title>
     </head>
-    <body style="overflow:auto">
+    <body >
         <form id="form" runat="server">
-        <div class="backgroundDetails">
+        <div class="backgroundDetails" style="overflow:auto">
             <div class="paddingDetails">
                 <div class="contentDetails"> 
                     <div class="navbar-header">
@@ -65,12 +65,18 @@
                             if (Session["editNotes"] == null)
                             { %>
                             <div>
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:22em;">Title Notes</asp:Label><br />   <br />    
                                 <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Creator Notes</asp:Label><br />   <br />    
                                 <asp:TextBox ID="author" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Date Created</asp:Label><br />   <br />    
                                 <asp:TextBox ID="date" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Label ID="content" runat="server"></asp:Label><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Body of Notes</asp:Label><br />   <br />
+                                <div class="borderContent" style="border:1px solid black; margin-left:27em; margin-right:27em; margin-bottom:2em;">
+                                    <asp:Label ID="content" runat="server" ></asp:Label><br /><br />
+                                </div>
                                 <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" />
-                                <asp:Button ID="deleteBtn" runat="server" Text="Delete" class="redBtn" OnClick="delete_click" href="main.aspx"/>
+                                <asp:Button ID="deleteBtn" runat="server" Text="Delete Notes" class="redBtn" OnClick="delete_click" href="main.aspx"/>
                                  <%if (Session["updatedNotes"] != null)
                                      { %>
                                     <div class="alert alert-info" style="margin-top:1em;">
@@ -88,8 +94,8 @@
                                     <asp:TextBox ID="dateEdit" runat="server" name="dateEdit" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
                                     <%--<asp:TextBox ID="contentEdit" runat="server" name="contentEdit" class="inputField" placeholder="Content" ></asp:TextBox><br /><br />--%>
                                     <textarea id="textarea1" runat="server"></textarea><br /><br />
-                                    <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx"/>
-                                    <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="redBtn" OnClick="cancel_click" href="noteDetails.aspx"/>
+                                    <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx" style="margin-bottom:1.5em;"/>
+                                    <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancel_click" href="noteDetails.aspx"/>
                                 </div>
                     <%
                                 Session.Contents.Remove("editNotes");
