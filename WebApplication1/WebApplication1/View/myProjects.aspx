@@ -53,7 +53,7 @@
                         <asp:DataList ID="projectList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal">
                             <ItemTemplate>
                                 <div id="box1" class="itemBackground" style="margin-bottom: 16em; height: 36.7em;" runat="server">
-                                    <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("projectId") %>">
+                                    <a class="viewNote" href="projectDetails.aspx?projectID=<%#Eval("projectId") %>">
                                         <div class="itemSquare">
                                             <div class="itemTitle"><%#Eval("projectName")%></div>
                                             <div class="itemContent"><%#Eval("projectDescription")%></div>
