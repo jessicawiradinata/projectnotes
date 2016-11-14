@@ -331,7 +331,8 @@ body
 .inputField
 {
     padding: 0.7em 0.5em;
-    width: 27.5em;  
+    width: 27.5em;
+    border:1px solid #D0D0D0;  
 }
 
 .stackButton
@@ -454,10 +455,9 @@ body
 .contentProfile
 {
     border: 1px solid black;
-    padding-top:10%;
     padding-bottom:10%;
-    background-color:white;
-    box-shadow:3px 3px;
+    background-color:#F9F9F9;
+    min-height:75em;
 }
 
 .profilePicture
@@ -467,15 +467,16 @@ body
 
 .pp
 {
-    width:10em;
-    height:10em;
+    width:9em;
+    height:9em;
     border-radius:20em;
     border:1px solid black;
 }
 
 .backgroundProfile
 {
-  background:url('../img/test6.jpg');
+  //background:url('../img/test6.jpg');
+  background-color:#001D32;
   background-size: 100% 100%;
   width:100%;
   height:100%;
@@ -569,6 +570,33 @@ body
 	border: 2px solid rgba(59, 89, 152, 0.9);
 }
 
+.labelProfile
+{
+    color:#868686;
+    font-family:montserrat;
+
+}
+
+.contentWrapper
+{
+    width:100%;
+    float:left;
+}
+
+.borderLink
+{
+    border-bottom:1px solid #2A2A2A;
+    padding-top:1em;
+    padding-bottom:1em;
+    font-family:montserrat;
+    
+}
+
+.links:hover
+{
+    background-color:#3A86FF;
+    
+}
 
 /* Account page */
 
@@ -720,11 +748,12 @@ body
 {
     text-align: center;
     color:black;
-    background:url("../img/test6.jpg");
+    background-color:#001D32;
     background-size:100% 100%;
     width:100%;
     height:100%;
     position:fixed;
+
 }
 
 .paddingDetails
@@ -757,4 +786,30 @@ body
     margin:auto;
     width:27.5em;
     padding:0.7em 0.5em;
+}
+
+.backgroundNotes
+{
+  background-color:#001D32;
+  background-size: 100% 100%;
+  width:100%;
+  height:100%;
+  text-align:center;
+  position:fixed;
+  overflow:auto;
+}
+
+.contentNotes
+{
+    border: 1px solid black;
+    padding-bottom:10%;
+    background-color:#F9F9F9;
+    min-height:75em;
+    padding-top:10%;
+}
+
+.mce-tinymce
+{
+    margin-left:15em !important;
+    margin-right:15em !important;
 }

@@ -16,7 +16,8 @@
             <script type="text/javascript">
                 tinymce.init({
                   selector: 'textarea',
-                  height: 500,
+                  height: 300,
+                  content_style: "div{ margin: 200 }",
                   plugins: [
                     'advlist autolink lists link image charmap print preview anchor',
                     'searchreplace visualblocks code fullscreen',
@@ -31,9 +32,9 @@
     </head>
     <body>
         <form id="form1" runat="server" >
-            <div class="backgroundProfile">
+            <div class="backgroundNotes">
                 <div class="paddingProfile">
-                    <div class="contentProfile">
+                    <div class="contentNotes">
                         <div class="navbar-header">
                             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                                 <div class="navbar-header">
@@ -60,20 +61,26 @@
                                     </div>
                             </nav>
                         </div>
-                        <div class="titleHeader">
-                            Add Notes         
+                        <div class="titleHeader" style="font-size:3em;">
+                            Post new Note        
                         </div>
                         <div class="subHeader">
                             Add your notes in here.    
-                        </div> 
-                        <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title Notes" required="required" ></asp:TextBox><br /><br />
+                        </div>
+                        <hr class="regisLine" /> 
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Post Title</asp:Label><br />   <br /> 
+                        <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title Notes" required="required" style="width:51em" ></asp:TextBox><br /><br />
                         <%--<asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Description Notes" required="required" ></asp:TextBox><br /><br />--%>
-                        <textarea id="content" runat="server"></textarea>
-                        <asp:TextBox ID="creator" runat="server" name="creator" class="inputField" placeholder="Creator" required="required" disabled="disabled"> </asp:TextBox><br /><br />
-                        <asp:TextBox ID="dates" runat="server" name="postdate" class="inputField" placeholder="Date of Notes" required="required" disabled ="disabled" ></asp:TextBox><br /><br />
-                        <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList"></asp:DropDownList><br /><br />
-                        <asp:DropDownList ID="visibilityList" runat="server" CssClass="categoryList"></asp:DropDownList><br /><br />
-                        <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" OnClick="submitBtn_Click" />
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Post Body</asp:Label><br />   <br /> 
+                        <textarea id="content" runat="server" ></textarea><br />
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:45em; ">User Creator</asp:Label><br />   <br /> 
+                        <asp:TextBox ID="creator" runat="server" name="creator" class="inputField" style="width:51em" placeholder="Creator"  required="required" disabled="disabled"> </asp:TextBox><br /><br />
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:45em;">Date Created</asp:Label><br />   <br /> 
+                        <asp:TextBox ID="dates" runat="server" name="postdate" class="inputField" placeholder="Date of Notes" required="required" disabled ="disabled" style="width:51em" ></asp:TextBox><br /><br />
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:41em;">Personal Preference</asp:Label><br />   <br /> 
+                        <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList" style="width:51em" ></asp:DropDownList><br /><br /><br />
+                        <asp:DropDownList ID="visibilityList" runat="server" CssClass="categoryList" style="width:51em"></asp:DropDownList><br /><br />
+                        <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" style="width:62%;" OnClick="submitBtn_Click" />
                         <%if (Session["categoryField"] != null) { %>
                             <div class="alert alert-danger" style="margin-top:1em;">
                                 <%Response.Write(Session["categoryField"]);
