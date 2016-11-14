@@ -41,42 +41,54 @@
                                 <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
                             </div>
                             <div class="nav navbar-nav navbar-right">
-                                <li><a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
-                                    <b>Add Notes</b>
-                                </a></li>
-                                <li><a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
-                                    <b>My Profile</b>
-                                </a></li>
-                                <li><a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
-                                    <b>Account</b>
-                                </a></li>
-                                <li>
+                                 <li>
+                                     <a href="addnotes.aspx" style=" font-family: 'Droid Sans', sans-serif;">
+                                        <b>Add Notes</b>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="myprofile.aspx"  font-family: 'Droid Sans', sans-serif;">
+                                        <b>My Profile</b>
+                                     </a>
+                                 </li>
+                                 <li>
+                                     <a href="accountSettings.aspx"  style="margin-right:1em; font-family: 'Droid Sans', sans-serif;">
+                                        <b>Account</b>
+                                    </a>
+                                 </li>
+                                 <li>
                                     <asp:LinkButton runat="server" style="margin-right:1em;padding: 15px 15px" OnClick="logout_Click" CssClass="glyphicon glyphicon-log-out">
                                     </asp:LinkButton>
                                 </li>
                             </div>
                         </nav>
                     </div>                   
-                    <div class="titleDetail">
+                    <div class="titleDetail" style="font-size:3em;">
                         Note Details
                     </div>
+                    
                     <%if (Session["restrictedUser"] == null)
-                        {
+                    {%>
+                            <div class="subHeader">
+                                Modify your notes here.
+                             </div>
+                            <hr class="regisLine" />                       
+                            <% 
                             if (Session["editNotes"] == null)
                             { %>
                             <div>
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:22em;">Title Notes</asp:Label><br />   <br />    
-                                <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Creator Notes</asp:Label><br />   <br />    
-                                <asp:TextBox ID="author" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Date Created</asp:Label><br />   <br />    
-                                <asp:TextBox ID="date" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Body of Notes</asp:Label><br />   <br />
-                                <div class="borderContent" style="border:1px solid black; margin-left:27em; margin-right:27em; margin-bottom:2em;">
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Title Notes</asp:Label><br />   <br />    
+                                <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" style="width:51em" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Creator Notes</asp:Label><br />   <br />    
+                                <asp:TextBox ID="author" runat="server" name="author" class="inputField" placeholder="Creator" style="width:51em" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Date Created</asp:Label><br />   <br />    
+                                <asp:TextBox ID="date" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:43em;">Body of Notes</asp:Label><br />   <br />
+                                <div class="borderContent" style="border:1px solid #F9f9f9; margin-left:18.5%; margin-right:18.5%; margin-bottom:2em; background-color:white;min-height:15em;">
                                     <asp:Label ID="content" runat="server" ></asp:Label><br /><br />
                                 </div>
-                                <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" />
-                                <asp:Button ID="deleteBtn" runat="server" Text="Delete Notes" class="redBtn" OnClick="delete_click" href="main.aspx"/>
+                                <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" style="margin:auto; margin-bottom:1em; width:51em;"/>
+                                <asp:Button ID="deleteBtn" runat="server" Text="Delete Notes" class="redBtn" OnClick="delete_click" href="main.aspx" style="margin:auto;  width:51em;"/>
                                  <%if (Session["updatedNotes"] != null)
                                      { %>
                                     <div class="alert alert-info" style="margin-top:1em;">
@@ -85,30 +97,41 @@
                                     </div>
                                 <% } %>
                             </div>
-                    <% }
-                        else
-                        { %>
-                                <div style="overflow:auto">
-                                    <asp:TextBox ID="titleEdit" runat="server" name="titleEdit" class="inputField" placeholder="Title" ></asp:TextBox><br /><br />
-                                    <asp:TextBox ID="authorEdit" runat="server" name="authorEdit" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
-                                    <asp:TextBox ID="dateEdit" runat="server" name="dateEdit" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
-                                    <%--<asp:TextBox ID="contentEdit" runat="server" name="contentEdit" class="inputField" placeholder="Content" ></asp:TextBox><br /><br />--%>
-                                    <textarea id="textarea1" runat="server"></textarea><br /><br />
-                                    <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx" style="margin-bottom:1.5em;"/>
-                                    <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancel_click" href="noteDetails.aspx"/>
-                                </div>
-                    <%
-                                Session.Contents.Remove("editNotes");
+                         <% }
+                            else
+                            { %>
+                                    <div style="overflow:auto">
+                                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Title Notes</asp:Label><br />   <br />  
+                                        <asp:TextBox ID="titleEdit" runat="server" name="titleEdit" class="inputField" style="width:51em" placeholder="Title" ></asp:TextBox><br /><br />
+                                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Creator Notes</asp:Label><br />   <br />  
+                                        <asp:TextBox ID="authorEdit" runat="server" name="authorEdit" class="inputField" style="width:51em" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
+                                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Date Created</asp:Label><br />   <br />  
+                                        <asp:TextBox ID="dateEdit" runat="server" name="dateEdit" class="inputField" style="width:51em" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
+                                        <textarea id="textarea1" runat="server" style="width:51em"></textarea><br /><br />
+                                        <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx" style="margin-bottom:1.5em; width:51em; "/>
+                                        <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancel_click" href="noteDetails.aspx" style="margin-bottom:1.5em; "/>
+                                    </div>
+                        <%
+                                    Session.Contents.Remove("editNotes");
+                                }
                             }
-                        }
                         else
                         {
                     %>
+                            <div class="subHeader">
+                                Here is the detail of the notes.
+                             </div>
+                            <hr class="regisLine" />  
                             <div>
-                                <asp:TextBox ID="title1" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:TextBox ID="author1" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:TextBox ID="date1" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Label ID="content1" runat="server"></asp:Label><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Title Notes</asp:Label><br />   <br />  
+                                <asp:TextBox ID="title1" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Creator Notes</asp:Label><br />   <br />  
+                                <asp:TextBox ID="author1" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Date Created</asp:Label><br />   <br />  
+                                <asp:TextBox ID="date1" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
+                                <div class="borderContent" style="border:1px solid #F9f9f9; margin-left:18.5%; margin-right:18.5%; margin-bottom:2em; background-color:white;min-height:15em;">
+                                    <asp:Label ID="content1" runat="server" ></asp:Label><br /><br />
+                                </div>
                             </div>
                     <%
                             Session.Contents.Remove("restrictedUser");
