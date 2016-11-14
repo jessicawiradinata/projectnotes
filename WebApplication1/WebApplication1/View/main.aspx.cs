@@ -17,6 +17,7 @@ namespace WebApplication1.View
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            String myUsername = (string)Session["name"];
             if (Session["name"] == null)
             {
                 Response.Redirect("index.aspx");
@@ -30,7 +31,6 @@ namespace WebApplication1.View
             if (filter == null)
             {
                 conn.Open();
-                String myUsername = (string)Session["name"];
                 String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public';";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
@@ -39,7 +39,7 @@ namespace WebApplication1.View
                 notesList.DataSource = table;
                 notesList.DataBind();
 
-                command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private';";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private';";
                 selectCommand = new MySqlCommand(command, conn);
                 table = new DataTable();
                 adapter = new MySqlDataAdapter(selectCommand);
@@ -63,7 +63,6 @@ namespace WebApplication1.View
             else
             {
                 conn.Open();
-                String myUsername = (string)Session["name"];
                 String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' and category='" + filter + "' ;";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
@@ -72,7 +71,7 @@ namespace WebApplication1.View
                 notesList.DataSource = table;
                 notesList.DataBind();
 
-                command = "select * from project_notes.notes where visibility='private' and category='" + filter + "' ;";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private' and category='" + filter + "' ;";
                 selectCommand = new MySqlCommand(command, conn);
                 table = new DataTable();
                 adapter = new MySqlDataAdapter(selectCommand);
