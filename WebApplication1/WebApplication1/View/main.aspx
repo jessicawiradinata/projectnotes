@@ -53,10 +53,9 @@
                             </div>
                         <%if (Session["private"] == null)
                         { %>
-                            <div class="titleHeader" style="padding-top:10%; font-size:3.5em;">
+                            <div class="titleHeader">
                                 Public Notes            
                             </div>
-                            <hr class="regisLine" />
                             <div class="row">
                                 <div style="margin-left:15em;float:left;" class="filter">
                                     <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:20em;"></asp:TextBox>
@@ -82,14 +81,14 @@
                                 <div class="itemList" style="clear:both">
                                     <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                         <ItemTemplate>
-                                                <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 27.5em;" runat="server" onclick="detail_Click">
+                                                <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 36.7em;" runat="server" onclick="detail_Click">
                                                     <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                         <div class="itemSquare">
-                                                            <div class="itemContent"><%#Eval("descriptionNotes")%></div>
                                                             <div class="itemTitle"><%#Eval("titleNotes")%></div>
-                                                            <div class="itemCreator">
-                                                                <%#Eval("creatorNotes")%>
-                                                                <img class="pp" src="<%#Eval("profilePicture") %>" style="width:4em;height:4em; margin-left:1em;"/>
+                                                            <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                                            <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                                            <div class="itemContent">
+                                                                <img class="pp" src="<%#Eval("profilePicture") %>"/>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -101,19 +100,12 @@
                         <%}
                         else
                         { %>
-                            <div class="titleHeader" style="padding-top:10%; font-size:3.5em;">
+                            <div class="titleHeader">
                                 My Notes            
                             </div>
-                            <hr class="regisLine" />
-                            <div class="row">
-                                <div style="margin-left:15em;float:left;" class="filter">
-                                    <asp:TextBox ID="TextBox1" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:20em;"></asp:TextBox>
-                                    <asp:Button ID="Button2" runat="server" Text="Search" onclick="search_Click" class="btn btn-default" />
-                                </div>
-                                <div class="filter">
-                                    <asp:DropDownList ID="categoryList2" runat="server" CssClass="categoryList" style="width:20em;"></asp:DropDownList>
-                                    <asp:Button ID ="Button1" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
-                                </div>
+                            <div class="filter">
+                                <asp:DropDownList ID="categoryList2" runat="server"></asp:DropDownList>
+                                <asp:Button ID ="Button1" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
                             </div>
                             <% if (Session["noPrivateNotes"] != null)
                              {%>
@@ -127,17 +119,17 @@
                             }
                             else
                             {%>
-                            <div class="itemList">
+                            <div class="itemList" style="clear:both">
                                 <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                     <ItemTemplate>
-                                            <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
+                                            <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 36.7em;" runat="server" onclick="detail_Click">
                                                 <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                     <div class="itemSquare">
-                                                        <div class="itemContent"><%#Eval("descriptionNotes")%></div>
                                                         <div class="itemTitle"><%#Eval("titleNotes")%></div>
-                                                        <div class="itemCreator">
-                                                            <%#Eval("creatorNotes")%>
-
+                                                        <div class="itemContent"><%#Eval("descriptionNotes")%></div>
+                                                        <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                                        <div class="itemContent">
+                                                             <img class="pp" src="<%#Eval("profilePicture") %>"/>
                                                         </div>
                                                     </div>
                                                 </a>
