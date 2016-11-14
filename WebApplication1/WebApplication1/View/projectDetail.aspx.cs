@@ -41,10 +41,31 @@ namespace WebApplication1.View
                     myTitle = myReader.GetString("projectName");
                     myOwner = myReader.GetString("projectOwner");
                     myDescription = myReader.GetString("projectDescription");
+
+                    if (Session["name"].Equals(myOwner))
+                    {
+                        if (Session["editProject"] == null)
+                        {
+                            title.Text = myTitle;
+                            owner.Text = myOwner;
+                            description.Text = myDescription;
+                        }
+                        else
+                        {
+                            titleEdit.Text = myTitle;
+                            ownerEdit.Text = myOwner;
+                            descriptionEdit.Text = myDescription;
+                        }
+                    }
+                    else
+                    {
+                        title1.Text = myTitle;
+                        owner1.Text = myOwner;
+                        description1.Text = myDescription;
+                        Session["unauthorized"] = "Unauthorized user";
+                    }
                 }
-                title.Text = myTitle;
-                owner.Text = myOwner;
-                description.Text = myDescription;
+                conn.Close();              
             }
             else
             {
@@ -57,6 +78,48 @@ namespace WebApplication1.View
             Session.Clear();
             Session.Abandon();
             Response.Redirect("index.aspx");
+        }
+
+        protected void edit_click(object sender, EventArgs e)
+        {
+            String projectId = Request.QueryString["projectID"];
+            Session["editProject"] = "Edit Project";
+            Response.Redirect("projectDetail.aspx?projectID=" + projectId);
+        }
+
+        protected void delete_click(object sender, EventArgs e)
+        {
+            String projectId = Request.QueryString["projectID"];
+
+            String command = "delete from project where projectId='" + projectId + "';";
+            MySqlCommand deleteCommand = new MySqlCommand(command, conn);
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = deleteCommand.ExecuteReader();
+            conn.Close();
+
+            Response.Redirect("myProject.aspx");
+        }
+
+        protected void save_click(object sender, EventArgs e)
+        {
+            String titleField = titleEdit.Text;
+            String descriptionField = descriptionEdit.Text;
+            String projectId = Request.QueryString["projectID"];
+
+            String command = "update project set projectName='" + titleField + "',projectDescription='" + descriptionField + "' where projectId='" + projectId + "';";
+            MySqlCommand updateCommand = new MySqlCommand(command, conn);
+            MySqlDataReader myReader;
+            conn.Open();
+            myReader = updateCommand.ExecuteReader();
+            conn.Close();
+
+            Session["updatedProject"] = "Project successfully updated";
+            Response.Redirect("projectDetail.aspx?projectID=" + projectId);
+        }
+        protected void cancel_click(object sender, EventArgs e)
+        {
+
         }
     }
 }

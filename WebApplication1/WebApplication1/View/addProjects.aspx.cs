@@ -89,7 +89,7 @@ namespace WebApplication1.View
 
                 conn.Close();
 
-                Response.Redirect("main.aspx");
+                Response.Redirect("myProject.aspx");
             }
         }
 
