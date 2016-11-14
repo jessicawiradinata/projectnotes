@@ -48,14 +48,48 @@
                 <div class="titleDetail">
                     Project Details
                 </div>
-                <div>
-                    <asp:Label runat="server" CssClass="labelProfile" style="margin-right:22em;">Project Name</asp:Label><br /><br />
-                    <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
-                    <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Owner</asp:Label><br /><br />
-                    <asp:TextBox ID="owner" runat="server" name="owner" class="inputField" placeholder="Owner" disabled="disabled" ></asp:TextBox><br /><br />
-                    <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">About this project</asp:Label><br /><br />
-                    <asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" disabled="disabled"></asp:TextBox><br /><br />
-                </div>
+                <% if (Session["unauthorized"] == null) { %>
+                    <% if (Session["editProject"] == null) { %>
+                        <div>
+                            <asp:Label runat="server" CssClass="labelProfile" style="margin-right:22em;">Project Name</asp:Label><br /><br />
+                            <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
+                            <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Owner</asp:Label><br /><br />
+                            <asp:TextBox ID="owner" runat="server" name="owner" class="inputField" placeholder="Owner" disabled="disabled" ></asp:TextBox><br /><br />
+                            <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">About this project</asp:Label><br /><br />
+                            <asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" disabled="disabled"></asp:TextBox><br /><br />
+                            <asp:Button ID="editBtn" runat="server" Text="Edit Project" class="editBtn" OnClick="edit_click" style="margin:auto; margin-bottom:1em; width:51em;"/>
+                            <asp:Button ID="deleteBtn" runat="server" Text="Delete Project" class="redBtn" OnClick="delete_click" href="myProject.aspx" style="margin:auto;  width:51em;"/>
+                            <% if (Session["updatedProject"] != null) { %>
+                                <div class="alert alert-info" style="margin-top:1em;">
+                                    <% Response.Write(Session["updatedProject"]);
+                                       Session.Contents.Remove("updatedProject"); %>
+                                </div>
+                            <% } %>
+                        </div>                           
+                    <% } else { %>
+                            <div>
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:22em;">Project Name</asp:Label><br /><br />
+                                <asp:TextBox ID="titleEdit" runat="server" name="titleEdit" class="inputField" placeholder="Title"></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Owner</asp:Label><br /><br />
+                                <asp:TextBox ID="ownerEdit" runat="server" name="ownerEdit" class="inputField" placeholder="Owner" disabled="disabled" ></asp:TextBox><br /><br />
+                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">About this project</asp:Label><br /><br />
+                                <asp:TextBox ID="descriptionEdit" Height="15em" runat="server" TextMode="MultiLine" name="descriptionEdit"  class="inputField"></asp:TextBox><br /><br />
+                                <asp:Button ID="saveBtn" runat="server" Text="Save Changes" class="submitBtn" OnClick="save_click" href="projectDetail.aspx" style="margin-bottom:1.5em; width:51em; "/>
+                                <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancel_click" href="projectDetail.aspx" style="margin-bottom:1.5em; "/>
+                            </div>
+                    <% Session.Contents.Remove("editProject");
+                        } %>
+                <% } else { %>
+                    <div>
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:22em;">Project Name</asp:Label><br /><br />
+                        <asp:TextBox ID="title1" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" ></asp:TextBox><br /><br />
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Owner</asp:Label><br /><br />
+                        <asp:TextBox ID="owner1" runat="server" name="owner" class="inputField" placeholder="Owner" disabled="disabled" ></asp:TextBox><br /><br />
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">About this project</asp:Label><br /><br />
+                        <asp:TextBox ID="description1" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" disabled="disabled"></asp:TextBox><br /><br />                       
+                    </div>
+                <%  Session.Contents.Remove("unauthorized");
+                   } %>
             </div>
         </div>
     </div>
