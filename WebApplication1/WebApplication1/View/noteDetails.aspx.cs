@@ -49,10 +49,10 @@ namespace WebApplication1.View
                     {
                         if (Session["editNotes"] == null)
                         {
-                            title.Text = myTitle;
-                            author.Text = myAuthor;
-                            date.Text = myDate;
-                            content.Text = myContent;
+                            labelTitle.Text = myTitle;
+                            labelAuthor.Text = myAuthor;
+                            labelDate.Text = myDate;
+                            labelContent.Text = myContent;
                         }
                         else
                         {

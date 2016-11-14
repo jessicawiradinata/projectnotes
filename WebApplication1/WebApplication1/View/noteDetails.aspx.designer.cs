@@ -22,40 +22,40 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// title control.
+        /// labelTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox title;
+        protected global::System.Web.UI.WebControls.Label labelTitle;
         
         /// <summary>
-        /// author control.
+        /// labelAuthor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox author;
+        protected global::System.Web.UI.WebControls.Label labelAuthor;
         
         /// <summary>
-        /// date control.
+        /// labelDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date;
+        protected global::System.Web.UI.WebControls.Label labelDate;
         
         /// <summary>
-        /// content control.
+        /// labelContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label content;
+        protected global::System.Web.UI.WebControls.Label labelContent;
         
         /// <summary>
         /// editBtn control.

@@ -79,7 +79,7 @@
                             }
                             else
                             { %>
-                                <div class="itemList" style="clear:both">
+                                <div class="itemList" style="clear:both; font-family:montserrat;">
                                     <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                         <ItemTemplate>
                                                 <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 27.5em;" runat="server" onclick="detail_Click">
@@ -89,7 +89,8 @@
                                                             <div class="itemTitle"><%#Eval("titleNotes")%></div>
                                                             <div class="itemCreator">
                                                                 <%#Eval("creatorNotes")%>
-                                                                <img class="pp" style="width:4em; height:4em; margin-left:1em;" src="<%#Eval("profilePicture") %>"/>
+                                                                <img class="pp" style="width:4em; height:4em; margin-left:1em;" src="<%#Eval("profilePicture") %>"/><br />
+                                                                <!--<p style="margin-right:6em;" ><%#Eval("dateNotes") %></p>-->                                                              
                                                             </div>
                                                                 
                                                         </div>

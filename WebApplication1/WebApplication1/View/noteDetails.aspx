@@ -63,32 +63,23 @@
                             </div>
                         </nav>
                     </div>                   
-                    <div class="titleDetail" style="font-size:3em;">
-                        Note Details
-                    </div>
                     
                     <%if (Session["restrictedUser"] == null)
                     {%>
-                            <div class="subHeader">
-                                Modify your notes here.
-                             </div>
-                            <hr class="regisLine" />                       
+                                                   
                             <% 
                             if (Session["editNotes"] == null)
                             { %>
-                            <div>
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Title Notes</asp:Label><br />   <br />    
-                                <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Title" style="width:51em" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Creator Notes</asp:Label><br />   <br />    
-                                <asp:TextBox ID="author" runat="server" name="author" class="inputField" placeholder="Creator" style="width:51em" disabled="disabled" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Date Created</asp:Label><br />   <br />    
-                                <asp:TextBox ID="date" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:43em;">Body of Notes</asp:Label><br />   <br />
-                                <div class="borderContent" style="border:1px solid #F9f9f9; margin-left:18.5%; margin-right:18.5%; margin-bottom:2em; background-color:white;min-height:15em;">
-                                    <asp:Label ID="content" runat="server" ></asp:Label><br /><br />
+                            <div>  
+                                <asp:Label ID="labelTitle" runat="server" name="title" CssClass="titleHeader" placeholder="Title" style="font-size:2em;text-align:left;" disabled="disabled" ></asp:Label><br /><br />  
+                                <asp:Label ID="labelAuthor" runat="server" name="author" class="subHeader" placeholder="Creator" style="width:51em; font-size:1em;" disabled="disabled" ></asp:Label><br /><br />    
+                                <asp:Label ID="labelDate" runat="server" name="date" class="subHeader" placeholder="Date" disabled="disabled" style="width:51em;font-size:1em;" ></asp:Label><br /><br />
+                                <hr class="regisLine" style="margin-bottom:5em;" />
+                                <div class="borderContent" style=" margin-left:27%; margin-right:27%; margin-bottom:2em;min-height:15em; text-align:left;">
+                                    <asp:Label ID="labelContent" runat="server" ></asp:Label><br /><br />
                                 </div>
-                                <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" style="margin:auto; margin-bottom:1em; width:51em;"/>
-                                <asp:Button ID="deleteBtn" runat="server" Text="Delete Notes" class="redBtn" OnClick="delete_click" href="main.aspx" style="margin:auto;  width:51em;"/>
+                                <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" style="margin:auto; margin-bottom:1em; width:38em;"/>
+                                <asp:Button ID="deleteBtn" runat="server" Text="Delete Notes" class="redBtn" OnClick="delete_click" href="main.aspx" style="margin:auto;  width:38em;"/>
                                  <%if (Session["updatedNotes"] != null)
                                      { %>
                                     <div class="alert alert-info" style="margin-top:1em;">

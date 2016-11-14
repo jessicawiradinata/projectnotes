@@ -673,11 +673,10 @@ body
 
 .itemTitle
 {
-    height: 2.5em;
-    font-family:;
-    font-size: 1.3em;
+    min-height: 3.5em;
+    font-size: 1em;
     font-weight: bold;
-    padding-top: 0.5em;
+    padding-top: 0.8em;
     border-bottom: 1px solid black;
     background-color:#F9f9f9;
     color:black;
@@ -685,27 +684,27 @@ body
 
 .itemContent
 {
-    height: 18em;
-    font-family:;
-    font-size: 1em;
+    font-size: 0.8em;
     padding-top:2em;
     border-bottom: 1px solid black;
     color:black;
     background-size:100% 100%;
     background-color:#FFF;
-    text-align:center;
+    text-align:left;
+    padding-left:1em;
+    padding-right:1em;
+    padding-bottom:1em;
+    min-height:22.5em;
 }
 
 .itemCreator
 {
-    height:2em;
-    padding-top:1em;
+    min-height:7.3em;
+    padding-top:1.5em;
     padding-bottom:1em;
-    font-family:;
-    font-size: 1em;
+    font-size: 0.8em;
     background-color:#EEEEEE;
     color:black;
-    height:auto;
 
 }
 
