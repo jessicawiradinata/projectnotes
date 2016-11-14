@@ -27,6 +27,29 @@ namespace WebApplication1.View
             String command = "select * from project where projectId='" + myProject + "';";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
             MySqlDataReader myReader;
+            conn.Open();
+            int projectFound = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+            if(projectFound > 0)
+            {
+                myReader = selectCommand.ExecuteReader();
+                String myTitle = "";
+                String myOwner = "";
+                String myDescription = "";
+                while (myReader.Read())
+                {
+                    myTitle = myReader.GetString("projectName");
+                    myOwner = myReader.GetString("projectOwner");
+                    myDescription = myReader.GetString("projectDescription");
+                }
+                title.Text = myTitle;
+                owner.Text = myOwner;
+                description.Text = myDescription;
+            }
+            else
+            {
+                Response.Redirect("myProject.aspx");
+            }
         }
 
         protected void logout_Click(object sender, EventArgs e)

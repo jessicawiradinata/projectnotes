@@ -54,7 +54,7 @@
                     <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">Owner</asp:Label><br /><br />
                     <asp:TextBox ID="owner" runat="server" name="owner" class="inputField" placeholder="Owner" disabled="disabled" ></asp:TextBox><br /><br />
                     <asp:Label runat="server" CssClass="labelProfile" style="margin-right:20em;">About this project</asp:Label><br /><br />
-                    <asp:TextBox ID="description" runat="server" name="description" class="inputField" disabled="disabled" ></asp:TextBox><br /><br />
+                    <asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" disabled="disabled"></asp:TextBox><br /><br />
                 </div>
             </div>
         </div>
