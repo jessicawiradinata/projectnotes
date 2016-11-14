@@ -25,7 +25,7 @@ namespace WebApplication1.View
             String myUsername = (string)Session["name"];
             String userId = getUserId(myUsername);
 
-            fillMyTable(myUsername);           
+            fillMyTable(myUsername);
         }
 
         protected void logout_Click(object sender, EventArgs e)

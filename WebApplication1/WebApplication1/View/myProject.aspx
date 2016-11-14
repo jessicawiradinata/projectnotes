@@ -1,24 +1,26 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="addProject.aspx.cs" Inherits="WebApplication1.View.addProject" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="myProject.aspx.cs" Inherits="WebApplication1.View.myProject" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!--link to css-->
-        <link href="../css/bootstrap.css" rel="stylesheet"/>
-        <link href="../css/style.css" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
+
     <!--link to javascript-->
-        <script src="../scripts/jquery-1.9.1.js"></script>
-        <script src="../scripts/bootstrap.js"></script>
-    <title>Add Project</title>
+    <script src="../scripts/jquery-1.9.1.js"></script>
+    <script src="../scripts/bootstrap.js"></script>
+
+    <title>My Projects</title>
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="backgroundProfile">
-            <div class="paddingProfile">
+            <div class="paddingBackgroundMain">
                 <div class="contentProfile">
-                   <div class="navbar-header">
+                    <div class="navbar-header">
                         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                            <div class="navbar-header">
                                 <a class="navbar-brand navbar-left brand" href="index.aspx">Project Notes</a>
@@ -45,23 +47,25 @@
                          </nav>
                     </div>
                     <div class="titleHeader">
-                        Create a Project
+                        My Projects
                     </div>
-                    <div class="subHeader">
-                        Share your ideas with your team.
+                    <div class="itemList" style="clear:both">
+                        <asp:DataList ID="projectList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal">
+                            <ItemTemplate>
+                                <div id="box1" class="itemBackground" style="margin-bottom: 16em; height: 36.7em;" runat="server">
+                                    <a class="viewNote" href="projectDetails.aspx?projectID=<%#Eval("projectId") %>">
+                                        <div class="itemSquare">
+                                            <div class="itemTitle"><%#Eval("projectName")%></div>
+                                            <div class="itemContent"><%#Eval("projectDescription")%></div>
+                                            <div class="itemCreator"><%#Eval("projectOwner")%></div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </ItemTemplate>
+                        </asp:DataList>
                     </div>
-                    <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Project Name" required="required" ></asp:TextBox><br /><br />
-                    <asp:TextBox ID="owner" runat="server" name="owner" class="inputField" placeholder="Project Owner" required="required" disabled="disabled"></asp:TextBox><br /><br />
-                    <asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Project Description"></asp:TextBox><br /><br />
-                    <asp:Button ID ="createBtn" runat="server" name="createBtn" CssClass="submitBtn" Text="Create Project" OnClick="create_Click" />
-                    <% if (Session["projectFound"] != null) { %>
-                        <div class="alert alert-danger" style="margin-top:10%">
-                    <%  Response.Write(Session["projectFound"]);
-                        Session.Contents.Remove("projectFound"); %>
-                        </div>
-                    <% } %>
                 </div>
-            </div>
+            </div>   
         </div>
     </form>
 </body>

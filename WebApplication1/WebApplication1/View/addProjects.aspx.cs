@@ -37,7 +37,7 @@ namespace WebApplication1.View
             String descriptionField = description.Text;
             Boolean projectFound = findProject(titleField, myUsername);
 
-            if(projectFound)
+            if (projectFound)
             {
                 Session["projectFound"] = "Project already exists";
             }
@@ -54,7 +54,7 @@ namespace WebApplication1.View
 
                 //Get project ID from newly created project
                 conn.Open();
-                String projectId = "";               
+                String projectId = "";
                 command = "select * from project where projectName='" + titleField + "' and projectOwner='" + myUsername + "';";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 MySqlDataReader myReader;
@@ -89,7 +89,7 @@ namespace WebApplication1.View
                 conn.Close();
 
                 Response.Redirect("main.aspx");
-            }          
+            }
         }
 
         private Boolean findProject(string theProjectName, string theUsername)

@@ -324,13 +324,16 @@
     <Content Include="View\accountSettings.aspx" />
     <Content Include="View\activation.aspx" />
     <Content Include="View\addNotes.aspx" />
+    <Content Include="View\addProjects.aspx" />
     <Content Include="View\community.aspx" />
     <Content Include="View\editProfile.aspx" />
     <Content Include="View\forumDetails.aspx" />
     <Content Include="View\index.aspx" />
     <Content Include="View\main.aspx" />
     <Content Include="View\myprofile.aspx" />
+    <Content Include="View\myProject.aspx" />
     <Content Include="View\noteDetails.aspx" />
+    <Content Include="View\projectDetail.aspx" />
     <Content Include="View\register.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -356,6 +359,13 @@
     </Compile>
     <Compile Include="View\addNotes.aspx.designer.cs">
       <DependentUpon>addNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\addProjects.aspx.cs">
+      <DependentUpon>addProjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\addProjects.aspx.designer.cs">
+      <DependentUpon>addProjects.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\community.aspx.cs">
       <DependentUpon>community.aspx</DependentUpon>
@@ -399,12 +409,26 @@
     <Compile Include="View\myprofile.aspx.designer.cs">
       <DependentUpon>myprofile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\myProject.aspx.cs">
+      <DependentUpon>myProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\myProject.aspx.designer.cs">
+      <DependentUpon>myProject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\noteDetails.aspx.cs">
       <DependentUpon>noteDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\noteDetails.aspx.designer.cs">
       <DependentUpon>noteDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\projectDetail.aspx.cs">
+      <DependentUpon>projectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\projectDetail.aspx.designer.cs">
+      <DependentUpon>projectDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>

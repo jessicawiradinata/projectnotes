@@ -10,7 +10,7 @@
 namespace WebApplication1.View {
     
     
-    public partial class myProjects {
+    public partial class projectDetail {
         
         /// <summary>
         /// form1 control.
@@ -22,12 +22,30 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// projectList control.
+        /// title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList projectList;
+        protected global::System.Web.UI.WebControls.TextBox title;
+        
+        /// <summary>
+        /// owner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox owner;
+        
+        /// <summary>
+        /// description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox description;
     }
 }

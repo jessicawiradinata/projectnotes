@@ -10,7 +10,7 @@
 namespace WebApplication1.View {
     
     
-    public partial class addProject {
+    public partial class addProjects {
         
         /// <summary>
         /// form1 control.
