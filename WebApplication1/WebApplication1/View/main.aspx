@@ -119,15 +119,18 @@
                             }
                             else
                             {%>
-                            <div class="itemList">
+                            <div class="itemList" style="clear:both">
                                 <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                     <ItemTemplate>
-                                            <div id="box1" class="itemBackground" runat="server" onclick="detail_Click">
+                                            <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 36.7em;" runat="server" onclick="detail_Click">
                                                 <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                     <div class="itemSquare">
                                                         <div class="itemTitle"><%#Eval("titleNotes")%></div>
                                                         <div class="itemContent"><%#Eval("descriptionNotes")%></div>
                                                         <div class="itemCreator"><%#Eval("creatorNotes")%></div>
+                                                        <div class="itemContent">
+                                                             <img class="pp" src="<%#Eval("profilePicture") %>"/>
+                                                        </div>
                                                     </div>
                                                 </a>
                                             </div>
