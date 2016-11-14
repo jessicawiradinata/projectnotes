@@ -110,6 +110,7 @@
                                         <textarea id="textarea1" runat="server" style="width:51em"></textarea><br /><br />
                                         <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx" style="margin-bottom:1.5em; width:51em; "/>
                                         <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancel_click" href="noteDetails.aspx" style="margin-bottom:1.5em; "/>
+
                                     </div>
                         <%
                                     Session.Contents.Remove("editNotes");
