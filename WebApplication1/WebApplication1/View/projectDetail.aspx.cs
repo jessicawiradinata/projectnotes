@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -8,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1.View
 {
-    public partial class projectDetails : System.Web.UI.Page
+    public partial class projectDetail : System.Web.UI.Page
     {
         const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
         MySqlConnection conn = new MySqlConnection(connectionString);

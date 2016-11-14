@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication1.View
 {
-    public partial class addProject : System.Web.UI.Page
+    public partial class addProjects : System.Web.UI.Page
     {
         const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
 
@@ -20,6 +20,7 @@ namespace WebApplication1.View
             }
             String myUsername = (string)Session["name"];
             owner.Text = myUsername;
+
         }
 
         protected void logout_Click(object sender, EventArgs e)
