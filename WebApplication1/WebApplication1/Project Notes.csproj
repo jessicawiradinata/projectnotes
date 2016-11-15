@@ -323,8 +323,10 @@
     <Content Include="scripts\tinymce\tinymce.min.js" />
     <Content Include="View\accountSettings.aspx" />
     <Content Include="View\activation.aspx" />
+    <Content Include="View\addForum.aspx" />
     <Content Include="View\addNotes.aspx" />
     <Content Include="View\addProjects.aspx" />
+    <Content Include="View\addThread.aspx" />
     <Content Include="View\community.aspx" />
     <Content Include="View\contact.aspx" />
     <Content Include="View\editProfile.aspx" />
@@ -354,6 +356,13 @@
     <Compile Include="View\activation.aspx.designer.cs">
       <DependentUpon>activation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\addForum.aspx.cs">
+      <DependentUpon>addForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\addForum.aspx.designer.cs">
+      <DependentUpon>addForum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\addNotes.aspx.cs">
       <DependentUpon>addNotes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,6 +376,13 @@
     </Compile>
     <Compile Include="View\addProjects.aspx.designer.cs">
       <DependentUpon>addProjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\addThread.aspx.cs">
+      <DependentUpon>addThread.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\addThread.aspx.designer.cs">
+      <DependentUpon>addThread.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\community.aspx.cs">
       <DependentUpon>community.aspx</DependentUpon>

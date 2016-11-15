@@ -52,7 +52,11 @@
                         </nav>
                     </div>
                     <div class="titleHeader" style="padding-bottom: 1.1em; border-bottom:solid 2px;">
-                            Community           
+                            Community
+                        <div>
+                            <h3>Add your own forum to exchange ideas with visitors about various topic</h3>
+                            <a href="addForum.aspx" style="font-family: 'Droid Sans', sans-serif;" class="btn btn-default">Add Thread</a>
+                        </div>           
                     </div>
                     <div>
                         <div style="width: 100%;">
