@@ -148,13 +148,13 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.TextBox date;
         
         /// <summary>
-        /// month control.
+        /// monthList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox month;
+        protected global::System.Web.UI.WebControls.DropDownList monthList;
         
         /// <summary>
         /// year control.
