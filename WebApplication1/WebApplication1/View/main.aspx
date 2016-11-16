@@ -58,11 +58,11 @@
                             </div>
                             <hr class="regisLine" />
                             <div class="row">
-                                <div style="margin-left:15em;float:left;" class="filter">
+                                <div style="margin-left:12em;float:left;" class="filter">
                                     <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:20em;"></asp:TextBox>
                                     <asp:Button ID="SearchBtn" runat="server" Text="Search" onclick="search_Click" class="btn btn-default" />
                                 </div>
-                                <div class="filter" style="margin-right:15em;float:right;">
+                                <div class="filter" style="margin-right:12em;float:right;">
                                     <asp:DropDownList ID="categoryList" runat="server" CssClass="categoryList" style="width:20em;"></asp:DropDownList>
                                     <asp:Button ID ="filterBtn" runat="server" name="filterBtn" class="btn btn-default" Text="Filter" OnClick="filter_Click" />
                                 </div>
@@ -82,7 +82,7 @@
                                 <div class="itemList" style="clear:both; font-family:montserrat;">
                                     <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                         <ItemTemplate>
-                                                <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 27.5em;" runat="server" onclick="detail_Click">
+                                                <div id="box1" class="itemBackground" style="margin-bottom: 7.5em;height: 27.3em;" runat="server" onclick="detail_Click">
                                                     <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                         <div class="itemSquare">
                                                             <div class="itemContent"><%#Eval("descriptionNotes")%></div>
@@ -108,7 +108,7 @@
                             </div>
                             <hr class="regisLine" />
                             <div class="row">
-                                <div style="margin-left:15em;float:left;" class="filter">
+                                <div style="margin-left:12em;float:left;" class="filter">
                                     <asp:TextBox ID="TextBox1" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:20em;"></asp:TextBox>
                                     <asp:Button ID="Button2" runat="server" Text="Search" onclick="search_Click" class="btn btn-default" />
                                 </div>
@@ -132,7 +132,7 @@
                             <div class="itemList" style="clear:both">
                                 <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                     <ItemTemplate>
-                                            <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 27.5em;" runat="server" onclick="detail_Click">
+                                            <div id="box1" class="itemBackground" style="margin-bottom: 7.5em;height: 27.3em;" runat="server" onclick="detail_Click">
                                                 <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                     <div class="itemSquare">                                                       
                                                         <div class="itemContent"><%#Eval("descriptionNotes")%></div>

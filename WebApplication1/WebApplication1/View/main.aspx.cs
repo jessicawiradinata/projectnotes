@@ -39,7 +39,7 @@ namespace WebApplication1.View
                 notesList.DataSource = table;
                 notesList.DataBind();
 
-                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private';";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "';";
                 selectCommand = new MySqlCommand(command, conn);
                 table = new DataTable();
                 adapter = new MySqlDataAdapter(selectCommand);

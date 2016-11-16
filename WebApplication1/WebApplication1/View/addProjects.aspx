@@ -44,9 +44,10 @@
                             </div>
                          </nav>
                     </div>
-                    <div class="titleHeader">
-                        Create a Project
+                    <div class="titleHeader" style="padding-top:10%; font-size:3.5em;">
+                        New Project
                     </div>
+                    <hr class="regisLine" />
                     <div class="subHeader">
                         Share your ideas with your team.
                     </div>

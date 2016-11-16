@@ -660,9 +660,9 @@ body
 
 .itemBackground
 {
-    border: 1px solid black;
+    border:1px solid #D1D1D1;
     width: 18em;
-    height: 25em;
+    height: 22em;
     margin-left: 1.5em;
     margin-right: 5em;
     margin-bottom: 5em;
@@ -674,7 +674,7 @@ body
 .itemTitle
 {
     min-height: 3.5em;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
     padding-top: 0.8em;
     border-bottom: 1px solid black;
@@ -695,17 +695,17 @@ body
     padding-right:1em;
     padding-bottom:1em;
     min-height:22.5em;
+
 }
 
 .itemCreator
 {
-    min-height:7.3em;
+    min-height:7.5em;
     padding-top:1.5em;
     padding-bottom:1em;
     font-size: 0.8em;
     background-color:#EEEEEE;
     color:black;
-
 }
 
 .viewNote:hover

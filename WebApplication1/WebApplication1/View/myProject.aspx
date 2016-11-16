@@ -46,9 +46,10 @@
                             </div>
                          </nav>
                     </div>
-                    <div class="titleHeader">
+                    <div class="titleHeader" style="padding-top:10%; font-size:3.5em;">
                         My Projects
                     </div>
+                    <hr class="regisLine" />
                     <div class="itemList" style="clear:both">
                         <asp:DataList ID="projectList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal">
                             <ItemTemplate>
