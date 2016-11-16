@@ -92,13 +92,14 @@
                                                     <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                         <div class="itemSquare">
                                                             <div class="itemContent"><%#Eval("descriptionNotes")%></div>
-                                                            <div class="itemTitle"><%#Eval("titleNotes")%></div>
-                                                            <div class="itemCreator">
-                                                                <%#Eval("creatorNotes")%>
-                                                                <img class="pp" style="width:4em; height:4em; margin-left:1em;" src="<%#Eval("profilePicture") %>"/><br />
-                                                                <!--<p style="margin-right:6em;" ><%#Eval("dateNotes") %></p>-->                                                              
-                                                            </div>
-                                                                
+                                                            <div class="itemTitle"><%#Eval("titleNotes")%></div>                                                               
+                                                        </div>
+                                                    </a>
+                                                     <a class="viewNote" href="viewProfile.aspx?profile=<%#Eval("creatorNotes") %>">
+                                                        <div class="itemCreator">
+                                                            <%#Eval("creatorNotes")%>
+                                                            <img class="pp" style="width: 4em; height: 4em; margin-left: 1em;" src="<%#Eval("profilePicture") %>" /><br />
+                                                            <!--<p style="margin-right:6em;" ><%#Eval("dateNotes") %></p>-->
                                                         </div>
                                                     </a>
                                                 </div>
