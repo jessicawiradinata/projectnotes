@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Web.UI.WebControls;
 using System.Globalization;
+using System.Linq;
 
 namespace WebApplication1.View
 {
@@ -61,8 +62,8 @@ namespace WebApplication1.View
             String usernameField = username.Text;
             String passwordField = MD5Hash(password.Text);
             String emailField = email.Text;
-            String firstNameField = firstName.Text;
-            String lastNameField = lastName.Text;            
+            String firstNameField = FirstCharToUpper(firstName.Text);
+            String lastNameField = FirstCharToUpper(lastName.Text);            
             Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
             Boolean usernameNotFound = checkUsername(username.Text);
             Boolean emailFound = findEmail(emailField);
@@ -237,6 +238,13 @@ namespace WebApplication1.View
                 list.Items.Add(month11);
                 list.Items.Add(month12);
             }
+        }
+
+        public static string FirstCharToUpper(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+                throw new ArgumentException("ARGH!");
+            return input.First().ToString().ToUpper() + input.Substring(1);
         }
 
     }
