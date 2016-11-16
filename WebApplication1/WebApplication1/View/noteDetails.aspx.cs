@@ -64,10 +64,10 @@ namespace WebApplication1.View
                     }
                     else
                     {
-                        title1.Text = myTitle;
-                        author1.Text = myAuthor;
-                        date1.Text = myDate;
-                        content1.Text = myContent;
+                        labelTitle1.Text = myTitle;
+                        labelAuthor1.Text = myAuthor;
+                        labelDate1.Text = myDate;
+                        labelContent1.Text = myContent;
                         Session["restrictedUser"] = "restricted";
                     }
                 
