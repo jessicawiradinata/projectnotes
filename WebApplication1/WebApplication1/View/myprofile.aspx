@@ -46,7 +46,7 @@
                         <ul class="navbar navbar-inverse nav-pills nav-stacked" style="text-decoration:none;left;width:15%; color:#C1C3C6; list-style-type: none; padding-left:0em; border-radius:0px;">
                             <li class="borderLink" style="padding-top:11.2em; border-top:1px solid #C1C3C6;"></li>
                             <a href="myprofile.aspx" style="color:#FFF"><li class="borderLink links">Account overview</li></a>
-                            <a href="#" style="color:#FFF"><li class="borderLink links">Edit profile</li></a>
+                            <a href="#" style="color:#FFF"><li class="borderLink links ">Edit profile</li></a>
                             <a href="#" style="color:#FFF"><li class="borderLink links">Set device password</li></a>
                             <a href="#" style="color:#FFF"><li class="borderLink links">Notification settings</li></a>
                             <a href="#" style="color:#FFF"><li class="borderLink links">Account Settings</li></a>

@@ -815,3 +815,13 @@ body
     margin-left:15em !important;
     margin-right:15em !important;
 }
+
+/* my project page*/
+
+.linkProject
+{
+    border-bottom:1px solid #DFDFDF;
+    padding-top:1em;
+    padding-bottom:1em;
+    font-family:montserrat;
+}

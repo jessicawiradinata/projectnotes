@@ -16,7 +16,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="backgroundProfile">
-            <div class="paddingProfile">
+            <div class="paddingProfile" style="padding-left:15%; padding-right:15%;">
                 <div class="contentProfile">
                    <div class="navbar-header">
                         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
