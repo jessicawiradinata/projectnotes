@@ -110,20 +110,12 @@
                         else
                         {
                     %>
-                            <div class="subHeader">
-                                Here is the detail of the notes.
-                             </div>
-                            <hr class="regisLine" />  
-                            <div>
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Title Notes</asp:Label><br />   <br />  
-                                <asp:TextBox ID="title1" runat="server" name="title" class="inputField" placeholder="Title" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Creator Notes</asp:Label><br />   <br />  
-                                <asp:TextBox ID="author1" runat="server" name="author" class="inputField" placeholder="Creator" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
-                                <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Date Created</asp:Label><br />   <br />  
-                                <asp:TextBox ID="date1" runat="server" name="date" class="inputField" placeholder="Date" disabled="disabled" style="width:51em" ></asp:TextBox><br /><br />
-                                <div class="borderContent" style="border:1px solid #F9f9f9; margin-left:18.5%; margin-right:18.5%; margin-bottom:2em; background-color:white;min-height:15em;">
-                                    <asp:Label ID="content1" runat="server" ></asp:Label><br /><br />
-                                </div>
+                            <asp:Label ID="labelTitle1" runat="server" name="title" CssClass="titleHeader" placeholder="Title" style="font-size:2em;text-align:left;" disabled="disabled" ></asp:Label><br /><br />
+                            <asp:Label ID="labelAuthor1" runat="server" name="author" class="subHeader" placeholder="Creator" style="width:51em; font-size:1em;" disabled="disabled" ></asp:Label><br /><br />
+                            <asp:Label ID="labelDate1" runat="server" name="date" class="subHeader" placeholder="Date" disabled="disabled" style="width:51em;font-size:1em;" ></asp:Label><br /><br />    
+                            <hr class="regisLine" style="margin-bottom:5em;" />  
+                            <div class="borderContent" style="margin-left:27%; margin-right:27%; margin-bottom:2em;min-height:15em; text-align:left;">
+                               <asp:Label ID="labelContent1" runat="server" ></asp:Label><br /><br />
                             </div>
                     <%
                             Session.Contents.Remove("restrictedUser");

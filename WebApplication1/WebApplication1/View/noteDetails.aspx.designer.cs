@@ -130,39 +130,39 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.Button cancelBtn;
         
         /// <summary>
-        /// title1 control.
+        /// labelTitle1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox title1;
+        protected global::System.Web.UI.WebControls.Label labelTitle1;
         
         /// <summary>
-        /// author1 control.
+        /// labelAuthor1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox author1;
+        protected global::System.Web.UI.WebControls.Label labelAuthor1;
         
         /// <summary>
-        /// date1 control.
+        /// labelDate1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date1;
+        protected global::System.Web.UI.WebControls.Label labelDate1;
         
         /// <summary>
-        /// content1 control.
+        /// labelContent1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label content1;
+        protected global::System.Web.UI.WebControls.Label labelContent1;
     }
 }
