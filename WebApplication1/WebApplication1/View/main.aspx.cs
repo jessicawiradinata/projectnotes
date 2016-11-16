@@ -31,7 +31,7 @@ namespace WebApplication1.View
             if (filter == null)
             {
                 conn.Open();
-                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public';";
+                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' order by idNotes desc;";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
@@ -39,7 +39,7 @@ namespace WebApplication1.View
                 notesList.DataSource = table;
                 notesList.DataBind();
 
-                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private';";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private' order by idNotes desc;";
                 selectCommand = new MySqlCommand(command, conn);
                 table = new DataTable();
                 adapter = new MySqlDataAdapter(selectCommand);
@@ -63,7 +63,7 @@ namespace WebApplication1.View
             else
             {
                 conn.Open();
-                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' and category='" + filter + "' ;";
+                String command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' and category='" + filter + "' order by idNotes desc;";
                 MySqlCommand selectCommand = new MySqlCommand(command, conn);
                 DataTable table = new DataTable();
                 MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
@@ -71,7 +71,7 @@ namespace WebApplication1.View
                 notesList.DataSource = table;
                 notesList.DataBind();
 
-                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private' and category='" + filter + "' ;";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private' and category='" + filter + "' order by idNotes desc;";
                 selectCommand = new MySqlCommand(command, conn);
                 table = new DataTable();
                 adapter = new MySqlDataAdapter(selectCommand);
@@ -150,6 +150,8 @@ namespace WebApplication1.View
             }
         }
 
+    
+
         protected void search_Click(object sender, EventArgs e)
         {
             conn.Open();
@@ -206,6 +208,61 @@ namespace WebApplication1.View
             }
             conn3.Close();
             return true;
+        }
+
+        protected void SortBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            String command = null;
+
+            if (SortBy.SelectedValue == "dateNotes")
+            {
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' order by idNotes desc;";
+            }
+            else if(SortBy.SelectedValue == "dateNotes DESC")
+            {
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' order by idNotes;";
+            }
+            else if(SortBy.SelectedValue == "titleNotes")
+            {
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' order by titleNotes;";
+            }
+            else if(SortBy.SelectedValue == "creator")
+            {
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes=username and visibility='public' order by creatorNotes;";
+            }
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
+            adapter.Fill(table);
+            notesList.DataSource = table;
+            notesList.DataBind();
+        }
+
+        protected void SortBy1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            String myUsername = (string)Session["name"];
+            String command = null;
+
+            if (SortBy1.SelectedValue == "dateNotes")
+            {
+                command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private' order by idNotes desc;";
+            }
+            else if (SortBy1.SelectedValue == "dateNotes DESC")
+            {
+                command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private' order by idNotes;";
+            }
+            else if (SortBy1.SelectedValue == "titleNotes")
+            {
+                command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private' order by titleNotes;";
+            }
+            MySqlCommand selectCommand = new MySqlCommand(command, conn);
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter(selectCommand);
+            adapter.Fill(table);
+            privateList.DataSource = table;
+            privateList.DataBind();
         }
     }
 }

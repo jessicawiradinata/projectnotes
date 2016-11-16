@@ -40,6 +40,15 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.Button SearchBtn;
         
         /// <summary>
+        /// SortBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SortBy;
+        
+        /// <summary>
         /// categoryList control.
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace WebApplication1.View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList categoryList;
-        
-        /// <summary>
-        /// filterBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button filterBtn;
         
         /// <summary>
         /// notesList control.
@@ -67,22 +67,13 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.DataList notesList;
         
         /// <summary>
-        /// TextBox1 control.
+        /// SortBy1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
-        /// <summary>
-        /// Button2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.DropDownList SortBy1;
         
         /// <summary>
         /// categoryList2 control.
@@ -92,15 +83,6 @@ namespace WebApplication1.View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList categoryList2;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// privateList control.
