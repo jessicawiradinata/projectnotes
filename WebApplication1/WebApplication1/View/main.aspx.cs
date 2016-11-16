@@ -156,7 +156,7 @@ namespace WebApplication1.View
         {
             conn.Open();
             String usernameField = SearchText.Text;
-            String command = "select * from project_notes.notes where creatorNotes like @Username and visibility='public';";
+            String command = "select * from project_notes.notes, project_notes.users where username like @username and creatorNotes like @Username and visibility='public';";
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
             selectCommand.Parameters.AddWithValue("@Username", "%" + usernameField + "%");
             DataTable table = new DataTable();
@@ -247,15 +247,15 @@ namespace WebApplication1.View
 
             if (SortBy1.SelectedValue == "dateNotes")
             {
-                command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private' order by idNotes desc;";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private' order by idNotes desc;";
             }
             else if (SortBy1.SelectedValue == "dateNotes DESC")
             {
-                command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private' order by idNotes;";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private' order by idNotes;";
             }
             else if (SortBy1.SelectedValue == "titleNotes")
             {
-                command = "select * from project_notes.notes where creatorNotes='" + myUsername + "' and visibility='private' order by titleNotes;";
+                command = "select * from project_notes.notes, project_notes.users where creatorNotes='" + myUsername + "' and username='" + myUsername + "' and visibility='private' order by titleNotes;";
             }
             MySqlCommand selectCommand = new MySqlCommand(command, conn);
             DataTable table = new DataTable();

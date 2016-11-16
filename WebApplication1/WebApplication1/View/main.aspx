@@ -57,7 +57,7 @@
                                 Public Notes            
                             </div>
                             <hr class="regisLine" />
-                            <div class="row">
+                            <div class="row" style="margin-bottom:3em;">
                                 <div style="margin:0 auto;" class="filter">
                                     <asp:TextBox ID="SearchText" runat="server" placeholder="Search creator" CssClass="categoryList" style="width:40em;"></asp:TextBox>
                                     <asp:Button ID="SearchBtn" runat="server" Text="Search" onclick="search_Click" class="btn btn-default" />
@@ -88,7 +88,7 @@
                                 <div class="itemList" style="clear:both; font-family:montserrat;">
                                     <asp:DataList ID="notesList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                         <ItemTemplate>
-                                                <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 27.5em;" runat="server" onclick="detail_Click">
+                                                <div id="box1" class="itemBackground" style="margin-bottom: 7.5em;height: 27.5em;" runat="server" onclick="detail_Click">
                                                     <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                         <div class="itemSquare">
                                                             <div class="itemContent"><%#Eval("descriptionNotes")%></div>
@@ -138,11 +138,16 @@
                             <div class="itemList" style="clear:both">
                                 <asp:DataList ID="privateList" runat="server" CssClass="testTable" RepeatColumns="3" CellPadding="6" RepeatDirection="horizontal" >
                                     <ItemTemplate>
-                                            <div id="box1" class="itemBackground" style="margin-bottom: 16em;height: 27.5em;" runat="server" onclick="detail_Click">
+                                            <div id="box1" class="itemBackground" style="margin-bottom: 7.5em;height: 27.5em;" runat="server" onclick="detail_Click">
                                                 <a class="viewNote" href="noteDetails.aspx?NoteID=<%#Eval("idnotes") %>">
                                                     <div class="itemSquare">                                                       
                                                         <div class="itemContent"><%#Eval("descriptionNotes")%></div>
                                                         <div class="itemTitle"><%#Eval("titleNotes")%></div>
+                                                        <div class="itemCreator">
+                                                            <%#Eval("creatorNotes")%>
+                                                            <img class="pp" style="width:4em; height:4em; margin-left:1em;" src="<%#Eval("profilePicture") %>"/><br />
+                                                            <!--<p style="margin-right:6em;" ><%#Eval("dateNotes") %></p>-->                                                              
+                                                        </div>
                                                     </div>
                                                 </a>
                                             </div>
