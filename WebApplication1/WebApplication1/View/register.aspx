@@ -47,9 +47,8 @@
                             <asp:Label runat="server" CssClass="labelProfile"  style="margin-right:21em; ">Date of Birth</asp:Label><br />    <br />
                             <div class="" style="float:left;">
                                 <asp:TextBox runat="server" ID="date" placeholder="Date" required="required"  class="inputField" style="width:5.5em;" ></asp:TextBox>
-                                <asp:TextBox runat="server" ID="month" placeholder="Month" required="required"  class="inputField" style="width:11em; margin-left:1em;"></asp:TextBox>
+                                <asp:DropDownList ID="monthList" runat="server" CssClass="categoryList" style="width:11em; margin-left:1em;"></asp:DropDownList>
                                 <asp:TextBox runat="server" ID="year" placeholder="Year" required="required"  class="inputField" style="width:8em; margin-left:1em;"></asp:TextBox>
-                                <!--<asp:TextBox ID="dateOfBirth" runat="server" type="date" name="dob" class="inputField" placeholder="dateOfBirth" required="required" style="clear:both;"></asp:TextBox><br /><br />-->
                             </div>
                             <div class="" style="clear:both;"></div>
                             <p class="notice" style="margin-top:2em;">By clicking on Sign up, you agree to <a href="#">Project Notes's terms and condition</a> and <a href="#">privacy policy</a></p>
@@ -70,6 +69,11 @@
                                 <div class="alert alert-danger" style="margin-top:10%;margin-right:28.5%">
                             <%  Response.Write(Session["emailMessage"]);
                                 Session.Contents.Remove("emailMessage"); %>
+                                </div>
+                            <% } else if (Session["invalidDate"] != null) { %>
+                                <div class="alert alert-danger" style="margin-top:10%;margin-right:28.5%">
+                            <%  Response.Write(Session["invalidDate"]);
+                                Session.Contents.Remove("invalidDate"); %>
                                 </div>
                             <% } %>
 

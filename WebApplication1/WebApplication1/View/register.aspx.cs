@@ -4,6 +4,8 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
+using System.Web.UI.WebControls;
+using System.Globalization;
 
 namespace WebApplication1.View
 {
@@ -19,6 +21,7 @@ namespace WebApplication1.View
             {
                 Response.Redirect("index.aspx");
             }
+            populateMonthList(monthList);
         }
 
         protected void checkAvail_click(object sender, EventArgs e)
@@ -59,27 +62,47 @@ namespace WebApplication1.View
             String passwordField = MD5Hash(password.Text);
             String emailField = email.Text;
             String firstNameField = firstName.Text;
-            String lastNameField = lastName.Text;
-            String dobField = dateOfBirth.Text;
+            String lastNameField = lastName.Text;            
             Boolean passEqual = checkPassword(password.Text, confirmPassword.Text);
             Boolean usernameNotFound = checkUsername(username.Text);
             Boolean emailFound = findEmail(emailField);
-            
+
+            //String dobField = dateOfBirth.Text;
+            String dobField = date.Text + " " + monthList.SelectedItem + " " + year.Text;
+            String dateFormat = "dd MMM yyyy";
+            DateTime dobDate;
+
             if (passEqual)
             {
                 if (usernameNotFound)
                 {
                     if (!emailFound)
                     {
-                        const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
-                        MySqlConnection conn3 = new MySqlConnection(connectionString);
-                        conn3.Open();
-                        MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated, profilePicture) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dobField + "','0','');", conn3);
-                        cmd.ExecuteNonQuery();
-                        cmd.Clone();
-                        Session["registerMessage"] = "Your account has been created successfully";
-                        sendVerification();
-                        Response.Redirect("index.aspx");
+                        if (DateTime.TryParseExact(dobField, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out dobDate))
+                        {
+                            var result = DateTime.Compare(dobDate, DateTime.Today);
+                            if (result <= 0)
+                            {
+                                String dateOfBirth = dobDate.ToString("dd-MM-yyyy");
+                                const String connectionString = "server=PUSSY;database=project_notes;uid=root;pwd=projectnotes;";
+                                MySqlConnection conn3 = new MySqlConnection(connectionString);
+                                conn3.Open();
+                                MySqlCommand cmd = new MySqlCommand("insert into users (username, lastName, firstName, email, password, dateOfBirth, activated, profilePicture) values ('" + usernameField + "','" + lastNameField + "','" + firstNameField + "','" + emailField + "','" + passwordField + "','" + dateOfBirth + "','0','');", conn3);
+                                cmd.ExecuteNonQuery();
+                                cmd.Clone();
+                                Session["registerMessage"] = "Your account has been created successfully";
+                                sendVerification();
+                                Response.Redirect("index.aspx");
+                            }
+                            else
+                            {
+                                Session["invalidDate"] = "Please enter a valid date of birth";
+                            }
+                        }
+                        else
+                        {
+                            Session["invalidDate"] = "Please enter a valid date of birth";
+                        }
                     }
                     else
                     {
@@ -182,6 +205,38 @@ namespace WebApplication1.View
             client.UseDefaultCredentials = true;
             client.Credentials = new System.Net.NetworkCredential("projectnotes123@gmail.com", "brandoncramer");
             client.Send(message);
+        }
+
+        private void populateMonthList(DropDownList list)
+        {
+            if (!IsPostBack)
+            {
+                ListItem month1 = new ListItem("Jan");
+                ListItem month2 = new ListItem("Feb");
+                ListItem month3 = new ListItem("Mar");
+                ListItem month4 = new ListItem("Apr");
+                ListItem month5 = new ListItem("May");
+                ListItem month6 = new ListItem("Jun");
+                ListItem month7 = new ListItem("Jul");
+                ListItem month8 = new ListItem("Aug");
+                ListItem month9 = new ListItem("Sep");
+                ListItem month10 = new ListItem("Oct");
+                ListItem month11 = new ListItem("Nov");
+                ListItem month12 = new ListItem("Dec");
+
+                list.Items.Add(month1);
+                list.Items.Add(month2);
+                list.Items.Add(month3);
+                list.Items.Add(month4);
+                list.Items.Add(month5);
+                list.Items.Add(month6);
+                list.Items.Add(month7);
+                list.Items.Add(month8);
+                list.Items.Add(month9);
+                list.Items.Add(month10);
+                list.Items.Add(month11);
+                list.Items.Add(month12);
+            }
         }
 
     }
