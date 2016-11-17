@@ -16,7 +16,7 @@
 
         <script type="text/javascript">
             tinymce.init({
-                selector: 'textarea',
+                selector: '.textarea',
                 height: 500,
                 plugins: [
                   'advlist autolink lists link image charmap print preview anchor',
@@ -79,12 +79,28 @@
                                     <asp:Label ID="labelContent" runat="server" ></asp:Label><br /><br />
                                 </div>
                                 <asp:Button ID="editBtn" runat="server" Text="Edit Notes" class="editBtn" OnClick="edit_click" style="margin:auto; margin-bottom:1em; width:38em;"/>
-                                <asp:Button ID="deleteBtn" runat="server" Text="Delete Notes" class="redBtn" OnClick="delete_click" href="main.aspx" style="margin:auto;  width:38em;"/>
+                                <asp:Button ID="deleteBtn" runat="server" Text="Delete Notes" class="redBtn" OnClick="delete_click" href="main.aspx" style="margin:auto; margin-bottom:8em; width:38em;"/>
+                                <asp:TextBox ID="comment" Height="15em" runat="server" TextMode="MultiLine" style="width:51em; resize:none;" name="comment" class="inputField" placeholder="Add your comments here"></asp:TextBox><br /><br />
+                                <asp:Button ID="commentBtn" runat="server" Text="Add Comment" class="btn btn-default" OnClick="comment_click" style="margin:auto; margin-bottom:1em; width:38em;"/>
                                  <%if (Session["updatedNotes"] != null)
                                      { %>
                                     <div class="alert alert-info" style="margin-top:1em;">
                                         <%Response.Write(Session["updatedNotes"]);
                                             Session.Contents.Remove("updatedNotes"); %>
+                                    </div>
+                                <% } %>
+                                <%else if (Session["commentFound"] != null)
+                                     { %>
+                                    <div class="alert alert-success" style="margin-top:1em;">
+                                        <%Response.Write(Session["commentFound"]);
+                                            Session.Contents.Remove("commentFound"); %>
+                                    </div>
+                                <% } %>
+                                <%else if (Session["commentAdded"] != null)
+                                     { %>
+                                    <div class="alert alert-success" style="margin-top:1em;">
+                                        <%Response.Write(Session["commentAdded"]);
+                                            Session.Contents.Remove("commentAdded"); %>
                                     </div>
                                 <% } %>
                             </div>
@@ -98,7 +114,7 @@
                                         <asp:TextBox ID="authorEdit" runat="server" name="authorEdit" class="inputField" style="width:51em" placeholder="Creator" disabled="disabled" ></asp:TextBox><br /><br />
                                         <asp:Label runat="server" CssClass="labelProfile" style="margin-right:44em;">Date Created</asp:Label><br />   <br />  
                                         <asp:TextBox ID="dateEdit" runat="server" name="dateEdit" class="inputField" style="width:51em" placeholder="Date" disabled="disabled" ></asp:TextBox><br /><br />
-                                        <textarea id="textarea1" runat="server" style="width:51em"></textarea><br /><br />
+                                        <textarea id="textarea1" class="textarea" runat="server" style="width:51em"></textarea><br /><br />
                                         <asp:Button ID="saveBtn" runat="server" Text="Save changes" class="submitBtn" OnClick="save_click" href="noteDetails.aspx" style="margin-bottom:1.5em; width:51em; "/>
                                         <asp:Button ID="cancelBtn" runat="server" Text="Cancel" class="btn btn-default" OnClick="cancel_click" href="noteDetails.aspx" style="margin-bottom:1.5em; "/>
 
@@ -117,6 +133,22 @@
                             <div class="borderContent" style="margin-left:27%; margin-right:27%; margin-bottom:2em;min-height:15em; text-align:left;">
                                <asp:Label ID="labelContent1" runat="server" ></asp:Label><br /><br />
                             </div>
+                            <asp:TextBox ID="comment1" Height="15em" runat="server" TextMode="MultiLine" style="width:51em; resize:none;" name="comment" class="inputField" placeholder="Add your comments here"></asp:TextBox><br /><br />
+                            <asp:Button ID="commentBtn1" runat="server" Text="Add Comment" class="btn btn-default" OnClick="comment_click1" style="margin:auto; margin-bottom:1em; width:38em;"/>
+                                <%if (Session["commentFound"] != null)
+                                     { %>
+                                    <div class="alert alert-success" style="margin-top:1em;">
+                                        <%Response.Write(Session["commentFound"]);
+                                            Session.Contents.Remove("commentFound"); %>
+                                    </div>
+                                <% } %>
+                                <%else if (Session["commentAdded"] != null)
+                                     { %>
+                                    <div class="alert alert-success" style="margin-top:1em;">
+                                        <%Response.Write(Session["commentAdded"]);
+                                            Session.Contents.Remove("commentAdded"); %>
+                                    </div>
+                                <% } %>                            
                     <%
                             Session.Contents.Remove("restrictedUser");
                         }

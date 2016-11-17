@@ -76,6 +76,24 @@ namespace WebApplication1.View {
         protected global::System.Web.UI.WebControls.Button deleteBtn;
         
         /// <summary>
+        /// comment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox comment;
+        
+        /// <summary>
+        /// commentBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button commentBtn;
+        
+        /// <summary>
         /// titleEdit control.
         /// </summary>
         /// <remarks>
@@ -164,5 +182,23 @@ namespace WebApplication1.View {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labelContent1;
+        
+        /// <summary>
+        /// comment1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox comment1;
+        
+        /// <summary>
+        /// commentBtn1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button commentBtn1;
     }
 }
