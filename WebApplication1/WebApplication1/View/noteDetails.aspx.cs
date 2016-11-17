@@ -116,6 +116,80 @@ namespace WebApplication1.View
             Response.Redirect("noteDetails.aspx?noteID=" + noteId);
         }
 
+        protected void comment_click(object sender, EventArgs e)
+        {
+            String commentField = comment.Text;
+            String time = DateTime.UtcNow.ToString("dd-MM-yyyy HH:mm:ss");
+            String author = (String)Session["name"];
+            String myNoteId = Request.QueryString["noteID"];
+            Boolean commentFound = findComment(author, time);
+
+            if(commentFound)
+            {
+                Session["commentFound"] = "Please wait before posting another comment";
+            }
+            else
+            {
+                String command = "insert into comment (commentTime, commentAuthor, commentContent, noteId) values ('" + time + "','" + author + "','" + commentField + "','" + myNoteId + "');";
+                MySqlCommand insertCommand = new MySqlCommand(command, conn);
+                MySqlDataReader myReader;
+                conn.Open();
+                myReader = insertCommand.ExecuteReader();
+                conn.Close();
+
+                comment.Text = String.Empty;
+                Session["commentAdded"] = "Comment added";
+            }
+        }
+
+        protected void comment_click1(object sender, EventArgs e)
+        {
+            String commentField = comment1.Text;
+            String time = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+            String author = (String)Session["name"];
+            String myNoteId = Request.QueryString["noteID"];
+            Boolean commentFound = findComment(author, time);
+
+            if (commentFound)
+            {
+                Session["commentFound"] = "Please wait before posting another comment";
+            }
+            else
+            {
+                String command = "insert into comment (commentTime, commentAuthor, commentContent, noteId) values ('" + time + "','" + author + "','" + commentField + "','" + myNoteId + "');";
+                MySqlCommand insertCommand = new MySqlCommand(command, conn);
+                MySqlDataReader myReader;
+                conn.Open();
+                myReader = insertCommand.ExecuteReader();
+                conn.Close();
+
+                comment1.Text = String.Empty;
+                Session["commentAdded"] = "Comment added";
+            }
+        }
+
+        private Boolean findComment(string author, string time)
+        {
+            MySqlConnection conn2 = new MySqlConnection(connectionString);
+            String command = "select * from comment where commentAuthor='" + author + "' and commentTime='" + time + "';";
+            MySqlCommand selectCommand = new MySqlCommand(command, conn2);
+            MySqlDataReader myReader;
+            conn2.Open();
+            myReader = selectCommand.ExecuteReader();
+
+            int count = 0;
+            while (myReader.Read())
+            {
+                count = count + 1;
+            }
+            if (count == 0 && string.IsNullOrEmpty(author) == false && string.IsNullOrEmpty(time) == false)
+            {
+                return false;
+            }
+            conn2.Close();
+            return true;
+        }
+
         protected void cancel_click(object sender, EventArgs e)
         {
 
@@ -127,5 +201,6 @@ namespace WebApplication1.View
             Session.Abandon();
             Response.Redirect("index.aspx");
         }
+        
     }
 }
