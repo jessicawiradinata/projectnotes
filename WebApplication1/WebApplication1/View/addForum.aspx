@@ -68,17 +68,16 @@
                             Add your discussion forum in here.    
                         </div>
                         <hr class="regisLine" /> 
-                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Post Forum Title</asp:Label><br />   <br /> 
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:42em;">Post Forum Title</asp:Label><br />   <br /> 
                         <asp:TextBox ID="title" runat="server" name="title" class="inputField" placeholder="Forum Title" required="required" style="width:51em" ></asp:TextBox><br /><br />
                         <%--<asp:TextBox ID="description" Height="15em" runat="server" TextMode="MultiLine" name="description"  class="inputField" placeholder="Description Notes" required="required" ></asp:TextBox><br /><br />--%>
-                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:46em;">Post Description</asp:Label><br />   <br /> 
+                        <asp:Label runat="server" CssClass="labelProfile" style="margin-right:42em;">Post Description</asp:Label><br />   <br /> 
                         <textarea id="content" runat="server" ></textarea><br />
                         <asp:Label runat="server" CssClass="labelProfile" style="margin-right:45em; ">User Creator</asp:Label><br />   <br /> 
                         <asp:TextBox ID="creator" runat="server" name="creator" class="inputField" style="width:51em" placeholder="Creator"  required="required" disabled="disabled"> </asp:TextBox><br /><br />
                         <asp:Label runat="server" CssClass="labelProfile" style="margin-right:45em;">Date Created</asp:Label><br />   <br /> 
                         <asp:TextBox ID="dates" runat="server" name="postdate" class="inputField" placeholder="Date of Notes" required="required" disabled ="disabled" style="width:51em" ></asp:TextBox><br /><br />
-                        <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" style="width:62%;" OnClick="submitBtn_Click" />
-                                          
+                        <asp:Button ID ="submitBtn" runat="server" name="button" CssClass="submitBtn" Text="Submit" style="width:62%;" OnClick="submitBtn_Click" />                                          
                     </div>
                 </div>
             </div>

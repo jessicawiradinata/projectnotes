@@ -598,6 +598,8 @@ body
     
 }
 
+
+
 /* Account page */
 
 .backgroundAccount
@@ -724,6 +726,12 @@ body
    background-color:#3071A9;
 }
 
+.itemCreator:hover
+{
+   opacity: .6;
+   background-color:#EEEEEE;
+}
+
 .testTable
 {
     width:100%;
@@ -824,4 +832,11 @@ body
     padding-top:1em;
     padding-bottom:1em;
     font-family:montserrat;
+}
+
+/* Community page */
+
+.boxForum:hover
+{
+    background-color:#FFF;
 }
